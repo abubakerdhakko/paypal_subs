@@ -60,7 +60,7 @@ function test() {
       alert('Please choose atleast one value.');
     }
     var nameArr = idSelector.split(',');
-    var current_location = 'http://app.supernaturalbp.com/bliss/?sounds=';
+    var current_location = 'http://bliss-zone.herokuapp.com/bliss/?sounds=';
     var sounds_array = [];
     for (j = 0; j < nameArr.length; j++) {
       console.log("idSelector:", nameArr[j]);
