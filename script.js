@@ -1,17 +1,61 @@
 
 var current_location;
+var ids_for_sounds = '';
+var playing = false;
+var arr = [];
+
+var arr_sounds = { fire: false, thunder: false, wind: false, rain: false, waves: false, birds: false, coffe_cup: false, singing_bowl: false, tv: false };
+
+
+
 function test() {
+  this.playSound = function (v) {
+
+    var myAudio = document.getElementById(v);
+
+    // myAudio.paused ? myAudio.play() : myAudio.pause();
+
+    // ids_for_sounds += "," + v;
+    // console.log('ids_for_sounds:', ids_for_sounds)
+
+    // var number = nameArr[j];
+    // var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
+
+
+
+    if (arr_sounds[v] == false) {
+      document.getElementById(v).play();
+      arr_sounds[v] = true;
+      // arr.push(v);
+      // ids_for_sounds = arr.join(',');
+      console.log('ids_for_sounds', arr_sounds[v])
+
+    } else {
+      document.getElementById(v).pause();
+      arr_sounds[v] = false;
+      console.log('stop_sound', v, playing)
+    }
+
+  }
   this.create_url = function () {
-    var idSelector = function () { return this.class; };
+
+    // var idSelector = function () { return this.class; };
     // var grantedId = $(":checkbox:checked").map(idSelector).get();
     // var Denied = $(":checkbox:not(:checked)").map(idSelector).get();
-    var idSelector = "";
-    $.each($("input[name='today_check']:checked"), function () {
-      idSelector += "," + $(this).val();
-    });
+    // var idSelector = "";
+    // $.each($("input[name='today_check']:checked"), function () {
+    //   idSelector += "," + $(this).val();
+    // });
+
+    idArray = [];
+    $.each(arr_sounds, function (index, value) {
+      if (value)
+        idArray.push(index);
+    })
+    idSelector = idArray.join(',');
 
     if (idSelector) {
-      idSelector = idSelector.substring(1);
+      // idSelector = idSelector.substring(1);
     } else {
       alert('Please choose atleast one value.');
     }
@@ -24,7 +68,6 @@ function test() {
       // for (i = 0; i < sounds.length; i++) sounds[i].play();
       // console.log('idSelector_sounds', sounds.volume)
       var number = nameArr[j];
-
       var myDiv = $('[volumee="' + number + '"]')
       var myValue = myDiv.val()
       var cob = nameArr[j] + ":" + myValue;
@@ -34,18 +77,23 @@ function test() {
     }
 
 
-
     // alert("Granted: " + grantedId + "\nDenied: " + Denied);
     // var current_location = window.location.href;
     current_location += sounds_array.join(',');
 
-
     console.log('current_location:', current_location);
-    document.getElementById("current_shared_url").innerHTML = current_location;
+    var input_value = document.getElementById('current_shared_url').value = current_location;
+    console.log('input_value:', input_value);
+
+
     // this.share_fb(current_location);
     // this.share_linkdin(current_location);
     // this.share_twitter(current_location);
+
   };
+
+
+
   this.share_fb = function () {
     console.log('fb-url: test ', current_location)
     window.open('https://www.facebook.com/sharer/sharer.php?u=' + current_location, 'facebook-share-dialog', "width=626, height=436")
@@ -61,49 +109,6 @@ function test() {
 
   //  share_linkdin(url);
 }
-
-$('#playButton').hide();
-document.getElementById('stopButton').onclick = function () {
-  // var sounds = document.getElementsByTagName('audio');
-  // for (i = 0; i < sounds.length; i++) sounds[i].pause();
-  // $('a img').removeClass('opClass');
-
-
-  var sounds = document.getElementsByTagName('audio');
-  for (i = 0; i < sounds.length; i++) sounds[i].volume = 0;
-  // console.log(sounds.volume)
-
-  $('#stopButton').hide();
-  $('#playButton').show();
-  // $('#stopButton').fadeIn(400);
-
-
-};
-function playSoundEach(animal, amount) {
-  var sound_each = document.getElementById(animal);
-  sound_each.volume = amount;
-  console.log('volume:', sound_each, amount)
-};
-
-document.getElementById('playButton').onclick = function () {
-  // var sounds = document.getElementsByTagName('audio');
-  // for (i = 0; i < sounds.length; i++) sounds[i].play();
-  // $('a img').addClass('opClass');
-  var inputs = $('input[vol="v"]');
-  // for (var i = 0; i < inputs.length; i++) {
-  //   console.log('inputs-elements', inputs, inputs[i].value)
-  //   console.log('inputs[i].value', inputs[i].value);
-  var sounds = document.getElementsByTagName('audio');
-  for (i = 0; i < sounds.length; i++) sounds[i].volume = inputs[i].value
-  // console.log('main-ply-vol:', inputs[i].value, sounds);
-  // }
-  // var sounds = document.getElementsByTagName('audio');
-  // for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.4;
-  // console.log(sound_each.volume)
-  $('#playButton').hide();
-  $('#stopButton').show();
-  // $('#stopButton').fadeIn(400);
-};
 
 
 
@@ -122,43 +127,55 @@ $(document).ready(function () {
   if (c != null) {
     $("#myModal").modal()
     // $("#popup-box").hide();
-    $('#myModal').modal({
-      backdrop: 'static',
-      keyboard: false
-    })
-    var word = "less than some value";
-    var split = word.split(" ");
-    var a = split[0] + " " + split[1];
-    var b = split[2] + " " + split[3];
-    console.log(a); //logged "less than"
-    console.log(b); //logged "some value"
+    // $('#myModal').modal({
+    //   backdrop: 'static',
+    //   keyboard: false
+    // })
+    // var word = "less than some value";
+    // var split = word.split(" ");
+    // var a = split[0] + " " + split[1];
+    // var b = split[2] + " " + split[3];
+    // console.log(a); //logged "less than"
+    // console.log(b); //logged "some value"
     $(".ply-audio").click(function () {
       var nameArr = c.split(',');
       for (j = 0; j < nameArr.length; j++) {
         sound_id = nameArr[j].split(':')[0];
-        volume = nameArr[j].split(':')[1];
-        console.log("searchParams:", sound_id);
-        // var sounds = document.getElementsByClassName(sound_id);
-        // console.log('sound_id', sound_id)
-        // for (i = 0; i < sounds.length; i++) sounds[i].play();
-        // // volume
+        volumee = nameArr[j].split(':')[1];
+        console.log("volume:", volumee);
+        var sounds = document.getElementsByClassName(sound_id);
+        console.log('sound_id', sound_id)
+        for (i = 0; i < sounds.length; i++) {
+          sounds[i].play();
+          sounds[i].volume = volumee;
+
+          var slider_no = sound_id;
+          var myDiv = $('[volumee="' + slider_no + '"]')
+          var myValue = myDiv.val(volumee)
+
+
+          var number = sound_id;
+          var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
+        }
+
+        // volume
         // var sounds_volume = document.getElementsByClassName(volume);
         // console.log('volume', sounds_volume)
         // for (i = 0; i < sounds.length; i++) sounds[i].volume = sounds_volume;
-        // var number = nameArr[j];
-        // var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
-        // console.log('number:', number)
+
       }
     });
     $(".pause-audio").click(function () {
       $("#myModal").hide()
       var nameArr = c.split(',');
       for (j = 0; j < nameArr.length; j++) {
+        sound_id = nameArr[j].split(':')[0];
+        volumee = nameArr[j].split(':')[1];
         console.log("searchParams:", nameArr[j]);
-        var sounds = document.getElementsByClassName(nameArr[j]);
-        console.log('sounds', sounds)
+        var sounds = document.getElementsByClassName(sound_id);
+        console.log('sound_id', sound_id)
         for (i = 0; i < sounds.length; i++) sounds[i].pause();
-        var number = nameArr[j];
+        var number = sound_id;
         var myDiv = $('img[img_op="' + number + '"]').removeClass("opClass");
         console.log('number:', number)
       }
@@ -166,7 +183,20 @@ $(document).ready(function () {
   };
 });
 
+function copyFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("current_shared_url");
 
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  // alert("Copied the text: " + copyText.value);
+}
 
 // var audio_file = document.getElementById('rain');
 // audio_file.addEventListener('timeupdate', function () {
@@ -200,22 +230,6 @@ $(function () {
     }
   });
 })
-// $(".a-tag").click(function (event) {
-//     event.preventDefault();
-//     var boardSeq = document.getElementsByTagName('audio');
-//     // var random = Math.floor(Math.randon() * (max + min));
-//     // boardSeq.push(random);
-//     for (var i = 0; i < boardSeq.length; i++) {
-//         console.log(boardSeq[i]);
-//         $("#" + boardSeq[i]).addClass("active");
-//         // playSound(boardSound[boardSeq[i]]);
-//         setTimeout(function () {
-//             $("#" + boardSeq[i]).removeClass("active")
-//             stopSound(boardSound[boardSeq[i]]);
-//         }, 5000);
-//     }
-// });
-
 
 
 function myFunction() {
@@ -253,7 +267,7 @@ function myFunction() {
     setTimeout(function () {
       var wind_mix = document.getElementById('waves');
       wind_mix.play();
-      var tv_sound = document.getElementById('coffe-cup');
+      var tv_sound = document.getElementById('coffe_cup');
       tv_sound.play();
       $('#sound_each5').addClass('opClass ');
       $('#sound_each7').addClass('opClass ');
@@ -266,7 +280,7 @@ function myFunction() {
     setTimeout(function () {
       var singing_bowl_mix = document.getElementById('singing_bowl');
       singing_bowl_mix.play();
-      var coffeCup_sound = document.getElementById('coffe-cup');
+      var coffeCup_sound = document.getElementById('coffe_cup');
       coffeCup_sound.play();
       $('#sound_each8').addClass('opClass ');
       $('#sound_each7').addClass('opClass ');
@@ -341,17 +355,7 @@ $("input[type=time]").on("change", function () {
 //   // }
 // };
 
-function playSound(v) {
-  var myAudio = document.getElementById(v);
-  return myAudio.paused ? myAudio.play() : myAudio.pause();
 
-
-
-  // var number = nameArr[j];
-  // var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
-  // console.log('number:', number)
-
-}
 
 $('div.pinIt').click(function () {
   var url = $(this).closest('.showPin').find('img.lazy').attr('src');
@@ -449,6 +453,57 @@ function sliderChangeFadeOut(val) {
 // document.getElementById('slider').value = 50; // set
 
 
+
+function playSoundEach(animal, amount) {
+  var sound_each = document.getElementById(animal);
+  sound_each.volume = amount;
+  console.log('volume:', sound_each, amount)
+};
+
+$('#playButton').hide();
+document.getElementById('stopButton').onclick = function () {
+  // var sounds = document.getElementsByTagName('audio');
+  // for (i = 0; i < sounds.length; i++) sounds[i].pause();
+  // $('a img').removeClass('opClass');
+
+
+  var sounds = document.getElementsByTagName('audio');
+  for (i = 0; i < sounds.length; i++) sounds[i].volume = 0;
+  console.log('stopButton')
+
+  $('#stopButton').hide();
+  $('#playButton').show();
+  // $('#stopButton').fadeIn(400);
+
+
+  console.log('stopButton');
+
+
+
+};
+document.getElementById('playButton').onclick = function () {
+  // var sounds = document.getElementsByTagName('audio');
+  // for (i = 0; i < sounds.length; i++) sounds[i].play();
+  // $('a img').addClass('opClass');
+  // var inputs = $('input[volumee="v"]');
+  // for (var i = 0; i < inputs.length; i++) {
+  //   // console.log('inputs-elements',  inputs[i].value)
+  //   console.log('inputs[i].value', inputs[i].value);
+
+  var sounds = document.getElementsByTagName('audio');
+  for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.5
+  // console.log('main-ply-vol:', inputs[i].value, sounds);
+  // }
+  // var sounds = document.getElementsByTagName('audio');
+  // for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.4;
+  // console.log(sound_each.volume)
+  $('#playButton').hide();
+  $('#stopButton').show();
+  // $('#stopButton').fadeIn(400);
+  console.log('playButton');
+}
+
+// };
 
 // sapeacil opacity
 

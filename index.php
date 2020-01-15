@@ -32,12 +32,9 @@
 
     <div class="bg-main">
         <nav class="navbar navbar-light bg-nav">
-            <!-- <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
-            </a> -->
-            <a class="btn btn-success" href="index2.php">
-                Show more
-                </a>
+            </a>
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
                     <div class="">
@@ -105,7 +102,7 @@
 
                             </div>
                             <div id="shared-items">
-                                <div class="d-flex justify-content-center pb-3">
+                                <!-- <div class="d-flex justify-content-center pb-3">
                                     <div class="d-flex justify-content-start shrd" style="color: white;">
 
                                         <div class="mt-3">
@@ -123,7 +120,6 @@
                                         </div>
                                         <div class="mt-3">
                                             <input type="checkbox" name="today_check" value="rain" />
-            
                                             <label>rain</label>
                                         </div>
                                         <div class="mt-3">
@@ -135,7 +131,7 @@
                                             <label>Birds</label>
                                         </div>
                                         <div class="mt-3">
-                                            <input type="checkbox" name="today_check" value="coffe-cup" /> <label
+                                            <input type="checkbox" name="today_check" value="coffe_cup" /> <label
                                                 style="width: 100px;">Coffee
                                                 Shop</label>
                                         </div>
@@ -149,14 +145,24 @@
                                                 Noise</label>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="text-center mb-4">
+                                </div> -->
+                                <div class="text-center mb-4 mt-4">
                                     <button onclick="(new test()).create_url();" class="shrd-btn">Create
                                         Mix</button>
                                 </div>
                                 <div class="text-center mt-3 mb-4">
-                                    <p style="color: white;">Copy Mix: <span id="current_shared_url">
+                                    <p style="display: none;">Copy Mix: <span class="current_shared_url">
                                         </span></p>
+                                </div>
+                                <div class=" ml-5 mr-5 mb-4 ">
+                                    <div class="d-flex justify-content-center">
+                                        <p style="color: white;" class="pt-3  pr-3">Copy Mix: <span
+                                                class="current_shared_url"></span>
+                                            </span></p>
+                                        <input type="text" id="current_shared_url">
+                                        <!-- The button used to copy the text -->
+                                        <button onclick="copyFunction()">Copy text</button>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
@@ -252,7 +258,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('fire');">
+                                        <a href="javascript:(new test()).playSound('fire');">
                                             <img id="sound_each4" img_op="fire" src="./assets/icons/fire.png">
                                         </a>
 
@@ -271,7 +277,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('thunder');">
+                                        <a href="javascript:(new test()).playSound('thunder');">
                                             <img id="sound_each2" img_op="thunder" src="./assets/icons/flash.png"
                                                 style="width: 70px;">
                                         </a>
@@ -291,7 +297,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('wind');">
+                                        <a href="javascript:(new test()).playSound('wind');">
                                             <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png"> </a>
                                         <!-- Link -->
                                         <h3>Wind</h3>
@@ -311,7 +317,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('rain');">
+                                        <a href="javascript:(new test()).playSound('rain');">
                                             <img id="sound_each1" img_op="rain" src="./assets/icons/storm.png">
                                         </a>
                                         <!-- Link -->
@@ -329,7 +335,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('waves');">
+                                        <a href="javascript:(new test()).playSound('waves');">
                                             <img id="sound_each5" img_op="waves" src="./assets/icons/wave.png"
                                                 style="width: 70px;">
                                         </a>
@@ -350,7 +356,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('birds');">
+                                        <a href="javascript:(new test()).playSound('birds');">
                                             <img id="sound_each6" img_op="birds" src="./assets/icons/dove.png"> </a>
                                         <!-- Link -->
                                         <h3>Birds</h3>
@@ -371,20 +377,20 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('coffe-cup');">
-                                            <img id="sound_each7" img_op="coffe-cup"
+                                        <a href="javascript:(new test()).playSound('coffe_cup');">
+                                            <img id="sound_each7" img_op="coffe_cup"
                                                 src="./assets/icons/coffee-cup.png">
                                         </a>
                                         <!-- Link -->
                                         <h3>Coffee Shop</h3>
 
                                         <div class="">
-                                            <input type="range" id="vol" volumee="coffe-cup" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('coffe-cup',this.value)" />
+                                            <input type="range" id="vol" volumee="coffe_cup" max="1" min="0" step="0.01"
+                                                onchange="playSoundEach('coffe_cup',this.value)" />
                                         </div>
 
                                         <!--Audio File-->
-                                        <audio id="coffe-cup" class="coffe-cup" src="./assets/sound/main-people.mp4"
+                                        <audio id="coffe_cup" class="coffe_cup" src="./assets/sound/main-people.mp4"
                                             preload="auto" loop></audio>
                                     </div>
                                 </div>
@@ -392,7 +398,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('singing_bowl');">
+                                        <a href="javascript:(new test()).playSound('singing_bowl');">
                                             <img id="sound_each8" img_op="singing_bowl"
                                                 src="./assets/icons/singing-bowl.png" style="width: 130px;
                                             height: 130px;"> </a>
@@ -401,8 +407,8 @@
                                         <h3>Singing Bowl</h3>
 
                                         <div class="po">
-                                            <input type="range" id="vol" volumee="singing_bowl" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('singing_bowl',this.value)" />
+                                            <input type="range" id="vol" volumee="singing_bowl" max="1" min="0"
+                                                step="0.01" onchange="playSoundEach('singing_bowl',this.value)" />
                                         </div>
 
                                         <!--Audio File-->
@@ -413,7 +419,7 @@
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
-                                        <a href="javascript:playSound('tv');">
+                                        <a href="javascript:(new test()).playSound('tv');">
                                             <img id="sound_each9" img_op="tv" src="./assets/icons/television@2x.png"
                                                 style="width: 130px;
                                             height: 130px;"> </a>
@@ -437,6 +443,7 @@
     </div>
     </div>
     <!-- Modal -->
+
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
@@ -447,7 +454,7 @@
                         <p class="font-color pb-4">Play Mix or cancel to Make your own mix</p>
                         <div class="row">
                             <div class="col-md-6 p-0">
-                                <button type="button" class="btn-play ply-audio">play</button>
+                                <button type="button" class="btn-play ply-audio" data-dismiss="modal">play</button>
                             </div>
                             <div class="col-md-6  p-0">
                                 <button type="button" class="btn-cancel pause-audio"

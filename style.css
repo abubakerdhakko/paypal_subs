@@ -215,7 +215,7 @@ output#output {
 .v-middle {
   padding-top: 8rem;
 
-  padding-bottom: 8rem;
+  padding-bottom: 4rem;
 }
 
 .plyr--audio .plyr__progress--buffer {
@@ -725,4 +725,20 @@ input::-webkit-input-placeholder {
 .fade-p p {
   margin-right: 50px;
 }
+}
+
+.btn-show {
+  color: white;
+  border: solid 1px #dddddd;
+}
+#current_shared_url {
+  width: 80%;
+  background-color: #4a52526e;
+  border: none;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 15px;
+  color: white;
+  margin-bottom: 0px;
 }

@@ -43,10 +43,23 @@ session_start();
 // Session name need to be changed as per your system 
 $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:0; 
 ?>
-<p>jbkbkbkbjjjjj</p>
-<div class="container mt-5">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
 
-<div class="form-group">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <div class="form-group">
     <label>Subscription Validity:</label>
     <select name="validity" onchange="getSubsPrice(this);">
         <option value="1" selected="selected">1 Month</option>
@@ -82,8 +95,15 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:0;
     <!-- Display the payment button -->
     <input class="buy-btn btn-success" type="submit" value="Buy Subscription">
 </form>
-
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
