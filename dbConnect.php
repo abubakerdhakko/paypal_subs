@@ -23,7 +23,5 @@ $config = array(
 // Display error if failed to connect  
 if ($config->connect_errno) {  
     printf("Connect failed: %s\n", $config->connect_error);  
-
-
-    exit();  
+   exit();  
 }
