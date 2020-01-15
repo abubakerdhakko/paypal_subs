@@ -742,3 +742,21 @@ input::-webkit-input-placeholder {
   color: white;
   margin-bottom: 0px;
 }
+.btn-show-a{
+  color: white;
+  border: solid 1px #dddddd;
+  font-size: 17px;
+  padding: 10px 25px;
+  font-weight: 200;
+  border-radius: 10px;
+  margin-bottom: 4rem;
+}
+.btn-show-a:hover {
+  color: white;
+  border: solid 1px #dddddd;
+  font-size: 17px;
+  padding: 10px 25px;
+  font-weight: 200;
+  border-radius: 10px;
+  margin-bottom: 4rem;
+}
