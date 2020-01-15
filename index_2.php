@@ -36,7 +36,7 @@
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
             </a> -->
 
-            <a class="btn btn-success" href="index1.php">
+            <a class="btn btn-success" href="index.php">
                 Show more
                 </a>
             <div class="text-right fade-p">
@@ -124,6 +124,7 @@
                                         </div>
                                         <div class="mt-3">
                                             <input type="checkbox" name="today_check" value="rain" />
+            
                                             <label>rain</label>
                                         </div>
                                         <div class="mt-3">

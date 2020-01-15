@@ -43,9 +43,9 @@ session_start();
 // Session name need to be changed as per your system 
 $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:0; 
 ?>
-<p>hlo</p></p>
 <div class="container mt-5">
 
+<p>hlo</p>
 <div class="form-group">
     <label>Subscription Validity:</label>
     <select name="validity" onchange="getSubsPrice(this);">
