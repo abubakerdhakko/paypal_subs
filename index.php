@@ -433,7 +433,9 @@
     </div>
     </div>
     <!-- Modal -->
-
+                <a class="btn btn-success" href="index1.php">
+                Show more
+                </a>
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
