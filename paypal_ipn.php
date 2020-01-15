@@ -1,4 +1,8 @@
+<script>
+console.log('paypal_ipn');
+</script>
 <?php 
+
 // Include configuration file 
 include_once 'config.php'; 
  
