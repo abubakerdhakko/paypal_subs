@@ -10,9 +10,9 @@ $itemPrice = 25.00;
 define('PAYPAL_ID', 'sb-uvmyk858514@business.example.com');  
 define('PAYPAL_SANDBOX', TRUE); //TRUE or FALSE  
   
-define('PAYPAL_RETURN_URL', 'http://bliss-zone.herokuapp.com/paypal-subs/success.php');  
-define('PAYPAL_CANCEL_URL', 'http://bliss-zone.herokuapp.com/paypal-subs/cancel.php');  
-define('PAYPAL_NOTIFY_URL', 'http://bliss-zone.herokuapp.com/paypal_subs/paypal_ipn.php');  
+define('PAYPAL_RETURN_URL', 'http://bliss-zone.herokuapp.com/success.php');  
+define('PAYPAL_CANCEL_URL', 'http://bliss-zone.herokuapp.com/cancel.php');  
+define('PAYPAL_NOTIFY_URL', 'http://bliss-zone.herokuapp.com/paypal_ipn.php');  
 define('PAYPAL_CURRENCY', 'USD');  
   
 // Database configuration  
