@@ -32,9 +32,9 @@
 
     <div class="bg-main">
         <nav class="navbar navbar-light bg-nav">
-            <a class="navbar-brand" href="#">
+            <!-- <a class="navbar-brand" href="#">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
-            </a>
+            </a> -->
 
             <a class="btn btn-success" href="index1.php">
                 Show more
