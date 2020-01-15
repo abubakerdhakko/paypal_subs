@@ -11,5 +11,8 @@ $connection = new mysqli($server, $username, $password, $db);
 // Display error if failed to connect  
 if ($connection->connect_errno) {  
     printf("Connectionnnnnnn: failed: %s\n", $db->connect_error);  
+
+
+    
     exit();  
 }
