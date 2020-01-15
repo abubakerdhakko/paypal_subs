@@ -35,6 +35,10 @@
             <a class="navbar-brand" href="#">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
             </a>
+
+            <a class="btn btn-success" href="index1.php">
+                Show more
+                </a>
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
                     <div class="">
@@ -433,9 +437,6 @@
     </div>
     </div>
     <!-- Modal -->
-                <a class="btn btn-success" href="index1.php">
-                Show more
-                </a>
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
