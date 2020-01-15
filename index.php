@@ -34,19 +34,17 @@
 include_once 'config.php';  
   
 // Include database connection file  
-// include_once 'dbConnect.php'; 
+include_once 'dbConnect.php'; 
  
 // Start session 
-// session_start(); 
+session_start(); 
  
 // Get logged-in user ID from sesion 
 // Session name need to be changed as per your system 
-// $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:0; 
+$loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:0; 
 ?>
+<p>jbkbkbkbjjjjj</p>
 <div class="container mt-5">
-
-
-<p>hlo</p>
 
 <div class="form-group">
     <label>Subscription Validity:</label>
