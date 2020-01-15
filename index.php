@@ -45,7 +45,9 @@ include_once 'config.php';
 ?>
 <div class="container mt-5">
 
+
 <p>hlo</p>
+
 <div class="form-group">
     <label>Subscription Validity:</label>
     <select name="validity" onchange="getSubsPrice(this);">
