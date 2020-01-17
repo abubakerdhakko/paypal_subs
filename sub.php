@@ -333,9 +333,9 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:0;
     <!-- Custom variable user ID -->
     <input type="hidden" name="custom" value="<?php echo $loggedInUserID; ?>">
     <!-- Specify urls -->
-    <input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>">
-    <input type="hidden" name="return" value="<?php echo PAYPAL_RETURN_URL; ?>">
-    <input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">
+    <input type="hidden" name="cancel_return" value="http://bliss-zone.herokuapp.com/cancel.php">
+    <input type="hidden" name="return" value="http://bliss-zone.herokuapp.com/success.php">
+    <input type="hidden" name="notify_url" value="http://bliss-zone.herokuapp.com/paypal_ipn.php">
     <!-- Display the payment button -->
     <input class="buy-btn btn-success" type="submit" value="Buy Subscription">
 </form>
