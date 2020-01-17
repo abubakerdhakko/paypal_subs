@@ -37,5 +37,5 @@ if(!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) &
     <p><b>Name:</b> <?php echo $itemName; ?></p>
     <p><b>Validity:</b> <?php echo $paymentData['valid_from'].' to '.$paymentData['valid_to']; ?></p>
 <?php }else{ ?>    
-    <!-- <h1 class="error">Your payment was unsuccessful, please try again.</h1> -->
+    <h1 class="error">Your payment was unsuccessful, please try again.</h1>
 <?php } ?>
