@@ -7,7 +7,7 @@ $itemNumber = 'MS123456';
 $itemPrice = 25.00; 
    
 // PayPal configuration  
-define('PAYPAL_ID', 'abubakerdhakko9212@gmail.com');  
+define('PAYPAL_ID', 'sb-uvmyk858514@business.example.com');  
 define('PAYPAL_SANDBOX', TRUE); //TRUE or FALSE  
   
 define('PAYPAL_RETURN_URL', 'http://bliss-zone.herokuapp.com/success.php');  
