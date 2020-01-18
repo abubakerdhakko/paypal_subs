@@ -25,3 +25,6 @@ if ($config->connect_errno) {
     printf("Connect failed: %s\n", $config->connect_error);  
    exit();  
 }
+else{
+    printf("Connected");
+}
