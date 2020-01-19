@@ -1,5 +1,10 @@
+<script>
+console.log('config.php');
+</script>
+
 <?php  
 // Product information 
+
 $itemName = 'Membership Subscription'; 
 $itemNumber = 'MS123456'; 
  

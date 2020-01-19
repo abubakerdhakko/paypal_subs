@@ -1,3 +1,7 @@
+<script>
+console.log('dbConnect.php');
+</script>
+
 <?php  
 // Connect with the database  
 $url = parse_url(getenv("/b770ae34b12c19:b5c5c63a@eu-cdbr-west-02.cleardb.net/heroku_0885a564f4e05ce?reconnect=true"));
@@ -21,6 +25,8 @@ $config = array(
 // $db = new mysqli(eu-cdbr-west-02.cleardb.net, b5c5c63a, b770ae34b12c19,  heroku_0885a564f4e05ce);  
   
 // Display error if failed to connect  
+
+
 if ($config->connect_errno) {  
     printf("Connect failed: %s\n", $config->connect_error);  
    exit();  
@@ -28,3 +34,5 @@ if ($config->connect_errno) {
 else{
     printf("Connected");
 }
+
+?>

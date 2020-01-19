@@ -34,6 +34,10 @@
 </style>
 </head>
 <body>
+<script>
+console.log('sub.php');
+</script>
+
     <div id="load"></div>
     <div class="bg-main">
         <nav class="navbar navbar-light bg-nav">
