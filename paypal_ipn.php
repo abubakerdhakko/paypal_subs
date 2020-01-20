@@ -3,6 +3,11 @@ console.log('paypal_ipn');
 </script>
 <?php 
 
+
+$test = json_encode($_REQUEST);
+file_put_contents('text.txt', $test);
+die();
+
 // Include configuration file 
 include_once 'config.php'; 
  
