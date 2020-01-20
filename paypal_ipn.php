@@ -67,7 +67,7 @@ $res = curl_exec($ch);
  */  
 $tokens = explode("\r\n\r\n", trim($res)); 
 $res = trim(end($tokens)); 
-if (strcmp($res, "VERIFIED") == 0 || strcasecmp($res, "VERIFIED") == 0) { 
+if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED") ) { 
      
     // Retrieve transaction data from PayPal 
     $paypalInfo = $_POST; 
