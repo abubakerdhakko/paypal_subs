@@ -21,8 +21,8 @@ include_once 'dbConnect.php';
  * Reading raw POST data from input stream instead. 
  */         
 $raw_post_data = file_get_contents('php://input'); 
-print_r($raw_post_array);
-die();
+// print_r($raw_post_array);
+// die();
 $raw_post_array = explode('&', $raw_post_data); 
 $myPost = array($_POST); 
 foreach ($raw_post_array as $keyval) { 
