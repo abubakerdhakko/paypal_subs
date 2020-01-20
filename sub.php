@@ -288,11 +288,11 @@ include_once 'config.php';
 include_once 'dbConnect.php'; 
  
 // Start session 
-// session_start(); 
+session_start(); 
  
 // Get logged-in user ID from sesion 
 // Session name need to be changed as per your system 
-// $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:11; 
+$loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1; 
 ?>
 
 <!-- Modal -->

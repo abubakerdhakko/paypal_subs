@@ -67,7 +67,7 @@ $res = curl_exec($ch);
  */  
 $tokens = explode("\r\n\r\n", trim($res)); 
 $res = trim(end($tokens)); 
-if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED") ) { 
+if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED")) { 
      
     // Retrieve transaction data from PayPal 
     $paypalInfo = $_POST; 
@@ -86,13 +86,6 @@ if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED") ) {
     $subscr_date = $dt->format("Y-m-d H:i:s"); 
     $subscr_date_valid_to = date("Y-m-d H:i:s", strtotime(" + $subscr_period month", strtotime($subscr_date))); 
      
-    if(!empty($txn_id)){ 
-        // Check if transaction data exists with the same TXN ID 
-        $prevPayment = $db->query("SELECT id FROM user_subscriptions WHERE txn_id = '".$txn_id."'"); 
-         
-        if($prevPayment->num_rows > 0){ 
-            exit(); 
-        }else{ 
             // Insert transaction data into the database 
             $insert = $db->query("INSERT INTO user_subscriptions(user_id,validity,valid_from,valid_to,item_number,txn_id,payment_gross,currency_code,subscr_id,payment_status,payer_email) VALUES('".$custom."','".$subscr_period."','".$subscr_date."','".$subscr_date_valid_to."','".$item_number."','".$txn_id."','".$payment_gross."','".$currency_code."','".$subscr_id."','".$payment_status."','".$payer_email."')"); 
              
@@ -100,8 +93,7 @@ if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED") ) {
             if($insert && !empty($custom)){ 
                 $subscription_id = $db->insert_id; 
                 $update = $db->query("UPDATE users SET subscription_id = {$subscription_id} WHERE id = {$custom}"); 
-            } 
-        } 
+        
     } 
 } 
 die;
