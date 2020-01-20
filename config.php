@@ -17,9 +17,9 @@ define('PAYPAL_SANDBOX', TRUE); //TRUE or FALSE
   
 define('PAYPAL_RETURN_URL', 'http://bliss-zone.herokuapp.com/success.php');  
 define('PAYPAL_CANCEL_URL', 'http://bliss-zone.herokuapp.com/cancel.php');  
-// define('PAYPAL_NOTIFY_URL', 'http://bliss-zone.herokuapp.com/paypal_ipn.php');  
+define('PAYPAL_NOTIFY_URL', 'http://bliss-zone.herokuapp.com/paypal_ipn.php');  
 
-define('PAYPAL_NOTIFY_URL', '	http://c4c2ae30.ngrok.io/paypal-subs/paypal_ipn.php');
+// define('PAYPAL_NOTIFY_URL', '	http://c4c2ae30.ngrok.io/paypal-subs/paypal_ipn.php');
 define('PAYPAL_CURRENCY', 'USD');  
   
 // Database configuration  
