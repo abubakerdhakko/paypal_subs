@@ -1,3 +1,7 @@
+<script>
+  console.log('ipn_test')
+</script>
+
 <?php
 
 
