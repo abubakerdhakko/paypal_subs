@@ -4,13 +4,13 @@ console.log('paypal_ipn');
 <?php 
 
 
+// Include configuration file 
+include_once 'config.php'; 
+ 
 $test = json_encode($_REQUEST);
 file_put_contents('paypal_ipn_text.txt', $test);
 die();
 
-// Include configuration file 
-include_once 'config.php'; 
- 
 // Include database connection file 
 include_once 'dbConnect.php'; 
  
@@ -21,8 +21,10 @@ include_once 'dbConnect.php';
  * Reading raw POST data from input stream instead. 
  */         
 $raw_post_data = file_get_contents('php://input'); 
+// print_r($raw_post_array);
+// die();
 $raw_post_array = explode('&', $raw_post_data); 
-$myPost = array(); 
+$myPost = array($_POST); 
 foreach ($raw_post_array as $keyval) { 
     $keyval = explode ('=', $keyval); 
     if (count($keyval) == 2) 
