@@ -21,8 +21,8 @@ include_once 'dbConnect.php';
  * Reading raw POST data from input stream instead. 
  */         
 $raw_post_data = file_get_contents('php://input'); 
-// print_r($raw_post_array);
-// die();
+print_r($raw_post_array);
+die();
 $raw_post_array = explode('&', $raw_post_data); 
 $myPost = array($_POST); 
 foreach ($raw_post_array as $keyval) { 
@@ -78,6 +78,8 @@ if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED")) {
      
     // Retrieve transaction data from PayPal 
     $paypalInfo = $_POST; 
+
+    $subscr_id = $paypalInfo['payer_id']; 
     $subscr_id = $paypalInfo['subscr_id']; 
     $payer_email = $paypalInfo['payer_email']; 
     $item_name = $paypalInfo['item_name']; 

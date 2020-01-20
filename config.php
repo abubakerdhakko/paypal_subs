@@ -29,8 +29,8 @@ define('DB_PASSWORD', 'b5c5c63a');
 define('DB_NAME', 'heroku_0885a564f4e05ce');  
 // https://ipnpb.sandbox.paypal.com/cgi-bin/webscr
 // Change not required  
-define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://ipnpb.sandbox.paypal.com/cgi-bin/webscr":"https://ipnpb.sandbox.paypal.com/cgi-bin/webscr");
+// define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://ipnpb.sandbox.paypal.com/cgi-bin/webscr":"https://ipnpb.sandbox.paypal.com/cgi-bin/webscr");
 
 
-// define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cgi-bin/webscr":"https://www.sandbox.paypal.com/cgi-bin/webscr
-// ");
+define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cgi-bin/webscr":"https://www.sandbox.paypal.com/cgi-bin/webscr
+");
