@@ -7,7 +7,6 @@ var arr = [];
 var arr_sounds = { fire: false, thunder: false, wind: false, rain: false, waves: false, birds: false, coffe_cup: false, singing_bowl: false, tv: false };
 
 
-
 function test() {
   this.playSound = function (v) {
 
@@ -76,7 +75,6 @@ function test() {
 
     }
 
-
     // alert("Granted: " + grantedId + "\nDenied: " + Denied);
     // var current_location = window.location.href;
     current_location += sounds_array.join(',');
@@ -109,7 +107,6 @@ function test() {
 
   //  share_linkdin(url);
 }
-
 
 
 
@@ -148,16 +145,12 @@ $(document).ready(function () {
         for (i = 0; i < sounds.length; i++) {
           sounds[i].play();
           sounds[i].volume = volumee;
-
           var slider_no = sound_id;
           var myDiv = $('[volumee="' + slider_no + '"]')
           var myValue = myDiv.val(volumee)
-
-
           var number = sound_id;
           var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
         }
-
         // volume
         // var sounds_volume = document.getElementsByClassName(volume);
         // console.log('volume', sounds_volume)
@@ -394,6 +387,9 @@ function countdown() {
 
 }
 
+
+
+
 function countdown_stop() {
   var t = document.getElementById('number_stop').value;
   var check = t * 60000;
@@ -537,4 +533,16 @@ $('#sound_each8').on('click', function () {
 $('#sound_each9').on('click', function () {
   $(this).toggleClass('opClass ');
   $("#tv").toggleClass('active-class ');
+});
+
+
+$(document).ready(function () {
+
+  $("input[type=range]").each(function () {
+    $(this).val(0)
+  });
+
+  var sounds = document.getElementsByTagName('audio');
+  for (i = 0; i < sounds.length; i++) sounds[i].volume = 0
+
 });
