@@ -321,6 +321,7 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
     <p><b>Total Price:</b> <span id="subPrice"><?php echo '$'.$itemPrice.' USD'; ?></span></p>
 </div>
 
+
 <!-- Buy button -->
 <form action="<?php echo PAYPAL_URL; ?>" method="post">
     <!-- Identify your business so that you can collect the payments -->
