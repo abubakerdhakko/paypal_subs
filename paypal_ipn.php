@@ -5,7 +5,7 @@ console.log('paypal_ipn');
 
 
 $test = json_encode($_REQUEST);
-file_put_contents('text.txt', $test);
+file_put_contents('paypal_ipn_text.txt', $test);
 die();
 
 // Include configuration file 
