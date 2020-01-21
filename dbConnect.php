@@ -4,7 +4,8 @@ console.log('dbConnect.php');
 
 <?php  
 // Connect with the database  
-$url = parse_url(getenv("/b770ae34b12c19:b5c5c63a@eu-cdbr-west-02.cleardb.net/heroku_0885a564f4e05ce?reconnect=true"));
+$url = parse_url(getenv("CLEARDB_DATABASE_URL:
+mysql://b770ae34b12c19:b5c5c63a@eu-cdbr-west-02.cleardb.net/heroku_0885a564f4e05ce?reconnect=true "));
 $server = $url["eu-cdbr-west-02.cleardb.net"];
 $username = $url["b770ae34b12c19"];
 $password = $url["b5c5c63a"];

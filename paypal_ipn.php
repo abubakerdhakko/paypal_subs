@@ -21,8 +21,9 @@ include_once 'dbConnect.php';
  * Reading raw POST data from input stream instead. 
  */         
 $raw_post_data = file_get_contents('php://input'); 
-// print_r($raw_post_array);
-// die();
+print_r($raw_post_array);
+die();
+
 $raw_post_array = explode('&', $raw_post_data); 
 $myPost = array($_POST); 
 foreach ($raw_post_array as $keyval) { 
@@ -44,7 +45,6 @@ foreach ($myPost as $key => $value) {
     } 
     $req .= "&$key=$value"; 
 } 
- 
 /* 
  * Post IPN data back to PayPal to validate the IPN data is genuine 
  * Without this step anyone can fake IPN data 
@@ -68,13 +68,15 @@ curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Connection: Close', 'User-Agent: company-name')); 
 $res = curl_exec($ch); 
  
+
+
 /* 
  * Inspect IPN validation result and act accordingly 
  * Split response headers and payload, a better way for strcmp 
  */  
 $tokens = explode("\r\n\r\n", trim($res)); 
 $res = trim(end($tokens)); 
-if (strcmp($res, "VERIFIED") || strcasecmp($res, "VERIFIED")) { 
+if (strcmp($res, "VERIFIED")  || strcasecmp($res, "VERIFIED")) { 
      
     // Retrieve transaction data from PayPal 
     $paypalInfo = $_POST; 
