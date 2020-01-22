@@ -25,21 +25,43 @@
     <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
 
 
-</head>
+    <style>
 
+div#start-stop {
+  /* font-size: 13px; */
+  background-color: #4a52526e;
+  padding: 8px 8px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  margin-right: 20px;
+  cursor:pointer;
+}
+div#start-stop img {
+    width: 24px;
+    height: 24px;
+    /* margin-right: 15px; */
+    /* margin-top: 7px; */
+}
+</style>
+</head>
 <body>
     <div id="load"></div>
 
     <div class="bg-main">
         <nav class="navbar navbar-light bg-nav">
-            <!-- <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
-            </a> -->
+            </a>
 
 
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
-                    <div class="">
+                <div class="">
+                <div  id="start-stop">
+                    <img src="./assets/icons/life.png" >
+                </div >
+                </div>  
+                <div class="">
                         <p>master volume</p>
                     </div>
                     <div class="pl-3 pt-3">
@@ -79,7 +101,16 @@
                                 </div> -->
                             </div>
                             <div class="d-flex justify-content-center">
-                                <div class="animated  fadeInLeft delay-2s">
+                            <div class="text-center mb-4 mt-4">
+                                        
+
+                            <!-- <button  class="shrd-btn" onclick="FadeIn();">audioVolumeOut
+                                        </button>
+                                         -->
+                                        <!-- <button onclick="(new test()).audioVolumeOut();" class="shrd-btn">audioVolumeOut
+                                        </button> -->
+                                </div>
+                            <div class="animated  fadeInLeft delay-2s">
                                     <div class="text-center">
                                         <button id="button_share">
                                             <img src="./assets/icons/me.png">

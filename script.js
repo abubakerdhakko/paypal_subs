@@ -35,7 +35,8 @@ function test() {
       console.log('stop_sound', v, playing)
     }
 
-  }
+  };
+
   this.create_url = function () {
 
     // var idSelector = function () { return this.class; };
@@ -104,10 +105,100 @@ function test() {
     console.log('twitter-url: ', current_location)
     window.open("https://twitter.com/share?url=" + current_location, 'facebook-share-dialog', "width=626, height=436")
   }
+  this.create_urll = function () {
+    idArray = [];
+    $.each(arr_sounds, function (index, value) {
+      if (value)
+        idArray.push(index);
+    })
+    idSelector = idArray.join(',');
+    console.log(idSelector)
 
+
+    var sounds_array = [];
+    var nameArr = idSelector.split(',');
+    for (j = 0; j < nameArr.length; j++) console.log("nameArr[j]:", nameArr[j]);
+    var vol_id = nameArr[j]
+    var vol = 0.20;
+    var interval = 5000; // 200ms interval
+
+    var fadeout = setInterval(
+      function () {
+        // Reduce volume by 0.05 as long as it is above 0
+        // This works as long as you start with a multiple of 0.05!
+        if (vol > 0) {
+          vol = 0.05;
+          var audio_voll = document.getElementById('rain')
+          console.log('audio_voll', audio_voll)
+          // for (j = 0; j < audio_voll.length; j++)
+          audio_voll.volume = vol
+
+        }
+        else {
+          // Stop the setInterval when 0 is reached
+          clearInterval(fadeout);
+        }
+      }, interval);
+
+
+
+
+  }
   //  share_linkdin(url);
+
 }
 
+jQuery(function () {
+
+  var timer;
+  $("#start-stop").click(function () {
+    if (timer) {
+      clearInterval(timer);
+      timer = undefined;
+      console.log('stop')
+
+    } else {
+
+
+      var index = 0;
+      // setTimeout(function () {
+      //   $("div").text(song[i]);
+      // }, i * 1000);
+
+      timer = setInterval(function () {
+
+        console.log('start');
+        idArray = [];
+        $.each(arr_sounds, function (index, value) {
+          if (value)
+            idArray.push(index);
+        })
+        idSelector = idArray.join(',');
+
+        if (idSelector) {
+          // idSelector = idSelector.substring(1);
+        } else {
+          alert('Please choose atleast one value.');
+        }
+        var nameArr = idSelector.split(',');
+
+        var sounds_fade = document.getElementById(nameArr[index]);
+        sounds_fade.volume = 1;
+        console.log('sounds_fade', sounds_fade);
+        if (index == (nameArr.length - 1))
+          index = 0;
+        else
+          index += 1;
+      }, 2000);
+
+    }
+  });
+})
+
+// $(document).ready(function () {
+//   $("#rain").volume = 0;
+//   $("#rain").animate({ volume: 1 }, 3000);
+// });
 
 
 $(document).ready(function () {
