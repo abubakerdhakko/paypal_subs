@@ -9,7 +9,7 @@ $itemName = 'Membership Subscription';
 $itemNumber = 'MS123456'; 
  
 // Subscription price for one month 
-$itemPrice = 25.00; 
+$itemPrice = 9; 
    
 // PayPal configuration  
 define('PAYPAL_ID', 'sb-uvmyk858514@business.example.com');  

@@ -310,10 +310,10 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
       <div class="form-group">
     <label>Subscription Validity:</label>
     <select name="validity" onchange="getSubsPrice(this);">
-        <option value="1" selected="selected">1 Month</option>
+        <!-- <option value="1" selected="selected">1 Month</option>
         <option value="3">3 Month</option>
-        <option value="6">6 Month</option>
-        <option value="9">9 Month</option>
+        <option value="6">6 Month</option> -->
+        <!-- <option value="9" selected="selected">9 Month</option> -->
         <option value="12">12 Month</option>
     </select>
 </div>
@@ -374,7 +374,7 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
 <script>
 function getSubsPrice(obj){
 	var month = obj.value;
-	var price = (month * <?php echo $itemPrice; ?>);
+	var price = ( <?php echo $itemPrice; ?>);
 	document.getElementById('subPrice').innerHTML = '$'+price+' USD';
 	document.getElementById('paypalValid').value = month;
 	document.getElementById('paypalAmt').value = price;
