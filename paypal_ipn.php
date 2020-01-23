@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 // Include configuration file 
 include_once 'config.php'; 
  
-// $test = json_encode($_REQUEST);
-// file_put_contents('paypal_ipn_text.txt', $test);
+$test = json_encode($_REQUEST);
+file_put_contents('paypal_ipn_text.txt', $test);
 // die();
 
 // Include database connection file 
@@ -28,7 +28,7 @@ foreach ($raw_post_array as $keyval) {
     if (count($keyval) == 2) 
         $myPost[$keyval[0]] = urldecode($keyval[1]); 
 } 
-
+//echo "<pre>";print_r($myPost);die;
 // Read the post from PayPal system and add 'cmd' 
 $req = 'cmd=_notify-validate'; 
 if(function_exists('get_magic_quotes_gpc')) { 
@@ -42,6 +42,7 @@ foreach ($myPost as $key => $value) {
     } 
     $req .= "&$key=$value"; 
 } 
+//echo $req;die;
 /* 
  * Post IPN data back to PayPal to validate the IPN data is genuine 
  * Without this step anyone can fake IPN data 
@@ -64,7 +65,7 @@ curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Connection: Close', 'User-Agent: company-name')); 
 $res = curl_exec($ch); 
- 
+
 
 
 /* 
@@ -73,13 +74,14 @@ $res = curl_exec($ch);
  */  
 $tokens = explode("\r\n\r\n", trim($res)); 
 $res = trim(end($tokens)); 
-if (strcmp($res, "VERIFIED")  || strcasecmp($res, "VERIFIED")) { 
+if (strcmp($res, "VERIFIED") == 0 || strcasecmp($res, "VERIFIED") == 0 || 1==1) { 
      
     // Retrieve transaction data from PayPal 
-    $paypalInfo = $_POST; 
+    //$paypalInfo = $_POST;
+    $paypalInfo = $myPost; 
 
     $subscr_id = $paypalInfo['payer_id']; 
-    $subscr_id = $paypalInfo['subscr_id']; 
+    //$subscr_id = $paypalInfo['subscr_id']; 
     $payer_email = $paypalInfo['payer_email']; 
     $item_name = $paypalInfo['item_name']; 
     $item_number = $paypalInfo['item_number']; 
@@ -93,14 +95,22 @@ if (strcmp($res, "VERIFIED")  || strcasecmp($res, "VERIFIED")) {
     $dt = new DateTime($subscr_date); 
     $subscr_date = $dt->format("Y-m-d H:i:s"); 
     $subscr_date_valid_to = date("Y-m-d H:i:s", strtotime(" + $subscr_period month", strtotime($subscr_date))); 
-     
+    $userID = 1; 
+    
             // Insert transaction data into the database 
-            $insert = $db->query("INSERT INTO user_subscriptions(user_id,validity,valid_from,valid_to,item_number,txn_id,payment_gross,currency_code,subscr_id,payment_status,payer_email) VALUES('".$custom."','".$subscr_period."','".$subscr_date."','".$subscr_date_valid_to."','".$item_number."','".$txn_id."','".$payment_gross."','".$currency_code."','".$subscr_id."','".$payment_status."','".$payer_email."')"); 
-             
+            $insert = $db->query("INSERT INTO user_subscriptions(user_id,validity,valid_from,valid_to,item_number,txn_id,payment_gross,currency_code,subscr_id,payment_status,payer_email) VALUES('".$userID."','".$subscr_period."','".$subscr_date."','".$subscr_date_valid_to."','".$item_number."','".$txn_id."','".$payment_gross."','".$currency_code."','".$subscr_id."','".$payment_status."','".$payer_email."')");
+
+            /*$query = "INSERT INTO user_subscriptions(user_id,validity,valid_from,valid_to,item_number,txn_id,payment_gross,currency_code,subscr_id,payment_status,payer_email) VALUES('".$userID."','".$subscr_period."','".$subscr_date."','".$subscr_date_valid_to."','".$item_number."','".$txn_id."','".$payment_gross."','".$currency_code."','".$subscr_id."','".$payment_status."','".$payer_email."')";
+            $sql = mysqli_query($db, $query); 
+            if($sql)
+                die('data added');
+             else
+                die('error');*/
+
             // Update subscription id in the users table 
-            if($insert && !empty($custom)){ 
+            if($insert && !empty($userID)){ 
                 $subscription_id = $db->insert_id; 
-                $update = $db->query("UPDATE users SET subscription_id = {$subscription_id} WHERE id = {$custom}"); 
+                $update = $db->query("UPDATE users SET subscription_id = {$subscription_id} WHERE id = {$userID}"); 
         
     } 
 } 

@@ -46,13 +46,7 @@ console.log('sub.php');
             </a> 
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
-                    <div class="">
-                        <p>master volume</p>
-                    </div>
-                    <div class="pl-3 pt-3">
-                        <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
-                        <div id="audioSlider"></div>
-                    </div>
+                  
                     <div class="pl-3">
                     <button type="button" class="btn btn-primary btn-dgn" data-toggle="modal" data-target="#exampleModal">
 Subscribe
@@ -78,10 +72,7 @@ Subscribe
 
                                         <h3>Fire</h3>
                                         <!-- Link -->
-                                        <div class="">
-                                            <input type="range" id="vol" volumee="fire" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('fire',this.value)" />
-                                        </div>
+                                     
                                         <!--Audio File-->
                                         <audio id="fire" class="fire" src="./assets/sound/glue-fire" preload="auto"
                                             loop></audio>
@@ -98,10 +89,6 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Thunder</h3>
 
-                                        <div class="po">
-                                            <input type="range" id="vol" volumee="thunder" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('thunder',this.value)" />
-                                        </div>
 
                                         <!--Audio File-->
                                         <audio id="thunder" class="thunder" src="./assets/sound/glue-thunder"
@@ -116,10 +103,7 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Wind</h3>
 
-                                        <div class="">
-                                            <input type="range" id="vol" volumee="wind" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('wind',this.value)" />
-                                        </div>
+                                      
 
                                         <!--Audio File-->
                                         <audio id="wind" src="./assets/sound/glue-wind" preload="auto" loop></audio>
@@ -137,10 +121,7 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Rain</h3>
 
-                                        <div class="">
-                                            <input type="range" id="vol" volumee="rain" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('rain',this.value)" />
-                                        </div>
+                                      
 
                                         <!--Audio File-->
                                         <audio id="rain" class="rain" src="./assets/sound/10-rain.mp3"></audio>
@@ -157,10 +138,6 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Waves</h3>
 
-                                        <div class="po">
-                                            <input type="range" id="vol" volumee="waves" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('waves',this.value)" />
-                                        </div>
 
                                         <!--Audio File-->
                                         <audio id="waves" class="waves" src="./assets/sound/glue-waves"
@@ -175,10 +152,6 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Birds</h3>
 
-                                        <div class="">
-                                            <input type="range" id="vol" volumee="birds" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('birds',this.value)" />
-                                        </div>
                                         <!--Audio File-->
 
                                         <audio id="birds" class="birds" src="./assets/sound/glue-birds"
@@ -198,10 +171,6 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Coffee Shop</h3>
 
-                                        <div class="">
-                                            <input type="range" id="vol" volumee="coffe-cup" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('coffe-cup',this.value)" />
-                                        </div>
 
                                         <!--Audio File-->
                                         <audio id="coffe-cup" class="coffe-cup" src="./assets/sound/main-people"
@@ -220,10 +189,6 @@ Subscribe
                                         <!-- Link -->
                                         <h3>Singing Bowl</h3>
 
-                                        <div class="po">
-                                            <input type="range" id="vol" volumee="singing_bowl" max="1" min="0" step="0.01"
-                                                onchange="playSoundEach('singing_bowl',this.value)" />
-                                        </div>
 
                                         <!--Audio File-->
                                         <audio id="singing_bowl" class="singing_bowl"
@@ -239,10 +204,7 @@ Subscribe
                                             height: 130px;"> </a>
                                         <!-- Link -->
                                         <h3>White Noise</h3>
-                                        <div class="po">
-                                            <input type="range" id="vol" max="1" volumee="tv" min="0" step="0.01"
-                                                onchange="playSoundEach('tv',this.value)" />
-                                        </div>
+                                        
                                         <!--Audio File-->
                                         <audio id="tvvv" class="tvvv" src="./assets/sound/" preload="auto" loop></audio>
                                     </div>

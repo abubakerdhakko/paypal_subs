@@ -5,7 +5,7 @@ include_once 'config.php';
 // Include database connection file  
 include_once 'dbConnect.php';  
  
-if(!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) && $_GET['st'] == 'Completed'){ 
+if(!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) && $_GET['st'] == 'Pending'){ 
     // Get transaction information from URL  
     $item_number = $_GET['item_number'];   
     $txn_id = $_GET['tx'];  
