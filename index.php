@@ -60,7 +60,7 @@ div#start-stop img {
                 </div >
                 </div>  
                 <div class="">
-                        <p>master volume</p>
+                        <!-- <p>master volume</p> -->
                     </div>
                     <div class="pl-3 pt-3">
                         <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
