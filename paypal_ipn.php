@@ -7,7 +7,8 @@ include_once 'config.php';
  
 $test = json_encode($_REQUEST);
 file_put_contents('paypal_ipn_text.txt', $test);
-// die();
+echo($test);
+die();
 
 // Include database connection file 
 include_once 'dbConnect.php'; 
