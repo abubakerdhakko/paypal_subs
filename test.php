@@ -25,5 +25,5 @@ echo "</tr>";
 }
 echo "</table>";
 
-mysqli_close($con);
+mysqli_close($config);
 ?>
