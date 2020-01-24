@@ -19,6 +19,8 @@ $username = stripslashes($username);
 $username = mysqli_real_escape_string($db, $username);
 
  
+// printf ($username);
+// die();
 //Check username and password from database
 $sql="SELECT * FROM user_subscriptions WHERE payer_email='$username' ";
 $result=mysqli_query($db,$sql);
@@ -31,9 +33,6 @@ if(mysqli_num_rows($result) == 1)
 {
 $_SESSION['p_email'] = $username; 
 
-// printf (
-//   $_SESSION['p_email']);
-// die();
 
 // Initializing Session
 header("location: success_page.php"); // Redirecting To Other Page
