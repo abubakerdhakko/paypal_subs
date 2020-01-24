@@ -19,11 +19,11 @@ $config = array(
 
 
 if ($config->connect_errno) {  
-    printf("Connect failed: %s\n", $config->connect_error);  
+    printf("Connect failed: %s\n", $config->connect_errno);  
    die();  
 }
 
-    printf("Connted");
+    printf("Connected");
 
 
 // Connect with the database  
