@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include_once 'dbConnect.php';  
-$result = mysqli_query($config,"SELECT * FROM user_subscriptions");
+$result = mysqli_query($db,"SELECT * FROM user_subscriptions");
 
 // printf ('$result', $result);
 // die();
@@ -25,5 +25,5 @@ echo "</tr>";
 }
 echo "</table>";
 
-mysqli_close($config);
+mysqli_close($db);
 ?>
