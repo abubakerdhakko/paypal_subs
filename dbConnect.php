@@ -35,7 +35,7 @@ $db = new mysqli('eu-cdbr-west-02.cleardb.net', 'b770ae34b12c19', 'b5c5c63a', 'h
   
 // Display error if failed to connect  
 if ($db->connect_errno) {  
-    printf("Connect failed: %s\n", $db->connect_error);  
+    printf("Connect failed: %s\n", $db->connect_errno);  
     exit();  
 }
 else{
