@@ -21,10 +21,12 @@ $config = array(
 if ($config->connect_errno) {  
     printf("Connect failed: %s\n", $config->connect_errno);  
    die();  
+}else
+{
+
+    printf("Connect");
+
 }
-
-    printf("Connected");
-
 
 // Connect with the database  
 // $db = new mysqli('localhost', 'root', 'root', 'paypal_sub');  
