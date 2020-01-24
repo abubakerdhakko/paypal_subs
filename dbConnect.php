@@ -23,7 +23,7 @@ if ($config->connect_errno) {
    exit();  
 }
 else{
-    printf("Connected");
+    printf("Conted");
 }
 
 // Connect with the database  
