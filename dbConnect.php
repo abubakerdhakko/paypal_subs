@@ -8,7 +8,7 @@ mysql://b770ae34b12c19:b5c5c63a@eu-cdbr-west-02.cleardb.net/heroku_0885a564f4e05
 $server = $url["eu-cdbr-west-02.cleardb.net"];
 $username = $url["b770ae34b12c19"];
 $password = $url["b5c5c63a"];
-$db = substr($url["heroku_0885a564f4e05ce"], 1);
+$db = substr($url["heroku_0885a564f4e05c"], 1);
 
 $config = array(
     'host' => $server ,
