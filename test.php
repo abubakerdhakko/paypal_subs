@@ -2,6 +2,10 @@
 include_once 'dbConnect.php';  
 $result = mysqli_query($con,"SELECT * FROM user_subscriptions");
 
+printf ('$result', $result);
+die();
+
+
 echo "<table border='1'>
 <tr>
 <th>Firstname</th>
