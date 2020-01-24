@@ -7,24 +7,15 @@
     <title>Blizz Zone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <!-- <link rel="stylesheet" href="../build/mediaelementplayer.css"> -->
     <link rel="stylesheet" href="./style.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
-
-
     <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
     <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
-
-
     <style>
 .btn-dgn{
   color: white !important;
@@ -40,17 +31,36 @@ console.log('sub.php');
 
     <div id="load"></div>
     <div class="bg-main">
-        <nav class="navbar navbar-light bg-nav">
+        <!-- <nav class="navbar navbar-light bg-nav">
           <a class="navbar-brand" href="index.php">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
             </a> 
+                    <div class="d-flex justify-content-end">
+                    <div class="text-right">
+                    <button type="button" class="btn btn-info btn-round btn-dgn" data-toggle="modal" data-target="#loginModal">
+                         Login
+                    </button> 
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-light bg-nav">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
+            </a>
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
-                  
-                    <div class="pl-3">
+                  <div class="">
+                  <button type="button" class="btn btn-info btn-round btn-dgn" data-toggle="modal" data-target="#loginModal">
+                         Login
+                    </button> 
+                  </div>
+                <div class="pl-3">
                     <button type="button" class="btn btn-primary btn-dgn" data-toggle="modal" data-target="#exampleModal">
-Subscribe
-</button>
+                    Subscribe
+                    </button>
                     </div>
                 </div>
             </div>
@@ -243,7 +253,8 @@ Subscribe
     </div>
     </div>
     <?php 
-// Include configuration file  
+// Include configuration file 
+include_once 'login.php';   
 include_once 'config.php';  
   
 // Include database connection file  
@@ -334,6 +345,12 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
 <!--  echo $itemPrice; ?> -->
 
 <script>
+$(document).ready(function() {             
+    $('#loginModal').modal('show');
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+});
 function getSubsPrice(obj){
 	var month = obj.value;
 	var price = ( <?php echo $itemPrice; ?>);

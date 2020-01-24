@@ -38,9 +38,9 @@ if ($db->connect_errno) {
     printf("Connect failed: %s\n", $db->connect_errno);  
     exit();  
 }
-else{
-    printf("db is Connected");  
-}
+// else{
+//     printf("db is Connected");  
+// }
 
 
 

@@ -7,21 +7,14 @@
     <title>Blizz Zone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <!-- <link rel="stylesheet" href="../build/mediaelementplayer.css"> -->
     <link rel="stylesheet" href="./style.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
-
-
-    <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
+        <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
     <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
 
 
@@ -49,9 +42,9 @@ div#start-stop img {
 
     <div class="bg-main">
         <nav class="navbar navbar-light bg-nav">
-            <!-- <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
-            </a> -->
+            </a>
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
                 <div class="">
@@ -477,8 +470,6 @@ div#start-stop img {
         </a>
         </div>
         </div>
-    </div>
-    </div>
     </div>
     <!-- Modal -->
 
