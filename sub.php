@@ -29,23 +29,8 @@
 console.log('sub.php');
 </script>
 
-    <div id="load"></div>
     <div class="bg-main">
-        <!-- <nav class="navbar navbar-light bg-nav">
-          <a class="navbar-brand" href="index.php">
-                <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
-            </a> 
-                    <div class="d-flex justify-content-end">
-                    <div class="text-right">
-                    <button type="button" class="btn btn-info btn-round btn-dgn" data-toggle="modal" data-target="#loginModal">
-                         Login
-                    </button> 
-                    </div>
-                    </div>
 
-                </div>
-            </div>
-        </nav> -->
         <nav class="navbar navbar-light bg-nav">
             <a class="navbar-brand" href="#">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
@@ -65,8 +50,17 @@ console.log('sub.php');
                 </div>
             </div>
         </nav>
+
         <div class="container">
-            <div class="v-middle">
+        <div class="text-center p-extra">
+        <p>
+
+        Upgrade for access to extra web sounds.
+        <br />
+        You'll also get access to any new web sounds released in the future.
+        </p>
+        </div>
+            <div class="sub-middle">
                 <div class="card-main ">
                     <div id="container ">
                         <!-- <button onclick="getvvvolume()" type="button">What is the volume?</button> -->
@@ -279,8 +273,9 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
         </button>
       </div>
       <div class="modal-body">
-
-      <div class="form-group">
+        <div class="d-flex justify-content-center">
+    <div class="">
+        <div class="form-group  text-center">
     <label>Subscription Validity:</label>
     <select name="validity" onchange="getSubsPrice(this);">
         <!-- <option value="1" selected="selected">1 Month</option>
@@ -289,34 +284,37 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
         <!-- <option value="9" selected="selected">9 Month</option> -->
         <option value="12">12 Month</option>
     </select>
-</div>
-<div class="form-group">
-    <p><b>Total Price:</b> <span id="subPrice"><?php echo '$'.$itemPrice.' USD'; ?></span></p>
-</div>
+    </div>
 
 
-<!-- Buy button -->
-<form action="<?php echo PAYPAL_URL; ?>" method="post">
-    <!-- Identify your business so that you can collect the payments -->
-    <input type="hidden" name="business" value="<?php echo PAYPAL_ID; ?>">
-    <!-- Specify a subscriptions button. -->
-    <input type="hidden" name="cmd" value="_xclick-subscriptions">
-    <!-- Specify details about the subscription that buyers will purchase -->
-    <input type="hidden" name="item_name" value="<?php echo $itemName; ?>">
-    <input type="hidden" name="item_number" value="<?php echo $itemNumber; ?>">
-    <input type="hidden" name="currency_code" value="<?php echo PAYPAL_CURRENCY; ?>">
-    <input type="hidden" name="a3" id="paypalAmt" value="<?php echo $itemPrice; ?>">
-    <input type="hidden" name="p3" id="paypalValid" value="1">
-    <input type="hidden" name="t3" value="M">
-    <!-- Custom variable user ID -->
-    <input type="hidden" name="custom" value="<?php echo $loggedInUserID; ?>">
-    <!-- Specify urls -->
-    <input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>">
-    <input type="hidden" name="return" value="   <?php echo PAYPAL_RETURN_URL; ?>">
-    <input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">
-    <!-- Display the payment button -->
-    <input class="buy-btn btn-success" type="submit" value="Buy Subscription">
-</form>
+    <div class="form-group text-center">
+        <p><b>Total Price:</b> <span id="subPrice"><?php echo '$'.$itemPrice.' USD'; ?></span></p>
+    </div>
+
+
+    <form action="<?php echo PAYPAL_URL; ?>" method="post" class="text-center">
+        <!-- Identify your business so that you can collect the payments -->
+        <input type="hidden" name="business" value="<?php echo PAYPAL_ID; ?>">
+        <!-- Specify a subscriptions button. -->
+        <input type="hidden" name="cmd" value="_xclick-subscriptions">
+        <!-- Specify details about the subscription that buyers will purchase -->
+        <input type="hidden" name="item_name" value="<?php echo $itemName; ?>">
+        <input type="hidden" name="item_number" value="<?php echo $itemNumber; ?>">
+        <input type="hidden" name="currency_code" value="<?php echo PAYPAL_CURRENCY; ?>">
+        <input type="hidden" name="a3" id="paypalAmt" value="<?php echo $itemPrice; ?>">
+        <input type="hidden" name="p3" id="paypalValid" value="1">
+        <input type="hidden" name="t3" value="M">
+        <!-- Custom variable user ID -->
+        <input type="hidden" name="custom" value="<?php echo $loggedInUserID; ?>">
+        <!-- Specify urls -->
+        <input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>">
+        <input type="hidden" name="return" value="   <?php echo PAYPAL_RETURN_URL; ?>">
+        <input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">
+        <!-- Display the payment button -->
+        <input class="buy-btn btn-success b-radius" type="submit" value="Buy Subscription">
+    </form>
+</div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

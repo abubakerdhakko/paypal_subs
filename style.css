@@ -760,3 +760,35 @@ input::-webkit-input-placeholder {
   border-radius: 10px;
   margin-bottom: 4rem;
 }
+
+.sub-middle {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.p-extra{
+  font-family: cursive;
+  color: white;
+  font-size: 22px;
+  margin-top: 15px;
+  padding-top: 4rem;
+}
+.b-radius{
+  border-radius: 10px;
+}
+.login-img img{
+  max-width: 100px;
+}
+.pos-close{
+  position: relative;
+  top: 10px;
+  right: 14px;
+}
+
+a.btn-dgn {
+  font-size: 17px;
+  color: #dddddd;
+  /* border-color: #dddddd; */
+  border: solid 1px #dddddd;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
