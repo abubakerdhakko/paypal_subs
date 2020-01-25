@@ -5,13 +5,13 @@ include("dbConnect.php"); //Establishing connection with our database
 $error = ""; //Variable for storing our errors.
 if(isset($_POST["submit"]))
 {
-if(empty($_POST["p_email"]))
+if(empty($_POST["username"]))
 {
 $error = " field  required.";
 }else
 {
 // Define $username and $password
-$username=$_POST['p_email'];
+$username=$_POST['username'];
  
 
 // To protect from MySQL injection
@@ -31,7 +31,7 @@ $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
  
 if(mysqli_num_rows($result) == 1)
 {
-$_SESSION['p_email'] = $username; 
+$_SESSION['username'] = $username; 
 
 
 // Initializing Session

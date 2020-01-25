@@ -1,3 +1,10 @@
+<?php
+include('login-work.php'); // Include Login Script
+if ((isset($_SESSION['username']) != '')) 
+{
+header('Location: success_page.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +27,39 @@
 .btn-dgn{
   color: white !important;
   background-color: transparent !important;
-    border-color: #dddddd !important;
+  border-color: #dddddd !important;
+}
+
+input.payer__email {
+  width: 100% ;
+  background-color: #4a52526e;
+  border: none;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 15px;
+  color: white;
+  margin-bottom: 0px;
+}
+.login_btn{
+    font-size: 19px; */
+    /* padding: 10px; */
+    border-radius: 10px;
+    background-color: #3c8484;
+    border: navajowhite;
+    /* font-size: 16px; */
+    /* font-size: 20px; */
+    color: white;
+    box-shadow: 0px 1px 0px 0px #0000005c;
+    width: 170px;
+    height: 44px;
+}
+.login-bg{
+    margin: 30px 10px;
+    /* font-size: 50px; */
+    background-color: #4a52526e;
+    padding: 10px 10px 20px 5px;
+    border-radius: 20px;
 }
 </style>
 </head>
@@ -37,9 +76,9 @@ console.log('sub.php');
             </a>
             <div class="text-right fade-p">
                 <div class="d-flex justify-content-start">
-                  <div class="">
-                  <button type="button" class="btn btn-info btn-round btn-dgn" data-toggle="modal" data-target="#loginModal">
-                         Login
+                  <div class="">             
+                  <button type="button" class="btn btn-info btn-round btn-dgn" id="button_login" >
+                            Login
                     </button> 
                   </div>
                 <div class="pl-3">
@@ -53,12 +92,34 @@ console.log('sub.php');
 
         <div class="container">
         <div class="text-center p-extra">
-        <p>
+        <p id="paragraph">
 
         Upgrade for access to extra web sounds.
         <br />
         You'll also get access to any new web sounds released in the future.
         </p>
+        <!-- <form method="post" action="" id="search_form">
+            <label>payer_email:</label><br>
+            <input type="text" name="p_email" placeholder="payer_email" /><br><br>
+            <input type="submit" name="submit" value="Login" /> 
+            </form> -->
+            <div class="login-bg" id="search_form_sec">
+
+        <form method="post" action="" id="search_form" class="mb-0 mt-3">
+            <div class="row">
+                <div class="col-md-2 pt-2">
+                <label>Payer E-mail:</label>
+                </div>
+                <div class="col-md-7">
+                <input type="text" name="username" placeholder="payer_email" class="payer__email" />
+                </div>
+                <div class="col-md-2">
+                <input type="submit" name="submit" value="Login" class=login_btn /> 
+                </div>
+            </div>
+            </form>
+            <div class="error"><?php echo $error;?></div>
+            </div>
         </div>
             <div class="sub-middle">
                 <div class="card-main ">
@@ -248,18 +309,17 @@ console.log('sub.php');
     </div>
     <?php 
 // Include configuration file 
-include_once 'login.php';   
 include_once 'config.php';  
   
 // Include database connection file  
 include_once 'dbConnect.php'; 
  
 // Start session 
-session_start(); 
+// session_start(); 
  
 // Get logged-in user ID from sesion 
 // Session name need to be changed as per your system 
-$loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1; 
+// $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1; 
 ?>
 
 <!-- Modal -->
@@ -343,11 +403,16 @@ $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1;
 <!--  echo $itemPrice; ?> -->
 
 <script>
-$(document).ready(function() {             
-    $('#loginModal').modal('show');
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+    $("#search_form_sec").hide();
+$(document).ready(function () {
+  $("#button_login").click(function () {
+    $("#search_form_sec").fadeToggle();
+    $("#paragraph").fadeToggle();
+
+    
+    // $("#div2").fadeToggle("slow");
+    // $("#div3").fadeToggle(3000);
+  });
 });
 function getSubsPrice(obj){
 	var month = obj.value;

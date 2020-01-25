@@ -31,16 +31,16 @@ console.log('dbConnect.php');
 
 
 // Connect with the  live database  
-// $db = new mysqli('eu-cdbr-west-02.cleardb.net', 'b770ae34b12c19', 'b5c5c63a', 'heroku_0885a564f4e05ce');  
+$db = new mysqli('eu-cdbr-west-02.cleardb.net', 'b770ae34b12c19', 'b5c5c63a', 'heroku_0885a564f4e05ce');  
   
-// // Display error if failed to connect  
-// if ($db->connect_errno) {  
-//     printf("Connect failed: %s\n", $db->connect_errno);  
-//     exit();  
+// Display error if failed to connect  
+if ($db->connect_errno) {  
+    printf("Connect failed: %s\n", $db->connect_errno);  
+    exit();  
+}
+// else{
+//     printf("db is Connected");  
 // }
-// // else{
-// //     printf("db is Connected");  
-// // }
 
 
 
@@ -53,6 +53,6 @@ if ($db->connect_errno) {
     printf("Connect failed: %s\n", $db->connect_error);  
     exit();  
 }
-else{
-    printf("db is Connected");  
-}
+// else{
+//     printf("db is Connected");  
+// }

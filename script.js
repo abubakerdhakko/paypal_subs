@@ -389,6 +389,8 @@ function myFunction() {
 $("#random_mix_items").hide();
 $("#shared-items").hide();
 $("#start_stop-items").hide();
+$("#login-sec").hide();
+
 $(document).ready(function () {
   $("#button_share").click(function () {
     $("#start_stop-items").hide();

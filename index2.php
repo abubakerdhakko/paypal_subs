@@ -29,6 +29,10 @@
 </head>
 
 <body>
+
+<h1 class="hello">Hello, <em><?php echo $username;?>!</em></h1>
+<br><br><br>
+<a href="logout.php" style="font-size:18px">Logout?</a>
 <?php 
 // Include configuration file  
 include_once 'config.php';  
