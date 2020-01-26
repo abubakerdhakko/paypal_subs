@@ -40,6 +40,10 @@ div#start-stop img {
     /* margin-right: 15px; */
     /* margin-top: 7px; */
 }
+.vol-success{
+    position: relative;
+    top: 10px;
+}
 </style>
 </head>
 <body>
@@ -61,7 +65,7 @@ div#start-stop img {
                 <div class="">
                         <!-- <p>master volume</p> -->
                     </div>
-                    <div class="pl-3 pt-3">
+                    <div class="pl-3 pt-3 vol-success">
                         <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
                         <div id="audioSlider"></div>
 										</div>
