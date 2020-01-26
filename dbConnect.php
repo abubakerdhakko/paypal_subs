@@ -46,13 +46,13 @@ if ($db->connect_errno) {
 
 
 // Connect with the local database  
-$db = new mysqli('localhost', 'root', 'root', 'paypal_sub');  
+// $db = new mysqli('localhost', 'root', 'root', 'paypal_sub');  
   
-// Display error if failed to connect  
-if ($db->connect_errno) {  
-    printf("Connect failed: %s\n", $db->connect_error);  
-    exit();  
-}
+// // Display error if failed to connect  
+// if ($db->connect_errno) {  
+//     printf("Connect failed: %s\n", $db->connect_error);  
+//     exit();  
+// }
 // else{
 //     printf("db is Connected");  
 // }
