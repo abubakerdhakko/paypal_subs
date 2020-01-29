@@ -27,16 +27,11 @@ function test() {
             var vol_idd = document.getElementById(v)
             vol_idd.play();
             arr_sounds[v] = true;
-
-
-
             var input_val = $('[volumee="' + v + '"]').val();
-
             if (input_val == 0) {
                 vol_idd.volume = 0;
             }
             // $('[volumee="' + number + '"]').trigger('change');
-
             // var sound_each = document.getElementById(animal);
             // sound_each.volume = amount;
             // console.log('volume:', sound_each, amount)
@@ -178,6 +173,11 @@ jQuery(function () {
 
         var sounds = document.getElementsByTagName('audio');
         for (i = 0; i < sounds.length; i++) sounds[i].volume = 0;
+
+
+
+
+
         console.log('stopButton')
 
         $('#stopButton').hide();
@@ -200,6 +200,49 @@ jQuery(function () {
         global_volume = true;
         // var sounds = document.getElementsByTagName('audio');
         // for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.5
+
+        var index = 0;
+
+
+        console.log('start');
+
+        idArray = [];
+        $.each(arr_sounds, function (index, value) {
+            if (value)
+                idArray.push(index);
+        })
+        idSelector = idArray.join(',');
+
+        // if (idSelector) {
+        //   // idSelector = idSelector.substring(1);
+        // } else {
+        //   alert('Please choose atleast one value.');
+        // }
+        var nameArr = idSelector.split(',');
+        var sounds_names = nameArr[index];
+
+
+
+        var a = $('[volumee="' + sounds_names + '"]').val();
+
+        // console.log("a_before", sounds_names, a)
+        if (a > 0) {
+            console.log("inner_if_play")
+            // debugger;
+
+            var sounds_fade = document.getElementById(nameArr[index]);
+           
+        
+            sounds_fade.volume = a;
+            // var asd = $('[volumee="' + sounds_names + '"]').val(Number($('[volumee="' + sounds_names + '"]').val()) + 0.24);
+            // console.log("a_after", sounds_fade, a)
+
+        }
+
+        if (index == (nameArr.length - 1))
+            index = 0;
+        else
+            index += 1;
 
         $('#playButton').hide();
         $('#stopButton').show();
