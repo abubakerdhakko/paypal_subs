@@ -86,7 +86,7 @@
                         <!-- <p>master volume</p> -->
                     </div>
                     <div class="pl-3 pt-3">
-                        <input type="range" id="vol" max="1" min="0" step="0.01" value="0" onchange="masterChangeVolume(this.value)" />
+                        <input type="range" id="vol" max="1" min="0" step="0.01" onchange="masterChangeVolume(this.value)" />
                         <div id="audioSlider"></div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="volume-icon" onclick="setVolume('fire')">
-                                                <i class="fa fa-volume-up vol-up"></i>
+                                                <i class="fa fa-volume-up vol-up vol"></i>
                                                 <i class="fa fa-volume-down vol-down"></i>
                                             </div>
                                             <div class="">

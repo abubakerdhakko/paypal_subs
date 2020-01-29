@@ -2,6 +2,8 @@ var current_location;
 var ids_for_sounds = '';
 var playing = false;
 var arr = [];
+var global_volume = true;
+
 
 var arr_sounds = { fire: false, thunder: false, wind: false, rain: false, waves: false, birds: false, coffe_cup: false, singing_bowl: false, tv: false };
 
@@ -28,12 +30,11 @@ function test() {
 
 
 
-            // var input_val = $('[volumee="' + v + '"]').val();
+            var input_val = $('[volumee="' + v + '"]').val();
 
-            // if (input_val == 0) {
-            //   // console.log("vol_idd", vol_idd);
-            //   vol_idd.volume = 0;
-            // }
+            if (input_val == 0) {
+                vol_idd.volume = 0;
+            }
             // $('[volumee="' + number + '"]').trigger('change');
 
             // var sound_each = document.getElementById(animal);
@@ -160,13 +161,19 @@ function test() {
     //  share_linkdin(url);
 
 }
-
+function masterChangeVolume(amount) {
+    // var audioobject = document.getElementsByTagName("audio")[0];
+    var sounds = document.getElementsByTagName('audio');
+    for (i = 0; i < sounds.length; i++) sounds[i].volume = amount;
+    //  sounds[i].play();
+    // audioobject.volume = amount;
+}
 jQuery(function () {
     var timer;
 
-    $('#stopButton').hide();
+    $('#playButton').hide();
     document.getElementById('stopButton').onclick = function () {
-
+        global_volume = false;
 
 
         var sounds = document.getElementsByTagName('audio');
@@ -183,21 +190,23 @@ jQuery(function () {
 
 
         console.log('stopButton');
+        console.log('global_volume', global_volume)
 
 
 
     };
     document.getElementById('playButton').onclick = function () {
 
-
-        var sounds = document.getElementsByTagName('audio');
-        for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.5
+        global_volume = true;
+        // var sounds = document.getElementsByTagName('audio');
+        // for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.5
 
         $('#playButton').hide();
-
         $('#stopButton').show();
         // $('#stopButton').fadeIn(400);
         console.log('playButton');
+
+        console.log('global_volume', global_volume)
     }
 
     var timer;
@@ -209,38 +218,54 @@ jQuery(function () {
             $('.click-stop-stop').removeClass('add-stop-stop');
 
         } else {
+            console.log('entered in else')
+            if (global_volume == true) {
 
-            $('.click-stop-stop').addClass('add-stop-stop');
+                $('.click-stop-stop').addClass('add-stop-stop');
 
-            var index = 0;
+                var index = 0;
 
-            timer = setInterval(function () {
+                timer = setInterval(function () {
 
-                console.log('start');
+                    console.log('start');
 
-                idArray = [];
-                $.each(arr_sounds, function (index, value) {
-                    if (value)
-                        idArray.push(index);
-                })
-                idSelector = idArray.join(',');
+                    idArray = [];
+                    $.each(arr_sounds, function (index, value) {
+                        if (value)
+                            idArray.push(index);
+                    })
+                    idSelector = idArray.join(',');
 
-                // if (idSelector) {
-                //   // idSelector = idSelector.substring(1);
-                // } else {
-                //   alert('Please choose atleast one value.');
-                // }
-                var nameArr = idSelector.split(',');
+                    // if (idSelector) {
+                    //   // idSelector = idSelector.substring(1);
+                    // } else {
+                    //   alert('Please choose atleast one value.');
+                    // }
+                    var nameArr = idSelector.split(',');
+                    var sounds_names = nameArr[index];
 
-                var sounds_fade = document.getElementById(nameArr[index]);
-                sounds_fade.volume = +0.5;
-                console.log('sounds_fade', sounds_fade);
-                if (index == (nameArr.length - 1))
-                    index = 0;
-                else
-                    index += 1;
-            }, 2000);
 
+
+                    var a = $('[volumee="' + sounds_names + '"]').val();
+
+                    // console.log("a_before", sounds_names, a)
+                    if (a > 0) {
+                        console.log("inner_if")
+                        // debugger;
+
+                        var sounds_fade = document.getElementById(nameArr[index]);
+                        sounds_fade.volume = 0.74;
+                        // var asd = $('[volumee="' + sounds_names + '"]').val(Number($('[volumee="' + sounds_names + '"]').val()) + 0.24);
+                        // console.log("a_after", sounds_fade, a)
+
+                    }
+
+                    if (index == (nameArr.length - 1))
+                        index = 0;
+                    else
+                        index += 1;
+                }, 5000);
+            }
         }
     });
 })
@@ -508,13 +533,7 @@ $(document).ready(function () {
 
 plyr.setup(document.querySelectorAll('.js-plyr'), {});
 // master volume
-function masterChangeVolume(amount) {
-    // var audioobject = document.getElementsByTagName("audio")[0];
-    var sounds = document.getElementsByTagName('audio');
-    for (i = 0; i < sounds.length; i++) sounds[i].volume = amount;
-    //  sounds[i].play();
-    // audioobject.volume = amount;
-}
+
 $("input[type=time]").on("change", function () {
     console.log(this.valueAsDate)
 })
