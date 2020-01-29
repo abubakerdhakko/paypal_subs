@@ -53,7 +53,6 @@ if(!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) &
     </div>
 <?php }else{ ?>    
     <h1 class="error">Waiting for response else refresh page </h1>
-    
 <?php } ?>
 </div>
 
