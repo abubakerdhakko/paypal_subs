@@ -8,7 +8,7 @@
 
       $.ajax({ //create an ajax request to display.php
         type: "GET",
-        url: "success.php",
+        url: "test.php",
         dataType: "html", //expect html to be returned                
         success: function(response) {
           $("#responsecontainer").html(response);
