@@ -345,10 +345,10 @@
               <div class="form-group  text-center">
                 <label>Subscription Validity:</label>
                 <select name="validity" onchange="getSubsPrice(this);">
-                  <!-- <option value="1" selected="selected">1 Month</option>
-        <option value="3">3 Month</option>
-        <option value="6">6 Month</option> -->
-                  <!-- <option value="9" selected="selected">9 Month</option> -->
+                  <option value="1">1 Month</option>
+                  <option value="3">3 Month</option>
+                  <option value="6">6 Month</option>
+                  <option value="9">9 Month</option>
                   <option value="12" selected="selected">12 Month</option>
                 </select>
               </div>
@@ -369,7 +369,7 @@
                 <input type="hidden" name="item_number" value="<?php echo $itemNumber; ?>">
                 <input type="hidden" name="currency_code" value="<?php echo PAYPAL_CURRENCY; ?>">
                 <input type="hidden" name="a3" id="paypalAmt" value="<?php echo $itemPrice; ?>">
-                <input type="hidden" name="p3" id="paypalValid" value="<?php echo $validTill; ?>">
+                <input type="hidden" name="p3" id="paypalValid" value="12">
                 <input type="hidden" name="t3" value="M">
                 <!-- Custom variable user ID -->
                 <input type="hidden" name="custom" value="<?php echo $loggedInUserID; ?>">
@@ -383,10 +383,10 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
+        <button type="button" class="btn btn-primary">Save changes</button> 
+      </div> -->
       </div>
     </div>
   </div>
@@ -410,6 +410,14 @@
 <!--  echo $itemPrice; ?> -->
 
 <script>
+  function getSubsPrice(obj) {
+    var month = obj.value;
+    var price = (<?php echo $itemPrice; ?>);
+    document.getElementById('subPrice').innerHTML = '$' + price + ' USD';
+    document.getElementById('paypalValid').value = month;
+    document.getElementById('paypalAmt').value = price;
+    console.log(month);
+  }
   $("#search_form_sec").hide();
   $(document).ready(function() {
     $("#button_login").click(function() {
@@ -421,15 +429,6 @@
       // $("#div3").fadeToggle(3000);
     });
   });
-
-  function getSubsPrice(obj) {
-    var month = obj.value;
-    var price = (<?php echo $itemPrice; ?>);
-    document.getElementById('subPrice').innerHTML = '$' + price + ' USD';
-    document.getElementById('paypalValid').value = month;
-    document.getElementById('paypalAmt').value = price;
-    console.log(month);
-  }
 </script>
 
 </html>
