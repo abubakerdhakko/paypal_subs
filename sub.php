@@ -345,10 +345,10 @@
               <div class="form-group  text-center">
                 <label>Subscription Validity:</label>
                 <select name="validity" onchange="getSubsPrice(this);">
-                  <option value="1">1 Month</option>
+                  <!-- <option value="1">1 Month</option>
                   <option value="3">3 Month</option>
                   <option value="6">6 Month</option>
-                  <option value="9">9 Month</option>
+                  <option value="9">9 Month</option> -->
                   <option value="12" selected="selected">12 Month</option>
                 </select>
               </div>
@@ -410,13 +410,21 @@
 <!--  echo $itemPrice; ?> -->
 
 <script>
+  // function getSubsPrice(obj) {
+  //   var month = obj.value;
+  //   var price = (< ?php echo $itemPrice; ?>);
+  //   document.getElementById('subPrice').innerHTML = '$' + price + ' USD';
+  //   document.getElementById('paypalValid').value = month;
+  //   document.getElementById('paypalAmt').value = price;
+  //   console.log(month);
+  // }
+
   function getSubsPrice(obj) {
     var month = obj.value;
-    var price = (<?php echo $itemPrice; ?>);
+    var price = 9;
     document.getElementById('subPrice').innerHTML = '$' + price + ' USD';
     document.getElementById('paypalValid').value = month;
     document.getElementById('paypalAmt').value = price;
-    console.log(month);
   }
   $("#search_form_sec").hide();
   $(document).ready(function() {
