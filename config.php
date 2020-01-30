@@ -10,7 +10,9 @@ $itemNumber = 'MS123456';
  
 // Subscription price for one month 
 $itemPrice = 9; 
-   
+
+$validTill = 12; 
+
 // PayPal configuration  
 define('PAYPAL_ID', 'sb-uvmyk858514@business.example.com');  
 define('PAYPAL_SANDBOX', TRUE); //TRUE or FALSE  

@@ -1,15 +1,13 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<?php
-include('login-work.php'); // Include Login Script
-if ((isset($_SESSION['username']) != '')) 
-{
-header('Location: success_page.php');
-}
-?>
+  <?php
+  include('login-work.php'); // Include Login Script
+  if ((isset($_SESSION['username']) != '')) {
+    header('Location: success_page.php');
+  }
+  ?>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Blizz Zone</title>
@@ -25,46 +23,46 @@ header('Location: success_page.php');
   <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
   <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
   <style>
-  .btn-dgn {
-    color: white !important;
-    background-color: transparent !important;
-    border-color: #dddddd !important;
-  }
+    .btn-dgn {
+      color: white !important;
+      background-color: transparent !important;
+      border-color: #dddddd !important;
+    }
 
-  input.payer__email {
-    width: 100%;
-    background-color: #4a52526e;
-    border: none;
-    box-shadow: 0px 0px 5px 1px #141414b8;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-left: 15px;
-    color: white;
-    margin-bottom: 0px;
-  }
+    input.payer__email {
+      width: 100%;
+      background-color: #4a52526e;
+      border: none;
+      box-shadow: 0px 0px 5px 1px #141414b8;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding-left: 15px;
+      color: white;
+      margin-bottom: 0px;
+    }
 
-  .login_btn {
-    font-size: 19px;
-    */
-    /* padding: 10px; */
-    border-radius: 10px;
-    background-color: #3c8484;
-    border: navajowhite;
-    /* font-size: 16px; */
-    /* font-size: 20px; */
-    color: white;
-    box-shadow: 0px 1px 0px 0px #0000005c;
-    width: 170px;
-    height: 44px;
-  }
+    .login_btn {
+      font-size: 19px;
+      */
+      /* padding: 10px; */
+      border-radius: 10px;
+      background-color: #3c8484;
+      border: navajowhite;
+      /* font-size: 16px; */
+      /* font-size: 20px; */
+      color: white;
+      box-shadow: 0px 1px 0px 0px #0000005c;
+      width: 170px;
+      height: 44px;
+    }
 
-  .login-bg {
-    margin: 30px 10px;
-    /* font-size: 50px; */
-    background-color: #4a52526e;
-    padding: 10px 10px 20px 5px;
-    border-radius: 20px;
-  }
+    .login-bg {
+      margin: 30px 10px;
+      /* font-size: 50px; */
+      background-color: #4a52526e;
+      padding: 10px 10px 20px 5px;
+      border-radius: 20px;
+    }
   </style>
 </head>
 
@@ -116,7 +114,7 @@ header('Location: success_page.php');
               </div>
             </div>
           </form>
-          <div class="error"><?php echo $error;?></div>
+          <div class="error"><?php echo $error; ?></div>
         </div>
       </div>
       <div class="v-middle">
@@ -126,7 +124,7 @@ header('Location: success_page.php');
             <br>
             <hr>
             <div class="players" id="player2-container">
-             
+
               <div class="row animated  bounceInUp delay-4s">
                 <div class="col-md-4">
                   <div class="audio-div ">
@@ -138,8 +136,7 @@ header('Location: success_page.php');
                     <h3>Fire</h3>
                     <!-- Link -->
                     <div class="">
-                      <input type="range" id="vol" volumee="fire" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('fire',this.value)" />
+                      <input type="range" id="vol" volumee="fire" max="1" min="0" step="0.01" onchange="playSoundEach('fire',this.value)" />
                     </div>
                     <!--Audio File-->
                     <audio id="fire" class="fire" src="./assets/sound/glue-fire.mp4" preload="auto" loop></audio>
@@ -156,13 +153,11 @@ header('Location: success_page.php');
                     <h3>Thunder</h3>
 
                     <div class="po">
-                      <input type="range" id="vol" volumee="thunder" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('thunder',this.value)" />
+                      <input type="range" id="vol" volumee="thunder" max="1" min="0" step="0.01" onchange="playSoundEach('thunder',this.value)" />
                     </div>
 
                     <!--Audio File-->
-                    <audio id="thunder" class="thunder" src="./assets/sound/glue-thunder.mp4" preload="auto"
-                      loop></audio>
+                    <audio id="thunder" class="thunder" src="./assets/sound/glue-thunder.mp4" preload="auto" loop></audio>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -174,8 +169,7 @@ header('Location: success_page.php');
                     <h3>Wind</h3>
 
                     <div class="">
-                      <input type="range" id="vol" volumee="wind" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('wind',this.value)" />
+                      <input type="range" id="vol" volumee="wind" max="1" min="0" step="0.01" onchange="playSoundEach('wind',this.value)" />
                     </div>
 
                     <!--Audio File-->
@@ -195,8 +189,7 @@ header('Location: success_page.php');
                     <h3>Rain</h3>
 
                     <div class="">
-                      <input type="range" id="vol" volumee="rain" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('rain',this.value)" />
+                      <input type="range" id="vol" volumee="rain" max="1" min="0" step="0.01" onchange="playSoundEach('rain',this.value)" />
                     </div>
 
                     <!--Audio File-->
@@ -214,8 +207,7 @@ header('Location: success_page.php');
                     <h3>Waves</h3>
 
                     <div class="po">
-                      <input type="range" id="vol" volumee="waves" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('waves',this.value)" />
+                      <input type="range" id="vol" volumee="waves" max="1" min="0" step="0.01" onchange="playSoundEach('waves',this.value)" />
                     </div>
 
                     <!--Audio File-->
@@ -231,8 +223,7 @@ header('Location: success_page.php');
                     <h3>Birds</h3>
 
                     <div class="">
-                      <input type="range" id="vol" volumee="birds" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('birds',this.value)" />
+                      <input type="range" id="vol" volumee="birds" max="1" min="0" step="0.01" onchange="playSoundEach('birds',this.value)" />
                     </div>
                     <!--Audio File-->
 
@@ -252,13 +243,11 @@ header('Location: success_page.php');
                     <h3>Coffee Shop</h3>
 
                     <div class="">
-                      <input type="range" id="vol" volumee="coffe_cup" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('coffe_cup',this.value)" />
+                      <input type="range" id="vol" volumee="coffe_cup" max="1" min="0" step="0.01" onchange="playSoundEach('coffe_cup',this.value)" />
                     </div>
 
                     <!--Audio File-->
-                    <audio id="coffe_cup" class="coffe_cup" src="./assets/sound/main-people.mp4" preload="auto"
-                      loop></audio>
+                    <audio id="coffe_cup" class="coffe_cup" src="./assets/sound/main-people.mp4" preload="auto" loop></audio>
                   </div>
                 </div>
 
@@ -273,13 +262,11 @@ header('Location: success_page.php');
                     <h3>Singing Bowl</h3>
 
                     <div class="po">
-                      <input type="range" id="vol" volumee="singing_bowl" max="1" min="0" step="0.01"
-                        onchange="playSoundEach('singing_bowl',this.value)" />
+                      <input type="range" id="vol" volumee="singing_bowl" max="1" min="0" step="0.01" onchange="playSoundEach('singing_bowl',this.value)" />
                     </div>
 
                     <!--Audio File-->
-                    <audio id="singing_bowl" class="singing_bowl" src="./assets/sound/glue-sbowl.mp4" preload="auto"
-                      loop></audio>
+                    <audio id="singing_bowl" class="singing_bowl" src="./assets/sound/glue-sbowl.mp4" preload="auto" loop></audio>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -291,8 +278,7 @@ header('Location: success_page.php');
                     <!-- Link -->
                     <h3>White Noise</h3>
                     <div class="po">
-                      <input type="range" id="vol" max="1" volumee="tv" min="0" step="0.01"
-                        onchange="playSoundEach('tv',this.value)" />
+                      <input type="range" id="vol" max="1" volumee="tv" min="0" step="0.01" onchange="playSoundEach('tv',this.value)" />
                     </div>
                     <!--Audio File-->
                     <audio id="tvvv" class="tvvv" src="./assets/sound/" preload="auto" loop></audio>
@@ -328,24 +314,23 @@ header('Location: success_page.php');
     </div>
   </div>
   </div>
-  <?php 
-// Include configuration file 
-include_once 'config.php';  
-  
-// Include database connection file  
-include_once 'dbConnect.php'; 
- 
-// Start session 
-// session_start(); 
- 
-// Get logged-in user ID from sesion 
-// Session name need to be changed as per your system 
-// $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1; 
-?>
+  <?php
+  // Include configuration file 
+  include_once 'config.php';
+
+  // Include database connection file  
+  include_once 'dbConnect.php';
+
+  // Start session 
+  // session_start(); 
+
+  // Get logged-in user ID from sesion 
+  // Session name need to be changed as per your system 
+  // $loggedInUserID = !empty($_SESSION['userID'])?$_SESSION['userID']:1; 
+  ?>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -364,13 +349,13 @@ include_once 'dbConnect.php';
         <option value="3">3 Month</option>
         <option value="6">6 Month</option> -->
                   <!-- <option value="9" selected="selected">9 Month</option> -->
-                  <option value="12">12 Month</option>
+                  <option value="12" selected="selected">12 Month</option>
                 </select>
               </div>
 
 
               <div class="form-group text-center">
-                <p><b>Total Price:</b> <span id="subPrice"><?php echo '$'.$itemPrice.' USD'; ?></span></p>
+                <p><b>Total Price:</b> <span id="subPrice"><?php echo '$' . $itemPrice . ' USD'; ?></span></p>
               </div>
 
 
@@ -384,7 +369,7 @@ include_once 'dbConnect.php';
                 <input type="hidden" name="item_number" value="<?php echo $itemNumber; ?>">
                 <input type="hidden" name="currency_code" value="<?php echo PAYPAL_CURRENCY; ?>">
                 <input type="hidden" name="a3" id="paypalAmt" value="<?php echo $itemPrice; ?>">
-                <input type="hidden" name="p3" id="paypalValid" value="1">
+                <input type="hidden" name="p3" id="paypalValid" value="12">
                 <input type="hidden" name="t3" value="M">
                 <!-- Custom variable user ID -->
                 <input type="hidden" name="custom" value="<?php echo $loggedInUserID; ?>">
@@ -425,25 +410,26 @@ include_once 'dbConnect.php';
 <!--  echo $itemPrice; ?> -->
 
 <script>
-$("#search_form_sec").hide();
-$(document).ready(function() {
-  $("#button_login").click(function() {
-    $("#search_form_sec").fadeToggle();
-    $("#paragraph").fadeToggle();
+  $("#search_form_sec").hide();
+  $(document).ready(function() {
+    $("#button_login").click(function() {
+      $("#search_form_sec").fadeToggle();
+      $("#paragraph").fadeToggle();
 
 
-    // $("#div2").fadeToggle("slow");
-    // $("#div3").fadeToggle(3000);
+      // $("#div2").fadeToggle("slow");
+      // $("#div3").fadeToggle(3000);
+    });
   });
-});
 
-function getSubsPrice(obj) {
-  var month = obj.value;
-  var price = ( <?php echo $itemPrice; ?> );
-  document.getElementById('subPrice').innerHTML = '$' + price + ' USD';
-  document.getElementById('paypalValid').value = month;
-  document.getElementById('paypalAmt').value = price;
-}
+  function getSubsPrice(obj) {
+    var month = obj.value;
+    var price = (<?php echo $itemPrice; ?>);
+    document.getElementById('subPrice').innerHTML = '$' + price + ' USD';
+    document.getElementById('paypalValid').value = month;
+    document.getElementById('paypalAmt').value = price;
+    console.log(month);
+  }
 </script>
 
 </html>
