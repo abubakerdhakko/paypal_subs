@@ -66,14 +66,13 @@ if (!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) 
           $("#responsecontainer").html(response);
           //alert(response);
         }
-
       });
     });
   });
 </script>
 
 <body>
-  <h3 align="center">Manage Student Details</h3>
+  <h3 align="center"> Student Details</h3>
   <table border="1" align="center">
     <tr>
       <td> <input type="button" id="display" value="Display All Data" /> </td>
