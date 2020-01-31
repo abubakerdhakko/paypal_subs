@@ -57,7 +57,7 @@ if (!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) 
   $(document).ready(function() {
     $.ajax({ //create an ajax request to display.php
       type: "GET",
-      url: "ajax.php",
+      url: "test.php",
       dataType: "html", //expect html to be returned                
       success: function(response) {
         $("#responsecontainer").html(response);
