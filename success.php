@@ -24,30 +24,3 @@ if (!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) 
     }
 }
 ?>
-
-<div class="bg-main">
-    <?php if (!empty($paymentData)) { ?>
-
-        <h1 class="success">Your Subscription Payment has been Successful!</h1>
-
-        <div class="" style="background-color: #e1e1e1;
-    padding: 10px 40px;
-    max-width: 1000px;
-    margin: 0px auto;
-    border-radius: 10px;">
-
-            <h4>Payment Information</h4>
-            <p><b>Reference Number:</b> <?php echo $paymentData['id']; ?></p>
-            <p><b>Transaction ID:</b> <?php echo $paymentData['txn_id']; ?></p>
-            <p><b>Paid Amount:</b> <?php echo $paymentData['payment_gross'] . ' ' . $paymentData['currency_code']; ?></p>
-            <p><b>Payment Status:</b> <?php echo $paymentData['payment_status']; ?></p>
-
-            <h4>Subscription Information</h4>
-            <p><b>ID:</b> <?php echo $paymentData['subscr_id']; ?></p>
-            <p><b>Name:</b> <?php echo $itemName; ?></p>
-            <p><b>Validity:</b> <?php echo $paymentData['valid_from'] . ' to ' . $paymentData['valid_to']; ?></p>
-        </div>
-        <!-- < ?php } else { ?>
-        <h1 class="error">Waiting for response else refresh page </h1> -->
-    <?php } ?>
-</div>
