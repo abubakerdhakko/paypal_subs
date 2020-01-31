@@ -55,24 +55,20 @@ if (!empty($_GET['item_number']) && !empty($_GET['tx']) && !empty($_GET['amt']) 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-
-    $("#display").click(function() {
-
-      $.ajax({ //create an ajax request to display.php
-        type: "GET",
-        url: "ajax.php",
-        dataType: "html", //expect html to be returned                
-        success: function(response) {
-          $("#responsecontainer").html(response);
-          //alert(response);
-        }
-      });
+    $.ajax({ //create an ajax request to display.php
+      type: "GET",
+      url: "ajax.php",
+      dataType: "html", //expect html to be returned                
+      success: function(response) {
+        $("#responsecontainer").html(response);
+        alert(response);
+      }
     });
   });
 </script>
 
 <body>
-  <h3 align="center"> Student Details</h3>
+  <h3 align="center">Manage Student Details</h3>
   <table border="1" align="center">
     <tr>
       <td> <input type="button" id="display" value="Display All Data" /> </td>
