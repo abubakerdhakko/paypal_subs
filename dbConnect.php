@@ -38,10 +38,6 @@ if ($db->connect_errno) {
     printf("Connect failed: %s\n", $db->connect_errno);
     exit();
 }
-// else{
-//     printf("db is Connected");  
-// }
-
 
 
 
@@ -52,6 +48,4 @@ if ($db->connect_errno) {
 // if ($db->connect_errno) {
 //     printf("Connect failed: %s\n", $db->connect_error);
 //     exit();
-// } else {
-//     printf("db is Connected");
-// }
+// } 

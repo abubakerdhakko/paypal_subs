@@ -815,6 +815,8 @@ function create_trash() {
             var myDiv = $('[volumee="' + slider_no + '"]')
             var myValue = myDiv.val(volumee)
             var number = sound_id;
+            var myDiv = $('img[img_op="' + number + '"]').removeClass("opClass");
+
         }
         // volume
         // var sounds_volume = document.getElementsByClassName(volume);
