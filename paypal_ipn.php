@@ -73,9 +73,15 @@ $res = curl_exec($ch);
  * Inspect IPN validation result and act accordingly 
  * Split response headers and payload, a better way for strcmp 
  */
+// echo ('before');
+// die();
+
 $tokens = explode("\r\n\r\n", trim($res));
 $res = trim(end($tokens));
-if (strcmp($res, "VERIFIED") == 0 || strcasecmp($res, "VERIFIED") == 0 || 1 == 1) {
+if (strcmp($res, "VERIFIED") == 0 || strcasecmp($res, "VERIFIED") == 0) {
+
+    // echo ('after');
+    // die();
 
     // Retrieve transaction data from PayPal 
     //$paypalInfo = $_POST;
