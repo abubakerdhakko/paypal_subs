@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Blizz Zone</title>
+    <title>Bliss Zone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -71,25 +71,44 @@
     <div id="load"></div>
 
     <div class="bg-main">
-        <nav class="navbar navbar-light bg-nav">
-            <a class="navbar-brand" href="#">
+        <nav class="navbar navbar-expand-lg navbar-light bg-nav">
+            <a class="navbar-brand" href="index.php">
                 <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
             </a>
-            <div class="text-right fade-p">
-                <div class="d-flex justify-content-start">
-                    <div class="">
-                        <div id="start-stop" class="click-stop-stop">
-                            <img src="./assets/icons/life.png">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+
+                        <div class="text-right fade-p mb-mt-1">
+                            <div class="d-flex justify-content-start">
+                                <div class="mr-3">
+                                    <div id="undo-trash" class="click-stop-stop">
+                                        <input type="hidden" id="revert">
+                                        <i class="fas fa-undo revert " onclick="create_revert();"></i>
+                                        <i class="fas fa-trash trash" onclick="create_trash()"></i>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div id="start-stop" class="click-stop-stop">
+                                        <img src="./assets/icons/life.png">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <!-- <p>master volume</p> -->
+                                </div>
+                                <div class="pl-3 pt-3">
+                                    <input type="range" class="masterVolume" id="masterAudio" max="1" min="0" step="0.01" onchange="masterChangeVolume(this.value)" />
+                                    <!-- <input type="range" class="masterVolume" id="z" max="1" min="0" step="0.01" /> -->
+                                    <div id="audioSlider"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="">
-                        <!-- <p>master volume</p> -->
-                    </div>
-                    <div class="pl-3 pt-3">
-                        <input type="range" id="vol" max="1" min="0" step="0.01" onchange="masterChangeVolume(this.value)" />
-                        <div id="audioSlider"></div>
-                    </div>
-                </div>
+                    </li>
+
+                </ul>
             </div>
         </nav>
         <div class="container">
@@ -170,10 +189,24 @@
                                             </span></p>
                                         <input type="text" id="current_shared_url">
                                         <!-- The button used to copy the text -->
-                                        <button onclick="copyFunction()">Copy text</button>
+                                        <button class="copy-mix-" onclick="copyFunction()">Copy text</button>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="d-flex justify-content-center">
+                                    <a class="btn-show-a ml-3" onclick="setLocalStorage()">
+                                        Save Mix
+                                    </a>
+                                    <a class="btn-show-a ml-3" onclick="getLocalStorage()">
+                                        Show Mix
+                                    </a>
+                                    <a class="btn-show-a ml-3" onclick="clearMix()">
+                                        Clear Mix
+                                    </a>
+                                </div>
+                                <div class="" id="data">
+
+                                </div>
+                                <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div id="div1">
                                             <div id="fb" onclick="(new test()).share_linkdin();">
@@ -242,8 +275,6 @@
                                                 <option value="Ambient">Ambient meditation</option>
                                                 <option value="turbulent">
                                                     A turbulent, surging afternoon at the woods</option>
-
-
                                             </Select>
                                         </div>
                                     </div>
@@ -256,18 +287,22 @@
                                         <a href="javascript:(new test()).playSound('fire');">
                                             <img id="sound_each4" img_op="fire" src="./assets/icons/fire.png">
                                         </a>
-                                        <div class="">
-
-                                            <h3>Fire</h3>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="">
+                                                <h3>Fire</h3>
+                                            </div>
+                                            <!-- <div class="speaker" onclick="setVolume('fire')">
+                                                <i class="fa fa-volume-up vol-up"></i>
+                                            </div> -->
                                         </div>
 
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
 
-                                            <div class="volume-icon" onclick="setVolume('fire')">
-                                                <i class="fa fa-volume-up vol-up vol"></i>
+                                            <!-- <div class="volume-icon" onclick="setVolume('fire')">
+                                                <i class="fa fa-volume-up vol-up"></i>
                                                 <i class="fa fa-volume-down vol-down"></i>
-                                            </div>
+                                            </div> -->
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="fire" volumee="fire" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
                                             </div>
@@ -289,10 +324,6 @@
 
                                         <div class="d-flex justify-content-center">
 
-                                            <div class="volume-icon" onclick="setVolume('thunder')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i>
-                                            </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="thunder" volumee="thunder" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('thunder',this.value)" />
                                             </div>
@@ -314,10 +345,6 @@
 
                                         <div class="d-flex justify-content-center">
 
-                                            <div class="volume-icon" onclick="setVolume('wind')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i>
-                                            </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="wind" volumee="wind" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
                                             </div>
@@ -342,10 +369,6 @@
 
                                         <div class="d-flex justify-content-center">
 
-                                            <div class="volume-icon" onclick="setVolume('rain')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i>
-                                            </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="rain" volumee="rain" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
                                             </div>
@@ -370,10 +393,6 @@
 
                                         <div class="d-flex justify-content-center">
 
-                                            <div class="volume-icon" onclick="setVolume('waves')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i>
-                                            </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="waves" volumee="waves" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
                                             </div>
@@ -394,20 +413,15 @@
 
                                         <div class="d-flex justify-content-center">
 
-                                            <div class="volume-icon" onclick="setVolume('birds')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i> </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="birds" volumee="birds" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
-
                                         <audio id="birds" class="birds" src="./assets/sound/glue-birds.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row animated   bounceInUp  delay-6s">
                                 <div class="col-md-4">
                                     <div class="audio-div ">
@@ -418,13 +432,7 @@
                                         <!-- Link -->
                                         <h3>Coffee Shop</h3>
                                         <!-- Link -->
-
                                         <div class="d-flex justify-content-center">
-
-                                            <div class="volume-icon" onclick="setVolume('coffe_cup')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i>
-                                            </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
                                             </div>
@@ -433,23 +441,16 @@
                                         <audio id="coffe_cup" class="coffe_cup" src="./assets/sound/main-people.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
-
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
                                         <a href="javascript:(new test()).playSound('singing_bowl');">
                                             <img id="sound_each8" img_op="singing_bowl" src="./assets/icons/singing-bowl.png" style="width: 130px;
                                             height: 130px;"> </a>
-
                                         <!-- Link -->
                                         <h3>Singing Bowl</h3>
                                         <!-- Link -->
-
                                         <div class="d-flex justify-content-center">
-
-                                            <div class="volume-icon" onclick="setVolume('singing_bowl')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i> </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="singing_bowl" volumee="singing_bowl" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
                                             </div>
@@ -464,16 +465,10 @@
                                         <a href="javascript:(new test()).playSound('tv');">
                                             <img id="sound_each9" img_op="tv" src="./assets/icons/television@2x.png" style="width: 130px;
                                             height: 130px;"> </a>
-
                                         <!-- Link -->
                                         <h3 onclick="setVolume('tv')">White Noise</h3>
                                         <!-- Link -->
-
                                         <div class="d-flex justify-content-center">
-
-                                            <div class="volume-icon" onclick="setVolume('tv')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i> </div>
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="tv" volumee="tv" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
                                             </div>
@@ -488,11 +483,50 @@
                 </div>
             </div>
         </div>
-        <div class="">
+        <div class="mb-5">
             <div class="d-flex justify-content-center">
                 <a class="btn-show-a " href="sub.php">
                     Show More
                 </a>
+            </div>
+        </div>
+        <!-- <div class="d-flex justify-content-center social">
+            <div class="">
+                <i class="social fab fa-facebook-square " aria-hidden="true"></i>
+            </div>
+            <div class="">
+                <i class="social fab fa-twitter" aria-hidden="true"></i>
+            </div>
+            <div class="">
+                <i class="social fab fa-youtube"></i>
+            </div>
+        </div> -->
+        <div class="container">
+            <div id="footer">
+                <div class="row mt-2 pb-5">
+                    <div class="col-md-4 text-center">
+                        <div id="div1">
+                            <div id="fb">
+                                <img src="./assets/icons/linkedin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div id="div2">
+                            <div id="fb">
+                                <img src="./assets/icons/facebook.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div id="div3">
+                            <div id="fb">
+                                <img src="./assets/icons/twitter (1).png">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

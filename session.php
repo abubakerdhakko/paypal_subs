@@ -11,8 +11,6 @@ $sql = mysqli_query($db,"SELECT payer_email FROM user_subscriptions WHERE payer_
 
 $row=mysqli_fetch_array($sql,$MYSQLI_ASSOC);
 
-// printf($sql);
-// die();
 
 $username=$row['username'];
  
