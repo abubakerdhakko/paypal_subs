@@ -16,11 +16,9 @@ function test() {
         console.log('master_vol', master_vol)
         console.log("a.val()", a)
         if (a.val() >= 1) {
-            // debugger;
             a.val(0)
         }
         if (a.val() < 1) {
-            // debugger;
             if (arr_sounds[v] == false) {
                 var vol_idd = document.getElementById(v)
                 vol_idd.play();
@@ -641,19 +639,13 @@ function sliderChangeFadeOut(val) {
 
 function playSoundEach(animal, amount) {
     var sound_each = document.getElementById(animal);
-    // sound_each.volume = amount;
-    // console.log('volume:', sound_each, amount)
-
-
 
     var masterVolume = document.getElementById('masterAudio').value;
     var master_vol = masterVolume
     if (global_volume == true) {
         if (master_vol > amount) {
             sound_each.volume = amount;
-
         }
-
         if (master_vol < amount) {
             sound_each.volume = master_vol;
         }
@@ -682,17 +674,24 @@ function setVolume(numbers) {
 if (typeof (Storage) === "undefined") {
     alert('Your browser is outdated!');
 }
-var aNumber = [];
-
+// var aNumber = [];
 function setLocalStorage() {
     if (localStorage.getItem('server') != "") {
 
-        var number = document.getElementById('current_shared_url').value;
-        if (number != '') {
-            aNumber.push(number);
-            localStorage.setItem('server', JSON.stringify(aNumber));
-            console.log(localStorage.getItem('server'));
+        var data = document.getElementById('current_shared_url').value;
+        if (data != '') {
+            // aNumber.push(number);
+            // localStorage.setItem('server', JSON.stringify(aNumber));
+            // console.log(localStorage.getItem('server'));
+
+            var mix = JSON.parse(localStorage.getItem('server') || "[]");
+
+            // var data = document.getElementById("locationName").value;
+            mix.push(data);
+            localStorage.setItem('server', JSON.stringify(mix));
+
             // console.log(asd) 
+            getLocalStorage()
         } else {
 
             var temp = "";
@@ -709,6 +708,7 @@ function getLocalStorage() {
 
     var temp = "";
     if (!storedMix) {
+        console.log('jjjj')
         temp += '<p>Nothing To Show</p>';
         var c = document.getElementById('data').innerHTML = temp;
 
@@ -717,23 +717,48 @@ function getLocalStorage() {
     } else {
         var str = '<ul>'
         for (var i = 0; i < storedMix.length; i++) {
-            temp += '<li class="li-mix"> <div class="d-flex justify-content-between"> ' + storedMix[i] + '<button id="' + i.toString() + '" onclick="playTune(this)" class="ml-3 mix-btn-st btn btn-primary fs-btn-ply">Play Mix</button>' + '</div> </li>';
-            console.log(temp);
+            temp += '<li class="li-mix"> <div class="d-flex justify-content-between"> ' + storedMix[i] + '<button id="' + i.toString() + '" onclick="playTune(this)" class="ml-3 mix-btn-st btn btn-primary fs-btn-ply">Play Mix</button>' +
+                '<button id="' + i.toString() + '" onclick="removeItem(this)" class="ml-3 mix-btn-st btn btn-primary fs-btn-ply">Remove Mix</button>'
+                + '</div> </li>';
         }
         str += '</ul>';
         var c = document.getElementById('data').innerHTML = temp;
     }
 }
-function clearMix() {
-    console.log('clear')
-    localStorage.clear();
+$(document).ready(function () {
     getLocalStorage();
+});
 
-};
+
+
+function removeItem(id) {
+    index = parseInt($(id).attr('id'));
+    // var obj = JSON.parse(localStorage.getItem("server"));
+    // var a = obj[index];
+
+    var obj = JSON.parse(localStorage.getItem("server"));
+    obj.splice(index, 1); // delete item at index
+    localStorage.setItem("server", JSON.stringify(obj)); //set item back into storage
+    if (obj == '') {
+        console.log('jjjj')
+        getLocalStorage();
+    }
+
+}
+
+
+
+
+
+// console.log(localStorage.cart);
+// removeItem("01");
+// console.log(localStorage.cart);
+
 function playTune(object) {
     index = parseInt($(object).attr('id'));
     var storedMix = JSON.parse(localStorage.getItem("server"));
     var a = storedMix[index];
+    // debugger;
     var c = a.split('sounds=')[1];
     console.log(c)
     var nameArr = c.split(',');
@@ -760,6 +785,13 @@ function playTune(object) {
     }
 
 }
+function clearMix() {
+    console.log('clear')
+    localStorage.clear();
+    getLocalStorage();
+
+
+};
 $('.revert').hide();
 function create_trash() {
     $('.revert').show();
@@ -786,17 +818,11 @@ function create_trash() {
             console.log('cob:', cob)
 
         }
-
         var current_locationv = sounds_array.join(',');
-
         console.log('current_locationv:', current_locationv);
         var input_value = document.getElementById('revert').value = current_locationv;
         console.log('input_valuev:', input_value);
-
-
     }
-
-
 
 
     var c = 'fire:0,thunder:0,wind:0,rain:0,waves:0,birds:0,coffe_cup:0,singing_bowl:0';
@@ -818,10 +844,6 @@ function create_trash() {
             var myDiv = $('img[img_op="' + number + '"]').removeClass("opClass");
 
         }
-        // volume
-        // var sounds_volume = document.getElementsByClassName(volume);
-        // console.log('volume', sounds_volume)
-        // for (i = 0; i < sounds.length; i++) sounds[i].volume = sounds_volume;
 
     }
 
@@ -848,15 +870,10 @@ function create_revert() {
             var number = sound_id;
             var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
         }
-        // volume
-        // var sounds_volume = document.getElementsByClassName(volume);
-        // console.log('volume', sounds_volume)
-        // for (i = 0; i < sounds.length; i++) sounds[i].volume = sounds_volume;
 
     }
 
 }
-
 
 
 

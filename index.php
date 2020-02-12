@@ -85,7 +85,7 @@
                         <div class="text-right fade-p mb-mt-1">
                             <div class="d-flex justify-content-start">
                                 <div class="mr-3">
-                                    <div id="undo-trash" class="click-stop-stop">
+                                    <div id="undo-trash" class="">
                                         <input type="hidden" id="revert">
                                         <i class="fas fa-undo revert " onclick="create_revert();"></i>
                                         <i class="fas fa-trash trash" onclick="create_trash()"></i>
