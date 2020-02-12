@@ -192,20 +192,6 @@
                                         <button class="copy-mix-" onclick="copyFunction()">Copy text</button>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center">
-                                    <a class="btn-show-a ml-3" onclick="setLocalStorage()">
-                                        Save Mix
-                                    </a>
-                                    <a class="btn-show-a ml-3" onclick="getLocalStorage()">
-                                        Show Mix
-                                    </a>
-                                    <a class="btn-show-a ml-3" onclick="clearMix()">
-                                        Clear Mix
-                                    </a>
-                                </div>
-                                <div class="" id="data">
-
-                                </div>
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div id="div1">
@@ -279,6 +265,36 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="mt-3 mb-3">
+                                        <button onclick="showCreateMix()" class="btn_mix">Create
+                                            New Mix</button>
+                                    </div>
+                                </div>
+                                <div class=" ml-5 mr-5 mb-2 mt-3 input_create_mix">
+                                    <div class="d-flex justify-content-center">
+                                        <!-- <p style="color: white;" class="pt-3  pr-3">Copy Mix: <span class="current_shared_url"></span>
+                                            </span></p> -->
+                                        <input type="hidden" id="current_shared_mix_hide">
+                                        <input type="text" id="current_shared_mix_name">
+                                        <!-- The button used to copy the text -->
+                                        <button class="copy-mix-" onclick="(new test()).create_mix(),setLocalStorage()">save mix</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center ">
+
+                                    <a class="btn-show-a ml-3" onclick="getLocalStorage()">
+                                        Show Mix
+                                    </a>
+                                    <a class="btn-show-a ml-3" onclick="clearMix()">
+                                        Clear Mix
+                                    </a>
+                                </div>
+                                <div class="" id="data">
+
+                                </div>
+
+
                             </div>
                             <div class="row animated  bounceInUp delay-4s">
                                 <div class="col-md-4">

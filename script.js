@@ -97,9 +97,6 @@ function test() {
         }
 
     };
-
-
-
     this.share_fb = function () {
         console.log('fb-url: test ', current_location)
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + current_location, 'facebook-share-dialog', "width=626, height=436")
@@ -112,6 +109,63 @@ function test() {
         console.log('twitter-url: ', current_location)
         window.open("https://twitter.com/share?url=" + current_location, 'facebook-share-dialog', "width=626, height=436")
     }
+
+    this.create_mix = function () {
+
+        // var idSelector = function () { return this.class; };
+        // var grantedId = $(":checkbox:checked").map(idSelector).get();
+        // var Denied = $(":checkbox:not(:checked)").map(idSelector).get();
+        // var idSelector = "";
+        // $.each($("input[name='today_check']:checked"), function () {
+        //   idSelector += "," + $(this).val();
+        // });
+
+        idArray = [];
+        $.each(arr_sounds, function (index, value) {
+            if (value)
+                idArray.push(index);
+        })
+        idSelector = idArray.join(',');
+
+        if (idSelector) {
+            // idSelector = idSelector.substring(1);
+
+
+            var nameArr = idSelector.split(',');
+            var current_location = 'https://supernaturalbp.com/apps/bliss/?sounds=';
+            var sounds_array = [];
+            for (j = 0; j < nameArr.length; j++) {
+                console.log("idSelector:", nameArr[j]);
+                // var sounds = document.getElementsByClassName(nameArr[j]);
+                // for (i = 0; i < sounds.length; i++) sounds[i].play();
+                // console.log('idSelector_sounds', sounds.volume)
+                var number = nameArr[j];
+                var myDiv = $('[volumee="' + number + '"]')
+                var myValue = myDiv.val()
+                var cob = nameArr[j] + ":" + myValue;
+                sounds_array.push(cob);
+                console.log('cob:', cob)
+
+            }
+
+            // alert("Granted: " + grantedId + "\nDenied: " + Denied);
+            // var current_location = window.location.href;
+            current_location += sounds_array.join(',');
+
+            console.log('current_location:', current_location);
+            var input_value = document.getElementById('current_shared_mix_hide').value = current_location;
+            console.log('input_value:', input_value);
+
+
+            // this.share_fb(current_location);
+            // this.share_linkdin(current_location);
+            // this.share_twitter(current_location);
+        } else {
+            alert('Please choose atleast one value.');
+        }
+
+    };
+
     this.create_urll = function () {
         idArray = [];
         $.each(arr_sounds, function (index, value) {
@@ -674,52 +728,77 @@ function setVolume(numbers) {
 if (typeof (Storage) === "undefined") {
     alert('Your browser is outdated!');
 }
-// var aNumber = [];
+
+$('.input_create_mix').hide();
+function showCreateMix() {
+
+    $('.input_create_mix').show();
+    $('.btn_mix').hide();
+
+}
 function setLocalStorage() {
-    if (localStorage.getItem('server') != "") {
 
-        var data = document.getElementById('current_shared_url').value;
-        if (data != '') {
-            // aNumber.push(number);
-            // localStorage.setItem('server', JSON.stringify(aNumber));
-            // console.log(localStorage.getItem('server'));
+    $('.input_create_mix').hide();
+    $('.btn_mix').show();
+    if (localStorage.getItem('mix-data') != "") {
 
-            var mix = JSON.parse(localStorage.getItem('server') || "[]");
+        let angaben = {
+            mixValue: $('#current_shared_mix_hide').val(),
+            mixName: $('#current_shared_mix_name').val(),
 
-            // var data = document.getElementById("locationName").value;
-            mix.push(data);
-            localStorage.setItem('server', JSON.stringify(mix));
-
-            // console.log(asd) 
-            getLocalStorage()
-        } else {
-
-            var temp = "";
-            temp += '<p>Please Create Mix First</p>';
-            var c = document.getElementById('data').innerHTML = temp;
         }
+        if (angaben.mixValue != '' && angaben.mixName != '') {
+
+            let localData = localStorage.getItem('mix-data');
+            if (localData) {
+                localData = JSON.parse(localData);
+            } else {
+                localData = [];
+            }
+            localData.push(angaben)
+            localStorage.setItem("mix-data", JSON.stringify(localData));
+            console.log('chkarray:',
+                localStorage.getItem('mix-data'))
+            getLocalStorage();
+        }
+        // else {
+        //     var temp = "";
+        //     temp += '<p>Please Create Mix First from (setLocalStorage())</p>';
+        //     var c = document.getElementById('data').innerHTML = temp;
+        // }
+        // var data = document.getElementById('current_shared_mix_hide').value;
+        // if (data != '' && data2 != '') {
+
+
+        //     var mix = JSON.parse(localStorage.getItem('server') || "[]");
+        //     mix.push(data);
+        //     localStorage.setItem('server', JSON.stringify(mix));
+        //     getLocalStorage()
+        // } else {
+        //     var temp = "";
+        //     temp += '<p>Please Create Mix First</p>';
+        //     var c = document.getElementById('data').innerHTML = temp;
+        // }
     }
 }
 
 
 function getLocalStorage() {
     // var storedMix = localStorage.getItem('server');
-    var storedMix = JSON.parse(localStorage.getItem("server"));
 
+    var storedMix = JSON.parse(localStorage.getItem("mix-data"));
+    console.log('storedMix_JSON.stringify:', storedMix)
     var temp = "";
     if (!storedMix) {
-        console.log('jjjj')
-        temp += '<p>Nothing To Show</p>';
+        temp += '<p>No Mix Created Yet</p>';
         var c = document.getElementById('data').innerHTML = temp;
-
         return []; // return empty array
-
     } else {
         var str = '<ul>'
         for (var i = 0; i < storedMix.length; i++) {
-            temp += '<li class="li-mix"> <div class="d-flex justify-content-between"> ' + storedMix[i] + '<button id="' + i.toString() + '" onclick="playTune(this)" class="ml-3 mix-btn-st btn btn-primary fs-btn-ply">Play Mix</button>' +
-                '<button id="' + i.toString() + '" onclick="removeItem(this)" class="ml-3 mix-btn-st btn btn-primary fs-btn-ply">Remove Mix</button>'
-                + '</div> </li>';
+            temp += '<li class="li-mix"> <div class="d-flex justify-content-between"> ' + storedMix[i].mixName + '<div class="d-flex justify-content-end"> ' + '<button id="' + i.toString() + '" onclick="playTune(this)" class="ml-3 mix-btn-st btn  fs-btn-ply sve-btn">Play Mix</button>' +
+                '<button id="' + i.toString() + '" onclick="removeItem(this)" class="ml-3 mix-btn-st btn fs-btn-ply sve-btn">Remove Mix</button>'
+                + ' </div> </div> </li>';
         }
         str += '</ul>';
         var c = document.getElementById('data').innerHTML = temp;
@@ -736,11 +815,11 @@ function removeItem(id) {
     // var obj = JSON.parse(localStorage.getItem("server"));
     // var a = obj[index];
 
-    var obj = JSON.parse(localStorage.getItem("server"));
+    var obj = JSON.parse(localStorage.getItem("mix-data"));
     obj.splice(index, 1); // delete item at index
-    localStorage.setItem("server", JSON.stringify(obj)); //set item back into storage
+    localStorage.setItem("mix-data", JSON.stringify(obj)); //set item back into storage
     if (obj == '') {
-        console.log('jjjj')
+        console.log('removeItem()')
         getLocalStorage();
     }
 
@@ -756,9 +835,13 @@ function removeItem(id) {
 
 function playTune(object) {
     index = parseInt($(object).attr('id'));
-    var storedMix = JSON.parse(localStorage.getItem("server"));
-    var a = storedMix[index];
-    // debugger;
+    var storedMix = JSON.parse(localStorage.getItem("mix-data"));
+    var a = storedMix[index].mixValue;
+    console.log('storedMix', a)
+
+
+
+    debugger;
     var c = a.split('sounds=')[1];
     console.log(c)
     var nameArr = c.split(',');

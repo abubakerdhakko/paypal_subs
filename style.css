@@ -1034,7 +1034,7 @@ a.btn-dgn {
   padding-left: 2rem;
   padding-right: 2rem;
   max-height: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .fs-btn-ply {
   font-size: 12px;
@@ -1056,4 +1056,61 @@ div#undo-trash {
   margin-right: 20px;
   cursor: pointer;
   color: #fff6f6;
+}
+.sve-btn {
+  /* font-size: 19px; */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #3c8484;
+  border: navajowhite;
+  /* font-size: 16px; */
+  /* font-size: 20px; */
+  color: white;
+  box-shadow: 0px 1px 0px 0px #0000005c;
+  /* width: 170px; */
+  /* /* height: 44px; */
+}
+
+.sve-btn:hover {
+  /* font-size: 19px; */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #3c8484;
+  border: navajowhite;
+  /* font-size: 16px; */
+  /* font-size: 20px; */
+  color: white;
+  box-shadow: 0px 1px 0px 0px #0000005c;
+  /* width: 170px; */
+  /* /* height: 44px; */
+}
+#current_shared_mix_name {
+  width: 80%;
+  background-color: #4a52526e;
+  border: none;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 15px;
+  color: white;
+  margin-bottom: 0px;
+}
+
+button.copy-mix- {
+  background-color: #3c8484;
+  color: white;
+  border-color: #3c8484;
+}
+.btn_mix {
+  font-size: 19px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #3c8484;
+  border: navajowhite;
+  font-size: 16px;
+  font-size: 20px;
+  color: white;
+  box-shadow: 0px 1px 0px 0px #0000005c;
+  width: 170px;
+  height: 44px;
 }
