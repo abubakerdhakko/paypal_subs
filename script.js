@@ -761,6 +761,8 @@ function setLocalStorage() {
                 localStorage.getItem('mix-data'))
             getLocalStorage();
         }
+        $('#current_shared_mix_name').val("");
+
         // else {
         //     var temp = "";
         //     temp += '<p>Please Create Mix First from (setLocalStorage())</p>';

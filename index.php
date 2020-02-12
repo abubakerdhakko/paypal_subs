@@ -248,7 +248,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div id="random_mix_items">
                                 <div class="row">
                                     <div class="col-md-12">
