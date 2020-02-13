@@ -84,7 +84,7 @@
 
                         <div class="text-right fade-p mb-mt-1">
                             <div class="d-flex justify-content-start">
-                                <div class="mr-3">
+                                <div class="">
                                     <div id="undo-trash" class="">
                                         <input type="hidden" id="revert">
                                         <i class="fas fa-undo revert " onclick="create_revert();"></i>
@@ -99,7 +99,7 @@
                                 <div class="">
                                     <!-- <p>master volume</p> -->
                                 </div>
-                                <div class="pl-3 pt-3">
+                                <div class="pl-3 mstr">
                                     <input type="range" class="masterVolume" id="masterAudio" max="1" min="0" step="0.01" onchange="masterChangeVolume(this.value)" />
                                     <!-- <input type="range" class="masterVolume" id="z" max="1" min="0" step="0.01" /> -->
                                     <div id="audioSlider"></div>
@@ -149,21 +149,6 @@
                                     <!-- <button onclick="(new test()).audioVolumeOut();" class="shrd-btn">audioVolumeOut
                                         </button> -->
                                 </div>
-                                <div class="animated  fadeInLeft delay-2s">
-                                    <div class="text-center">
-                                        <button id="button_share">
-                                            <img src="./assets/icons/me.png">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="animated  fadeInLeft delay-3s">
-                                    <div class="text-center">
-                                        <button id="random_mix">
-                                            <img src="./assets/icons/random-button.png">
-                                        </button>
-                                    </div>
-                                </div>
-
                                 <div class="animated  fadeInLeft delay-4s">
                                     <div class="text-center">
                                         <button id="start_stop">
@@ -171,6 +156,22 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                <div class="animated  fadeInLeft delay-3s">
+                                    <div class="text-center">
+                                        <button id="random_mix">
+                                            <img src="./assets/icons/random-button.png">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="animated  fadeInLeft delay-2s">
+                                    <div class="text-center">
+                                        <button id="button_share">
+                                            <img src="./assets/icons/me.png">
+                                        </button>
+                                    </div>
+                                </div>
+
 
                             </div>
                             <div id="shared-items">
@@ -216,6 +217,12 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="text-right pt-3">
+                                    <button class="btn close_btn" id="share-close">
+                                        Close
+                                    </button>
+                                </div>
                             </div>
 
                             <div id="start_stop-items">
@@ -227,8 +234,8 @@
 
                                                 <input type="number" id="number" min="0" placeholder="Enter Time In Minutes " />
                                                 <button class="start-after" onclick="countdown()">Start After</button>
-                                                <div id="div_timer">1
-                                                </div>
+                                                <!-- <div id="div_timer">1
+                                                </div> -->
                                             </div>
                                         </div>
 
@@ -247,13 +254,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="text-right pt-3">
+                                    <button class="btn close_btn" id="start_stop_counter">
+                                        Close
+                                    </button>
+                                </div>
                             </div>
                             <div id="random_mix_items">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="div1" class="box">
                                             <Select id="Selector" onchange="myFunction()">
-                                                <option value="">Select option</option>
+                                                <option value="">Select Random Mix</option>
                                                 <option value="wet">A snug, wett</option>
                                                 <option value="airy">An airy, humming sunset at the prairie</option>
                                                 <option value="High_tide">High tide at the tearoom</option>
@@ -264,13 +277,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center">
+                                <!-- <div class="d-flex justify-content-center">
                                     <div class="mt-3 mb-3">
                                         <button onclick="showCreateMix()" class="btn_mix">Create
                                             New Mix</button>
                                     </div>
-                                </div>
-                                <div class=" ml-5 mr-5 mb-2 mt-3 input_create_mix">
+                                </div> -->
+                                <div class="  mb-3 mt-3 input_create_mix">
                                     <div class="d-flex justify-content-center">
                                         <!-- <p style="color: white;" class="pt-3  pr-3">Copy Mix: <span class="current_shared_url"></span>
                                             </span></p> -->
@@ -280,7 +293,7 @@
                                         <button class="copy-mix-" onclick="(new test()).create_mix(),setLocalStorage()">save mix</button>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center ">
+                                <!-- <div class="d-flex justify-content-center ">
 
                                     <a class="btn-show-a ml-3" onclick="getLocalStorage()">
                                         Show Mix
@@ -288,12 +301,15 @@
                                     <a class="btn-show-a ml-3" onclick="clearMix()">
                                         Clear Mix
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="" id="data">
 
                                 </div>
-
-
+                                <div class="text-right pt-3">
+                                    <button class="btn close_btn" id="close-random">
+                                        Close
+                                    </button>
+                                </div>
                             </div>
                             <div class="row animated  bounceInUp delay-4s">
                                 <div class="col-md-4">
@@ -319,7 +335,7 @@
                                                 <i class="fa fa-volume-down vol-down"></i>
                                             </div> -->
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="fire" volumee="fire" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
+                                                <input type="range" id="vol" vol_op="fire" volumee="fire" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -340,7 +356,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="thunder" volumee="thunder" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('thunder',this.value)" />
+                                                <input type="range" id="vol" vol_op="thunder" volumee="thunder" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('thunder',this.value)" />
                                             </div>
                                         </div>
 
@@ -348,27 +364,41 @@
                                         <audio id="thunder" class="thunder" src="./assets/sound/glue-thunder.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
+
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
                                         <a href="javascript:(new test()).playSound('wind');">
-                                            <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png"> </a>
+                                            <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png">
+                                        </a>
                                         <!-- Link -->
-                                        <!-- Link -->
-                                        <h3>Wind</h3>
+                                        <h3>wind</h3>
                                         <!-- Link -->
 
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="wind" volumee="wind" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
+                                                <input type="range" id="vol" vol_op="wind" volumee="wind" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
                                             </div>
                                         </div>
 
                                         <!--Audio File-->
-                                        <audio id="wind" src="./assets/sound/glue-wind.mp4" preload="auto" loop></audio>
+                                        <audio id="wind" class="wind" src="./assets/sound/glue-wind.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
+                                <!-- <div class="col-md-4">
+                                    <div class="audio-div ">
+                                        <a href="javascript:(new test()).playSound('wind');">
+                                            <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png"> </a>
+                                        <h3>Wind</h3>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="">
+                                                <input type="range" id="vol" vol_op="wind" volumee="wind" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
+                                            </div>
+                                        </div>
+                                        <audio id="wind" src="./assets/sound/glue-wind.mp4" preload="auto" loop></audio>
+                                    </div>
+                                </div> -->
                             </div>
 
                             <div class="row animated   bounceInUp  delay-5s">
@@ -385,7 +415,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="rain" volumee="rain" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
+                                                <input type="range" id="vol" vol_op="rain" volumee="rain" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
                                             </div>
                                         </div>
 
@@ -409,7 +439,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="waves" volumee="waves" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
+                                                <input type="range" id="vol" vol_op="waves" volumee="waves" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -429,7 +459,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="birds" volumee="birds" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
+                                                <input type="range" id="vol" vol_op="birds" volumee="birds" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -449,7 +479,7 @@
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
+                                                <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -467,7 +497,7 @@
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="singing_bowl" volumee="singing_bowl" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
+                                                <input type="range" id="vol" vol_op="singing_bowl" volumee="singing_bowl" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -485,11 +515,11 @@
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="tv" volumee="tv" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
+                                                <input type="range" id="vol" vol_op="tv" volumee="tv" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
-                                        <audio id="tv" class="tv" src="./assets/sound/" preload="auto" loop></audio>
+                                        <audio id="tv" class="tv" src="./assets/sound/glue-whitenoise.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
                             </div>
@@ -516,24 +546,24 @@
                 <i class="social fab fa-youtube"></i>
             </div>
         </div> -->
-        <div class="container">
-            <div id="footer">
-                <div class="row mt-2 pb-5">
-                    <div class="col-md-4 text-center">
+        <div class="footer_bg">
+            <div id="footer" class="">
+                <div class="d-flex justify-content-center">
+                    <div class="">
                         <div id="div1">
                             <div id="fb">
                                 <img src="./assets/icons/linkedin.png">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="margin-mid-icon-footer">
                         <div id="div2">
                             <div id="fb">
                                 <img src="./assets/icons/facebook.png">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="">
                         <div id="div3">
                             <div id="fb">
                                 <img src="./assets/icons/twitter (1).png">

@@ -2,27 +2,35 @@ var current_location;
 var ids_for_sounds = '';
 var playing = false;
 var arr = [];
-var global_volume = true;
+var global_volume = false;
 var master_vol = '';
+var trash = true;
 
 var arr_sounds = { fire: false, thunder: false, wind: false, rain: false, waves: false, birds: false, coffe_cup: false, singing_bowl: false, tv: false };
 
 function test() {
     this.playSound = function (v) {
+
+        $('.revert').hide();
+        $('.trash').show();
+        document.getElementById('revert').value = '';
         var myAudio = document.getElementById(v);
         var number = v
         console.log("number", number)
-        var a = $('[volumee="' + number + '"]').val(Number($('[volumee="' + number + '"]').val()) + 0.24);
+        a = $('[volumee="' + number + '"]')
+        a.val(Number(a.val()) + 0.25);
         console.log('master_vol', master_vol)
         console.log("a.val()", a)
-        if (a.val() >= 1) {
+        // debugger;
+        if (a.val() > 1.0) {
             a.val(0)
         }
         if (a.val() < 1) {
             if (arr_sounds[v] == false) {
                 var vol_idd = document.getElementById(v)
-                vol_idd.play();
-
+                if (global_volume == true) {
+                    vol_idd.play();
+                }
                 arr_sounds[v] = true;
                 $('[img_op="' + v + '"]').addClass('opClass')
                 var input_val = $('[volumee="' + v + '"]').val();
@@ -227,8 +235,7 @@ function masterChangeVolume(amount) {
 };
 jQuery(function () {
     var timer;
-
-    $('#playButton').hide();
+    $('#stopButton').hide();
     document.getElementById('stopButton').onclick = function () {
         global_volume = false;
         var sounds = document.getElementsByTagName('audio');
@@ -267,6 +274,7 @@ jQuery(function () {
             // debugger;
             var sounds_fade = document.getElementById(nameArr[index]);
             sounds_fade.volume = a;
+            sounds_fade.play();
             // var asd = $('[volumee="' + sounds_names + '"]').val(Number($('[volumee="' + sounds_names + '"]').val()) + 0.24);
             // console.log("a_after", sounds_fade, a)
 
@@ -283,6 +291,8 @@ jQuery(function () {
         console.log('playButton');
 
         console.log('global_volume', global_volume)
+
+        console.log('array_sounds', nameArr)
     }
 
     var timer;
@@ -468,43 +478,228 @@ $(function () {
 
 
 function myFunction() {
+
     var x = document.getElementById("Selector").value;
     if (x === 'wet') {
+
         $('a img').removeClass('opClass');
         var sounds = document.getElementsByTagName('audio');
         for (i = 0; i < sounds.length; i++) sounds[i].pause();
+
+        $.each(arr_sounds, function (key, value) {
+            var a = arr_sounds[key] = false;
+            console.log(a);
+
+        });
+        var input = document.getElementById("vol").value = 0;
         setTimeout(function () {
-            var birds_mix = document.getElementById('rain');
-            birds_mix.play();
-            var birds_sound = document.getElementById('fire');
-            birds_sound.play();
+
+            arr_sounds.fire = true;
+            // arr_sounds.thunder = false;
+            // arr_sounds.wind = false;
+            arr_sounds.rain = true;
+            // arr_sounds.waves = false;
+            // arr_sounds.birds = false;
+            // arr_sounds.coffe_cup = false;
+            // arr_sounds.singing_bowl = false;
+            // arr_sounds.tv = false;
+            var sound_each = document.getElementById('rain')
+            if (global_volume == true) {
+                sound_each.play();
+                sound_each.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each.pause();
+                sound_each.volume = 0
+            }
+            var myDiv = $('[volumee="rain"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            var sound_each1 = document.getElementById('fire')
+            if (global_volume == true) {
+                sound_each1.play();
+                sound_each1.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each1.pause();
+                sound_each1.volume = 0
+            }
+            sound_each.play();
+            var myDiv = $('[volumee="fire"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each1.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each1.volume = master_vol;
+                }
+            }
+            console.log('arr_sounds_wet', arr_sounds)
             $('#sound_each1').addClass('opClass ');
             $('#sound_each4').addClass('opClass ');
+            debugger
+
         }, 500);
+
     }
     if (x === 'airy') {
+
         $('a img').removeClass('opClass');
+
         var sounds = document.getElementsByTagName('audio');
         for (i = 0; i < sounds.length; i++) sounds[i].pause();
         var sounds = document.getElementsByTagName('audio');
+
+
+
+        $.each(arr_sounds, function (key, value) {
+            var a = arr_sounds[key] = false;
+            console.log(a);
+
+        });
+        var input = document.getElementById("vol").value = 0;
         setTimeout(function () {
-            var wind_mix = document.getElementById('wind');
-            wind_mix.play();
-            var tv_sound = document.getElementById('tv');
-            tv_sound.play();
+            var sound_each = document.getElementById('wind')
+            if (global_volume == true) {
+                sound_each.play();
+                sound_each.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each.pause();
+                sound_each.volume = 0
+            }
+            arr_sounds.wind = true;
+            var myDiv = $('[volumee="wind"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            var sound_each1 = document.getElementById('tv')
+            if (global_volume == true) {
+                sound_each1.play();
+                sound_each1.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each1.pause();
+                sound_each1.volume = 0
+            }
+            arr_sounds.tv = true;
+            var myDiv = $('[volumee="tv"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each1.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each1.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            console.log('arr_sounds', arr_sounds)
             $('#sound_each3').addClass('opClass ');
             $('#sound_each9').addClass('opClass ');
-        }, 500);
+            console.log('arr_sounds', arr_sounds)
+        }, 2000);
+
     }
     if (x === 'High_tide') {
         $('a img').removeClass('opClass');
         var sounds = document.getElementsByTagName('audio');
         for (i = 0; i < sounds.length; i++) sounds[i].pause();
+
+
+        $.each(arr_sounds, function (key, value) {
+            var a = arr_sounds[key] = false;
+            console.log(a);
+
+        });
         setTimeout(function () {
-            var wind_mix = document.getElementById('waves');
-            wind_mix.play();
-            var tv_sound = document.getElementById('coffe_cup');
-            tv_sound.play();
+
+
+
+            var sound_each = document.getElementById('waves')
+            if (global_volume == true) {
+                sound_each.play();
+                sound_each.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each.pause();
+                sound_each.volume = 0
+            }
+            arr_sounds.waves = true;
+            var myDiv = $('[volumee="waves"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            var sound_each1 = document.getElementById('coffe_cup')
+            if (global_volume == true) {
+                sound_each1.play();
+                sound_each1.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each1.pause();
+                sound_each1.volume = 0
+            }
+            arr_sounds.coffe_cup = true;
+            var myDiv = $('[volumee="coffe_cup"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each1.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each1.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+
+
+
+            console.log('arr_sounds', arr_sounds)
+
+
+
+
             $('#sound_each5').addClass('opClass ');
             $('#sound_each7').addClass('opClass ');
         }, 500);
@@ -513,11 +708,70 @@ function myFunction() {
         $('a img').removeClass('opClass');
         var sounds = document.getElementsByTagName('audio');
         for (i = 0; i < sounds.length; i++) sounds[i].pause();
+
+        $.each(arr_sounds, function (key, value) {
+            var a = arr_sounds[key] = false;
+            console.log(a);
+
+        });
         setTimeout(function () {
-            var singing_bowl_mix = document.getElementById('singing_bowl');
-            singing_bowl_mix.play();
-            var coffeCup_sound = document.getElementById('coffe_cup');
-            coffeCup_sound.play();
+
+
+            var sound_each = document.getElementById('singing_bowl')
+            if (global_volume == true) {
+                sound_each.play();
+                sound_each.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each.pause();
+                sound_each.volume = 0
+            }
+            arr_sounds.singing_bowl = true;
+            var myDiv = $('[volumee="singing_bowl"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            var sound_each1 = document.getElementById('coffe_cup')
+            if (global_volume == true) {
+                sound_each1.play();
+                sound_each1.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each1.pause();
+                sound_each1.volume = 0
+            }
+            arr_sounds.coffe_cup = true;
+            var myDiv = $('[volumee="coffe_cup"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each1.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each1.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+
+
+
+            console.log('arr_sounds', arr_sounds)
+
+
+
             $('#sound_each8').addClass('opClass ');
             $('#sound_each7').addClass('opClass ');
         }, 500);
@@ -526,11 +780,62 @@ function myFunction() {
         $('a img').removeClass('opClass');
         var sounds = document.getElementsByTagName('audio');
         for (i = 0; i < sounds.length; i++) sounds[i].pause();
+
+        $.each(arr_sounds, function (key, value) {
+            var a = arr_sounds[key] = false;
+            console.log(a);
+
+        });
         setTimeout(function () {
-            var thunder_mix = document.getElementById('thunder');
-            thunder_mix.play();
-            var coffeCup_sound = document.getElementById('waves');
-            coffeCup_sound.play();
+            var sound_each = document.getElementById('thunder')
+            if (global_volume == true) {
+                sound_each.play();
+                sound_each.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each.pause();
+                sound_each.volume = 0
+            }
+            arr_sounds.thunder = true;
+            var myDiv = $('[volumee="thunder"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            var sound_each1 = document.getElementById('waves')
+            if (global_volume == true) {
+                sound_each1.play();
+                sound_each1.volume = 0.24
+            }
+            else {
+                console.log('dddd')
+                sound_each1.pause();
+                sound_each1.volume = 0
+            }
+            arr_sounds.waves = true;
+            var myDiv = $('[volumee="waves"]').val(0.24);
+            var amount = 0.24
+            var masterVolume = document.getElementById('masterAudio').value;
+            var master_vol = masterVolume
+            if (global_volume == true) {
+                if (master_vol > amount) {
+                    sound_each1.volume = amount;
+                }
+                if (master_vol < amount) {
+                    sound_each1.volume = master_vol;
+                }
+                console.log('master_vol', master_vol, "amount", amount)
+            }
+            console.log('arr_sounds', arr_sounds)
             $('#sound_each2').addClass('opClass ');
             $('#sound_each5').addClass('opClass ');
         }, 500);
@@ -538,12 +843,40 @@ function myFunction() {
 
 
 }
+
+
+$('#vol').on('input', function (e) {
+    var valueOfInput = Number(e.target.value);
+    if (valueOfInput < 25) {
+        var desiredWidth = valueOfInput + ((1.5 / 100) * (100 - valueOfInput));
+    } else if (valueOfInput >= 25 && valueOfInput <= 50) {
+        var desiredWidth = valueOfInput + ((0.75 / 100) * (100 - valueOfInput));
+    } else if (valueOfInput >= 51 && valueOfInput <= 75) {
+        var desiredWidth = valueOfInput - ((0.75 / 100) * valueOfInput);
+    } else {
+        var desiredWidth = valueOfInput - ((1.5 / 100) * valueOfInput);
+    }
+    $('.slider').width(desiredWidth + '%');
+});
 $("#random_mix_items").hide();
 $("#shared-items").hide();
 $("#start_stop-items").hide();
 $("#login-sec").hide();
 
 $(document).ready(function () {
+    $("#close-random").click(function () {
+        $("#random_mix_items").fadeOut(1000);
+
+    });
+    $("#start_stop_counter").click(function () {
+        $("#start_stop-items").fadeOut(1000);
+
+    });
+    $("#share-close").click(function () {
+        $("#shared-items").fadeOut(1000);
+
+    });
+    start_stop
     $("#button_share").click(function () {
         $("#start_stop-items").hide();
         $("#random_mix_items").hide();
@@ -676,18 +1009,15 @@ var rangeValue = function () {
     }, delay);
 }
 
-// elem.addEventListener("input", rangeValue);
 
 function sliderChange(val) {
     document.getElementById('output').innerHTML = val; // get
 }
-// document.getElementById('slider').value = 50; // set
 
 
 function sliderChangeFadeOut(val) {
     document.getElementById('outputFadeOut').innerHTML = val; // get
 }
-// document.getElementById('slider').value = 50; // set
 
 
 
@@ -708,10 +1038,6 @@ function playSoundEach(animal, amount) {
 };
 
 
-
-
-
-
 $('.vol-down').hide()
 function setVolume(numbers) {
     var number = numbers
@@ -729,17 +1055,15 @@ if (typeof (Storage) === "undefined") {
     alert('Your browser is outdated!');
 }
 
-$('.input_create_mix').hide();
-function showCreateMix() {
+// $('.input_create_mix').hide();
+// function showCreateMix() {
 
-    $('.input_create_mix').show();
-    $('.btn_mix').hide();
+//     $('.input_create_mix').show();
+//     $('.btn_mix').hide();
 
-}
+// }
 function setLocalStorage() {
 
-    $('.input_create_mix').hide();
-    $('.btn_mix').show();
     if (localStorage.getItem('mix-data') != "") {
 
         let angaben = {
@@ -748,7 +1072,6 @@ function setLocalStorage() {
 
         }
         if (angaben.mixValue != '' && angaben.mixName != '') {
-
             let localData = localStorage.getItem('mix-data');
             if (localData) {
                 localData = JSON.parse(localData);
@@ -762,25 +1085,6 @@ function setLocalStorage() {
             getLocalStorage();
         }
         $('#current_shared_mix_name').val("");
-
-        // else {
-        //     var temp = "";
-        //     temp += '<p>Please Create Mix First from (setLocalStorage())</p>';
-        //     var c = document.getElementById('data').innerHTML = temp;
-        // }
-        // var data = document.getElementById('current_shared_mix_hide').value;
-        // if (data != '' && data2 != '') {
-
-
-        //     var mix = JSON.parse(localStorage.getItem('server') || "[]");
-        //     mix.push(data);
-        //     localStorage.setItem('server', JSON.stringify(mix));
-        //     getLocalStorage()
-        // } else {
-        //     var temp = "";
-        //     temp += '<p>Please Create Mix First</p>';
-        //     var c = document.getElementById('data').innerHTML = temp;
-        // }
     }
 }
 
@@ -791,23 +1095,32 @@ function getLocalStorage() {
     var storedMix = JSON.parse(localStorage.getItem("mix-data"));
     console.log('storedMix_JSON.stringify:', storedMix)
     var temp = "";
-    if (!storedMix) {
-        temp += '<p>No Mix Created Yet</p>';
+    if (storedMix == '') {
+        temp += '<p class="text-center mb-0">No Mix Created Yet </p>';
         var c = document.getElementById('data').innerHTML = temp;
         return []; // return empty array
     } else {
         var str = '<ul>'
         for (var i = 0; i < storedMix.length; i++) {
-            temp += '<li class="li-mix"> <div class="d-flex justify-content-between"> ' + storedMix[i].mixName + '<div class="d-flex justify-content-end"> ' + '<button id="' + i.toString() + '" onclick="playTune(this)" class="ml-3 mix-btn-st btn  fs-btn-ply sve-btn">Play Mix</button>' +
-                '<button id="' + i.toString() + '" onclick="removeItem(this)" class="ml-3 mix-btn-st btn fs-btn-ply sve-btn">Remove Mix</button>'
-                + ' </div> </div> </li>';
+            temp += '<li class="li-mix"> <div class="flex-container"> '
+                + '<div class="flex-10 border_mix"> <span class="stored_Mix_Name">' + storedMix[i].mixName + '</span></div>' + '<div class=" flex-1 border_mix_btn"> ' + '<button id="' + i.toString() + '" onclick="playTune(this)" class=" mix-btn-st btn  fs-btn-ply ">Play Mix</button>' + '</div>' +
+                '<div class="flex-1 border_mix_btn1">' + '<button id="' + i.toString() + '" onclick="removeItem(this)" class=" mix-btn-st btn fs-btn-ply ">Remove Mix</button>' +
+                ' </div> </div> </li>';
         }
         str += '</ul>';
         var c = document.getElementById('data').innerHTML = temp;
     }
 }
+
 $(document).ready(function () {
     getLocalStorage();
+    var storedMix = JSON.parse(localStorage.getItem("mix-data"));
+    var temp = "";
+    if (!storedMix) {
+        temp += '<p class="text-center">No Mix Created Yet</p>';
+        var c = document.getElementById('data').innerHTML = temp;
+        return []; // return empty array
+    }
 });
 
 
@@ -824,26 +1137,16 @@ function removeItem(id) {
         console.log('removeItem()')
         getLocalStorage();
     }
+    getLocalStorage();
 
 }
 
-
-
-
-
-// console.log(localStorage.cart);
-// removeItem("01");
-// console.log(localStorage.cart);
 
 function playTune(object) {
     index = parseInt($(object).attr('id'));
     var storedMix = JSON.parse(localStorage.getItem("mix-data"));
     var a = storedMix[index].mixValue;
     console.log('storedMix', a)
-
-
-
-    debugger;
     var c = a.split('sounds=')[1];
     console.log(c)
     var nameArr = c.split(',');
@@ -854,14 +1157,30 @@ function playTune(object) {
         var sounds = document.getElementsByClassName(sound_id);
         console.log('sound_id', sound_id)
         for (i = 0; i < sounds.length; i++) {
-            sounds[i].play();
-            sounds[i].volume = volumee;
+
+            // sounds[i].play();
+            // sounds[i].volume = volumee;
+            // $.each(arr_sounds, function (key, value) {
+            //     var a = arr_sounds[key] = false;
+            //     console.log(a);
+
+            // });
+            if (global_volume == true) {
+                sounds[i].volume = volumee;
+            }
+            else {
+                sounds[i].volume = 0;
+            }
+            arr_sounds[sound_id] = true
             var slider_no = sound_id;
             var myDiv = $('[volumee="' + slider_no + '"]')
             var myValue = myDiv.val(volumee)
             var number = sound_id;
             var myDiv = $('img[img_op="' + number + '"]').addClass("opClass");
+
         }
+        console.log(arr_sounds)
+
         // volume
         // var sounds_volume = document.getElementsByClassName(volume);
         // console.log('volume', sounds_volume)
@@ -881,6 +1200,11 @@ $('.revert').hide();
 function create_trash() {
     $('.revert').show();
     $('.trash').hide();
+
+    // if (trash == true) {
+    //     $('.revert').hide();
+    //     $('.trash').show();
+    // }
 
     idArray = [];
     $.each(arr_sounds, function (index, value) {
@@ -909,8 +1233,7 @@ function create_trash() {
         console.log('input_valuev:', input_value);
     }
 
-
-    var c = 'fire:0,thunder:0,wind:0,rain:0,waves:0,birds:0,coffe_cup:0,singing_bowl:0';
+    var c = 'fire:0,thunder:0,wind:0,rain:0,waves:0,birds:0,coffe_cup:0,singing_bowl:0,tv:0';
     console.log(c)
     var nameArr = c.split(',');
     for (j = 0; j < nameArr.length; j++) {
@@ -932,6 +1255,12 @@ function create_trash() {
 
     }
 
+    $.each(arr_sounds, function (key, value) {
+        var a = arr_sounds[key] = false;
+        console.log('revert', a);
+
+    });
+
 }
 
 function create_revert() {
@@ -947,8 +1276,16 @@ function create_revert() {
         var sounds = document.getElementsByClassName(sound_id);
         console.log('sound_id', sound_id)
         for (i = 0; i < sounds.length; i++) {
-            sounds[i].play();
-            sounds[i].volume = volumee;
+            // sounds[i].play();
+            // sounds[i].volume = volumee;
+
+            if (global_volume == true) {
+                sounds[i].volume = volumee;
+            }
+            else {
+                sounds[i].volume = 0;
+            }
+            arr_sounds[sound_id] = true
             var slider_no = sound_id;
             var myDiv = $('[volumee="' + slider_no + '"]')
             var myValue = myDiv.val(volumee)
