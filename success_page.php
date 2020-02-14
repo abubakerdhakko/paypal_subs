@@ -88,6 +88,13 @@ include_once 'session.php';
                         <div class="text-right fade-p mb-mt-1">
                             <div class="d-flex justify-content-start">
                                 <div class="">
+                                    <div id="undo-trash" class="">
+                                        <input type="hidden" id="revert">
+                                        <i class="fas fa-undo revert " onclick="create_revert();"></i>
+                                        <i class="fas fa-trash trash" onclick="create_trash()"></i>
+                                    </div>
+                                </div>
+                                <div class="">
                                     <div id="start-stop" class="click-stop-stop">
                                         <img src="./assets/icons/life.png">
                                     </div>
@@ -95,10 +102,16 @@ include_once 'session.php';
                                 <div class="">
                                     <!-- <p>master volume</p> -->
                                 </div>
-                                <div class="pl-3 pt-3">
+                                <div class="pl-3 mstr">
                                     <input type="range" class="masterVolume" id="masterAudio" max="1" min="0" step="0.01" onchange="masterChangeVolume(this.value)" />
                                     <!-- <input type="range" class="masterVolume" id="z" max="1" min="0" step="0.01" /> -->
                                     <div id="audioSlider"></div>
+                                </div>
+
+                                <div class="pl-3">
+                                    <button type="button" class="btn btn-primary btn-dgn">
+                                        Logout
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -145,21 +158,6 @@ include_once 'session.php';
                                     <!-- <button onclick="(new test()).audioVolumeOut();" class="shrd-btn">audioVolumeOut
                                         </button> -->
                                 </div>
-                                <div class="animated  fadeInLeft delay-2s">
-                                    <div class="text-center">
-                                        <button id="button_share">
-                                            <img src="./assets/icons/me.png">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="animated  fadeInLeft delay-3s">
-                                    <div class="text-center">
-                                        <button id="random_mix">
-                                            <img src="./assets/icons/random-button.png">
-                                        </button>
-                                    </div>
-                                </div>
-
                                 <div class="animated  fadeInLeft delay-4s">
                                     <div class="text-center">
                                         <button id="start_stop">
@@ -167,6 +165,22 @@ include_once 'session.php';
                                         </button>
                                     </div>
                                 </div>
+
+                                <div class="animated  fadeInLeft delay-3s">
+                                    <div class="text-center">
+                                        <button id="random_mix">
+                                            <img src="./assets/icons/random-button.png">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="animated  fadeInLeft delay-2s">
+                                    <div class="text-center">
+                                        <button id="button_share">
+                                            <img src="./assets/icons/me.png">
+                                        </button>
+                                    </div>
+                                </div>
+
 
                             </div>
                             <div id="shared-items">
@@ -188,7 +202,7 @@ include_once 'session.php';
                                         <button class="copy-mix-" onclick="copyFunction()">Copy text</button>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div id="div1">
                                             <div id="fb" onclick="(new test()).share_linkdin();">
@@ -212,6 +226,12 @@ include_once 'session.php';
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="text-right pt-3">
+                                    <button class="btn close_btn" id="share-close">
+                                        Close
+                                    </button>
+                                </div>
                             </div>
 
                             <div id="start_stop-items">
@@ -223,8 +243,8 @@ include_once 'session.php';
 
                                                 <input type="number" id="number" min="0" placeholder="Enter Time In Minutes " />
                                                 <button class="start-after" onclick="countdown()">Start After</button>
-                                                <div id="div_timer">1
-                                                </div>
+                                                <!-- <div id="div_timer">1
+                                                </div> -->
                                             </div>
                                         </div>
 
@@ -243,25 +263,61 @@ include_once 'session.php';
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                                <div class="text-right pt-3">
+                                    <button class="btn close_btn" id="start_stop_counter">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
                             <div id="random_mix_items">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="div1" class="box">
                                             <Select id="Selector" onchange="myFunction()">
-                                                <option value="">Select option</option>
+                                                <option value="">Select Random Mix</option>
                                                 <option value="wet">A snug, wett</option>
                                                 <option value="airy">An airy, humming sunset at the prairie</option>
                                                 <option value="High_tide">High tide at the tearoom</option>
                                                 <option value="Ambient">Ambient meditation</option>
                                                 <option value="turbulent">
                                                     A turbulent, surging afternoon at the woods</option>
-
-
                                             </Select>
                                         </div>
                                     </div>
+                                </div>
+                                <!-- <div class="d-flex justify-content-center">
+                                    <div class="mt-3 mb-3">
+                                        <button onclick="showCreateMix()" class="btn_mix">Create
+                                            New Mix</button>
+                                    </div>
+                                </div> -->
+                                <div class="  mb-3 mt-3 input_create_mix">
+                                    <div class="d-flex justify-content-center">
+                                        <!-- <p style="color: white;" class="pt-3  pr-3">Copy Mix: <span class="current_shared_url"></span>
+                                            </span></p> -->
+                                        <input type="hidden" id="current_shared_mix_hide">
+                                        <input type="text" id="current_shared_mix_name">
+                                        <!-- The button used to copy the text -->
+                                        <button class="copy-mix-" onclick="(new test()).create_mix(),setLocalStorage()">save mix</button>
+                                    </div>
+                                </div>
+                                <!-- <div class="d-flex justify-content-center ">
+
+                                    <a class="btn-show-a ml-3" onclick="getLocalStorage()">
+                                        Show Mix
+                                    </a>
+                                    <a class="btn-show-a ml-3" onclick="clearMix()">
+                                        Clear Mix
+                                    </a>
+                                </div> -->
+                                <div class="" id="data">
+
+                                </div>
+                                <div class="text-right pt-3">
+                                    <button class="btn close_btn" id="close-random">
+                                        Close
+                                    </button>
                                 </div>
                             </div>
                             <div class="row animated  bounceInUp delay-4s">
@@ -288,7 +344,7 @@ include_once 'session.php';
                                                 <i class="fa fa-volume-down vol-down"></i>
                                             </div> -->
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="fire" volumee="fire" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
+                                                <input type="range" id="vol" vol_op="fire" volumee="fire" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -309,7 +365,7 @@ include_once 'session.php';
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="thunder" volumee="thunder" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('thunder',this.value)" />
+                                                <input type="range" id="vol" vol_op="thunder" volumee="thunder" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('thunder',this.value)" />
                                             </div>
                                         </div>
 
@@ -317,27 +373,41 @@ include_once 'session.php';
                                         <audio id="thunder" class="thunder" src="./assets/sound/glue-thunder.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
+
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
                                         <a href="javascript:(new test()).playSound('wind');">
-                                            <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png"> </a>
+                                            <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png">
+                                        </a>
                                         <!-- Link -->
-                                        <!-- Link -->
-                                        <h3>Wind</h3>
+                                        <h3>wind</h3>
                                         <!-- Link -->
 
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="wind" volumee="wind" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
+                                                <input type="range" id="vol" vol_op="wind" volumee="wind" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
                                             </div>
                                         </div>
 
                                         <!--Audio File-->
-                                        <audio id="wind" src="./assets/sound/glue-wind.mp4" preload="auto" loop></audio>
+                                        <audio id="wind" class="wind" src="./assets/sound/glue-wind.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
+                                <!-- <div class="col-md-4">
+                                    <div class="audio-div ">
+                                        <a href="javascript:(new test()).playSound('wind');">
+                                            <img id="sound_each3" img_op="wind" src="./assets/icons/Page-1@2x.png"> </a>
+                                        <h3>Wind</h3>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="">
+                                                <input type="range" id="vol" vol_op="wind" volumee="wind" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
+                                            </div>
+                                        </div>
+                                        <audio id="wind" src="./assets/sound/glue-wind.mp4" preload="auto" loop></audio>
+                                    </div>
+                                </div> -->
                             </div>
 
                             <div class="row animated   bounceInUp  delay-5s">
@@ -354,7 +424,7 @@ include_once 'session.php';
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="rain" volumee="rain" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
+                                                <input type="range" id="vol" vol_op="rain" volumee="rain" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
                                             </div>
                                         </div>
 
@@ -378,7 +448,7 @@ include_once 'session.php';
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="waves" volumee="waves" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
+                                                <input type="range" id="vol" vol_op="waves" volumee="waves" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -398,16 +468,14 @@ include_once 'session.php';
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="birds" volumee="birds" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
+                                                <input type="range" id="vol" vol_op="birds" volumee="birds" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
-
                                         <audio id="birds" class="birds" src="./assets/sound/glue-birds.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row animated   bounceInUp  delay-6s">
                                 <div class="col-md-4">
                                     <div class="audio-div ">
@@ -418,33 +486,27 @@ include_once 'session.php';
                                         <!-- Link -->
                                         <h3>Coffee Shop</h3>
                                         <!-- Link -->
-
                                         <div class="d-flex justify-content-center">
-
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
+                                                <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
                                         <audio id="coffe_cup" class="coffe_cup" src="./assets/sound/main-people.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
-
                                 <div class="col-md-4">
                                     <div class="audio-div ">
                                         <!-- Image -->
                                         <a href="javascript:(new test()).playSound('singing_bowl');">
                                             <img id="sound_each8" img_op="singing_bowl" src="./assets/icons/singing-bowl.png" style="width: 130px;
                                             height: 130px;"> </a>
-
                                         <!-- Link -->
                                         <h3>Singing Bowl</h3>
                                         <!-- Link -->
-
                                         <div class="d-flex justify-content-center">
-
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="singing_bowl" volumee="singing_bowl" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
+                                                <input type="range" id="vol" vol_op="singing_bowl" playT="playT" volumee="singing_bowl" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -457,19 +519,16 @@ include_once 'session.php';
                                         <a href="javascript:(new test()).playSound('tv');">
                                             <img id="sound_each9" img_op="tv" src="./assets/icons/television@2x.png" style="width: 130px;
                                             height: 130px;"> </a>
-
                                         <!-- Link -->
                                         <h3 onclick="setVolume('tv')">White Noise</h3>
                                         <!-- Link -->
-
                                         <div class="d-flex justify-content-center">
-
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="tv" volumee="tv" max="1" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
+                                                <input type="range" id="vol" vol_op="tv" volumee="tv" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
-                                        <audio id="tv" class="tv" src="./assets/sound/" preload="auto" loop></audio>
+                                        <audio id="tv" class="tv" src="./assets/sound/glue-whitenoise.mp4" preload="auto" loop></audio>
                                     </div>
                                 </div>
                             </div>
@@ -478,7 +537,14 @@ include_once 'session.php';
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center social">
+        <div class="mb-5">
+            <div class="d-flex justify-content-center">
+                <a class="btn-show-a " href="sub.php">
+                    Show More
+                </a>
+            </div>
+        </div>
+        <!-- <div class="d-flex justify-content-center social">
             <div class="">
                 <i class="social fab fa-facebook-square " aria-hidden="true"></i>
             </div>
@@ -487,6 +553,34 @@ include_once 'session.php';
             </div>
             <div class="">
                 <i class="social fab fa-youtube"></i>
+            </div>
+        </div> -->
+        <div class="footer_bg">
+            <div id="footer" class="">
+                <div class="d-flex justify-content-center">
+                    <div class="">
+                        <div id="div1">
+                            <div id="fb">
+                                <img src="./assets/icons/linkedin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-mid-icon-footer">
+                        <div id="div2">
+                            <div id="fb">
+                                <img src="./assets/icons/facebook.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div id="div3">
+                            <div id="fb">
+                                <img src="./assets/icons/twitter (1).png">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
