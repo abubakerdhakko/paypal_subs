@@ -1143,6 +1143,45 @@ function removeItem(id) {
 
 
 function playTune(object) {
+
+    var c = 'fire:0,thunder:0,wind:0,rain:0,waves:0,birds:0,coffe_cup:0,singing_bowl:0,tv:0';
+    console.log(c)
+    var nameArr = c.split(',');
+    for (j = 0; j < nameArr.length; j++) {
+        sound_id = nameArr[j].split(':')[0];
+        volumee = nameArr[j].split(':')[1];
+        console.log("volume:", volumee);
+        var sounds = document.getElementsByClassName(sound_id);
+        console.log('sound_id', sound_id)
+        for (i = 0; i < sounds.length; i++) {
+            sounds[i].play();
+            sounds[i].volume = volumee;
+            var slider_no = sound_id;
+            var myDiv = $('[volumee="' + slider_no + '"]')
+            var myValue = myDiv.val(volumee)
+            var number = sound_id;
+            var myDiv = $('img[img_op="' + number + '"]').removeClass("opClass");
+
+        }
+
+    }
+
+    $.each(arr_sounds, function (key, value) {
+        var a = arr_sounds[key] = false;
+        console.log('revert', a);
+
+    });
+
+    // var sounds_pause = document.getElementsByTagName('audio');
+    // for (i = 0; i < sounds_pause.length; i++) sounds_pause[i].pause();
+    // $.each(arr_sounds, function (key, value) {
+    //     var achk = arr_sounds[key] = false;
+    //     console.log(achk);
+    // });
+    // var myDiv = $('img[img_op="' + number + '"]').removeClass("opClass");
+    // var myDiv22 = $('[playT="playT"]').val(0);
+    // playT = "playT"
+
     index = parseInt($(object).attr('id'));
     var storedMix = JSON.parse(localStorage.getItem("mix-data"));
     var a = storedMix[index].mixValue;
@@ -1181,6 +1220,8 @@ function playTune(object) {
         }
         console.log(arr_sounds)
 
+
+        // debugger;
         // volume
         // var sounds_volume = document.getElementsByClassName(volume);
         // console.log('volume', sounds_volume)

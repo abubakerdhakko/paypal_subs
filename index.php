@@ -335,7 +335,8 @@
                                                 <i class="fa fa-volume-down vol-down"></i>
                                             </div> -->
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="fire" volumee="fire" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
+                                                <input type="range" id="vol" vol_op="fire" 
+                                                volumee="fire" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -378,7 +379,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="wind" volumee="wind" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
+                                                <input type="range" id="vol" vol_op="wind" volumee="wind" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('wind',this.value)" />
                                             </div>
                                         </div>
 
@@ -415,7 +416,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="rain" volumee="rain" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
+                                                <input type="range" id="vol" vol_op="rain" volumee="rain" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('rain',this.value)" />
                                             </div>
                                         </div>
 
@@ -439,7 +440,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="waves" volumee="waves" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
+                                                <input type="range" id="vol" vol_op="waves" volumee="waves" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('waves',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -459,7 +460,7 @@
                                         <div class="d-flex justify-content-center">
 
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="birds" volumee="birds" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
+                                                <input type="range" id="vol" vol_op="birds" volumee="birds" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('birds',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -479,7 +480,7 @@
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
+                                                <input type="range" id="vol" vol_op="coffe_cup" volumee="coffe_cup" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('coffe_cup',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -497,7 +498,7 @@
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="singing_bowl" volumee="singing_bowl" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
+                                                <input type="range" id="vol" vol_op="singing_bowl" playT="playT" volumee="singing_bowl" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('singing_bowl',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
@@ -515,7 +516,7 @@
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="tv" volumee="tv" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
+                                                <input type="range" id="vol" vol_op="tv" volumee="tv" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('tv',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->
