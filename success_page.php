@@ -108,8 +108,8 @@ include_once 'session.php';
                                     <div id="audioSlider"></div>
                                 </div>
 
-                                <div class="pl-3">
-                                    <button type="button" class="btn btn-primary btn-dgn">
+                                <div class="pl-4">
+                                    <button type="button" class="btn  btn-dgn">
                                         Logout
                                     </button>
                                 </div>
@@ -130,13 +130,18 @@ include_once 'session.php';
                         <div class="players" id="player2-container">
                             <div class="d-flex justify-content-center ">
 
+
                                 <div class="animated  fadeIn delay-1s">
-                                    <div class="text-center m-btn-ply-pause">
+                                    <div class="text-center m-btn-ply-pause ">
                                         <button id="stopButton" type="button" value="">
-                                            <img src="./assets/play-pause-icon/pause-icon.png">
+                                            <img src="./assets/play-pause-icon/pause.png">
+                                            <!-- <i class="fas fa-pause ply-pause-d"></i> -->
+
                                         </button>
                                         <button id="playButton" type="button">
-                                            <img src="./assets/play-pause-icon/play-icon.png">
+                                            <img src="./assets/play-pause-icon/play.png">
+                                            <!-- <i class="fas fa-play ply-pause-d"></i> -->
+
                                         </button>
                                     </div>
                                 </div>
@@ -535,13 +540,6 @@ include_once 'session.php';
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="mb-5">
-            <div class="d-flex justify-content-center">
-                <a class="btn-show-a " href="sub.php">
-                    Show More
-                </a>
             </div>
         </div>
         <!-- <div class="d-flex justify-content-center social">

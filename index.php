@@ -122,12 +122,16 @@
                             <div class="d-flex justify-content-center ">
 
                                 <div class="animated  fadeIn delay-1s">
-                                    <div class="text-center m-btn-ply-pause">
+                                    <div class="text-center m-btn-ply-pause ">
                                         <button id="stopButton" type="button" value="">
-                                            <img src="./assets/play-pause-icon/pause-icon.png">
+                                            <img src="./assets/play-pause-icon/pause.png">
+                                            <!-- <i class="fas fa-pause ply-pause-d"></i> -->
+
                                         </button>
                                         <button id="playButton" type="button">
-                                            <img src="./assets/play-pause-icon/play-icon.png">
+                                            <img src="./assets/play-pause-icon/play.png">
+                                            <!-- <i class="fas fa-play ply-pause-d"></i> -->
+
                                         </button>
                                     </div>
                                 </div>
@@ -335,8 +339,7 @@
                                                 <i class="fa fa-volume-down vol-down"></i>
                                             </div> -->
                                             <div class="">
-                                                <input type="range" id="vol" vol_op="fire" 
-                                                volumee="fire" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
+                                                <input type="range" id="vol" vol_op="fire" volumee="fire" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
                                             </div>
                                         </div>
                                         <!--Audio File-->

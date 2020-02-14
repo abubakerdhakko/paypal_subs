@@ -170,14 +170,6 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #ccc;
 }
 
-.m-btn-ply-pause {
-  margin: 30px 10px;
-  font-size: 50px;
-  background-color: #4a52526e;
-  padding: 20px 10px 5px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 5px 1px #141414b8;
-}
 
 .m-btn-ply-pause button {
   background-color: transparent;
@@ -1212,4 +1204,20 @@ span.stored_Mix_Name {
   background-color: transparent !important;
   color: white !important;
   border: solid 2px #3c8484;
+}
+button.btn.btn-dgn {
+  color: white !important;
+  background-color: transparent !important;
+  border-color: #dddddd !important;
+}
+.ply-pause-d {
+  color: white;
+}
+.m-btn-ply-pause {
+  margin: 30px 10px;
+  font-size: 50px;
+  background-color: #4a52526e;
+  padding: 22px 20px 10px 19px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 1px #141414b8;
 }
