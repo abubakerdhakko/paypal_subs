@@ -1032,19 +1032,21 @@ a.btn-dgn {
 
 #data {
   color: #dddddd;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   padding-left: 2rem;
   padding-right: 2rem;
   max-height: 200px;
   overflow-y: scroll;
   padding: 0.5rem 1rem;
-
   padding-bottom: 1.5rem;
   width: 100%;
   overflow-y: scroll;
   background-color: hsla(0, 0%, 100%, 0.1);
   border-top: 1px solid hsla(0, 0%, 100%, 0.1);
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  font-weight: 100;
+  /* margin-left: 8px; */
+  border-radius: 10px;
 }
 .fs-btn-ply {
   font-size: 12px;

@@ -1096,15 +1096,15 @@ function getLocalStorage() {
     console.log('storedMix_JSON.stringify:', storedMix)
     var temp = "";
     if (storedMix == '') {
-        temp += '<p class="text-center mb-0">No Mix Created Yet </p>';
+        temp += '<p class="text-center mb-0 mt-2">No Mix Created Yet </p>';
         var c = document.getElementById('data').innerHTML = temp;
         return []; // return empty array
     } else {
         var str = '<ul>'
         for (var i = 0; i < storedMix.length; i++) {
-            temp += '<li class="li-mix"> <div class="flex-container"> '
-                + '<div class="flex-10 border_mix"> <span class="stored_Mix_Name">' + storedMix[i].mixName + '</span></div>' + '<div class=" flex-1 border_mix_btn"> ' + '<button id="' + i.toString() + '" onclick="playTune(this)" class=" mix-btn-st btn  fs-btn-ply ">Play Mix</button>' + '</div>' +
-                '<div class="flex-1 border_mix_btn1">' + '<button id="' + i.toString() + '" onclick="removeItem(this)" class=" mix-btn-st btn fs-btn-ply ">Remove Mix</button>' +
+            temp += '<li class="li-mix"> <div class="row pl-3 pr-3"> '
+                + '<div class="col-md-8 border_mix"> <span class="stored_Mix_Name">' + storedMix[i].mixName + '</span></div>' + '<div class=" col-md-2 border_mix_btn"> ' + '<button id="' + i.toString() + '" onclick="playTune(this)" class=" mix-btn-st btn  fs-btn-ply ">Play Mix</button>' + '</div>' +
+                '<div class="col-md-2 border_mix_btn1">' + '<button id="' + i.toString() + '" onclick="removeItem(this)" class=" mix-btn-st btn fs-btn-ply ">Remove Mix</button>' +
                 ' </div> </div> </li>';
         }
         str += '</ul>';
