@@ -282,7 +282,6 @@ jQuery(function () {
 
             console.log('global_volume', global_volume)
 
-            console.log('array_sounds', nameArr)
 
         }
     }
@@ -349,7 +348,6 @@ jQuery(function () {
 
         console.log('global_volume', global_volume)
 
-        console.log('array_sounds', nameArr)
     }
 
     var timer;
@@ -415,7 +413,6 @@ jQuery(function () {
 //   $("#rain").volume = 0;
 //   $("#rain").animate({ volume: 1 }, 3000);
 // });
-
 // $(document).ready(function () {
 //   var input_var = document.getElementById('vol');
 //   for (i = 0; i < input_var.length; i++)
@@ -426,7 +423,6 @@ jQuery(function () {
 //     audio_var.volume = 0;
 //     console.log('xxx')
 //   }
-
 // });
 
 

@@ -22,51 +22,7 @@ include_once 'session.php';
 
 
     <style>
-        div#start-stop {
-            /* font-size: 13px; */
-            background-color: #4a52526e;
-            padding: 8px 8px;
-            border-radius: 20px;
-            box-shadow: 0px 0px 5px 1px #141414b8;
-            margin-right: 20px;
-            cursor: pointer;
-        }
 
-        div#start-stop img {
-            width: 24px;
-            height: 24px;
-            /* margin-right: 15px; */
-            /* margin-top: 7px; */
-        }
-
-        .add-stop-stop {
-            /* font-size: 13px; */
-            background-color: #4a52526e;
-            padding: 8px 8px;
-            border-radius: 20px;
-            box-shadow: 0px 0px 5px 1px #ffffffb8 !important;
-            margin-right: 20px;
-            cursor: pointer;
-        }
-
-
-        div .volume-icon {
-            /* font-size: 13px; */
-            background-color: #4a52526e;
-            padding: 8px 8px;
-            border-radius: 40px;
-            box-shadow: 0px 0px 5px 1px #141414b8;
-            /* margin-right: 20px; */
-            cursor: pointer;
-            font-size: 18px;
-            height: 40px;
-            width: 40px;
-            color: #dddddd;
-            /* margin-left: 30px; */
-            position: relative;
-            left: -15px;
-            margin-top: -3px;
-        }
     </style>
 </head>
 
@@ -76,7 +32,7 @@ include_once 'session.php';
     <div class="bg-main">
         <nav class="navbar navbar-expand-lg navbar-light bg-nav">
             <a class="navbar-brand" href="index.php">
-                <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span>Bliss Zone</span>
+                <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span></span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -86,17 +42,14 @@ include_once 'session.php';
                     <li class="nav-item ">
 
                         <div class="text-right fade-p mb-mt-1">
-                            <div class="d-flex justify-content-start">
+                            <div class="d-flex justify-content-start mt-2">
                                 <div class="">
-                                    <div id="undo-trash" class="">
-                                        <input type="hidden" id="revert">
-                                        <i class="fas fa-undo revert " onclick="create_revert();"></i>
-                                        <i class="fas fa-trash trash" onclick="create_trash()"></i>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <div id="start-stop" class="click-stop-stop">
-                                        <img src="./assets/icons/life.png">
+                                    <div id="" class="mute_div">
+                                        <i class="font-mute" id="muteButton"> mute</i>
+                                        <i class="font-mute" id="vol_up_Button"> Unmute</i>
+                                        <!-- <i class="fas fa-volume-mute" id="muteButton"> </i>
+                                        <i class="fas fa-volume-up" id="vol_up_Button"> </i> -->
+
                                     </div>
                                 </div>
                                 <div class="">
@@ -120,48 +73,52 @@ include_once 'session.php';
                 </ul>
             </div>
         </nav>
+        <div class="Title">
+            <h1>Bliss Zone</h1>
+            <!-- <p>Ambient sounds to wash away distraction.</p> -->
+        </div>
         <div class="container">
             <div class="v-middle">
-                <div class="card-main ">
+                <!-- class="card-main "     -->
+                <div>
                     <div id="container ">
                         <!-- <button onclick="getvvvolume()" type="button">What is the volume?</button> -->
                         <br>
                         <hr>
+                        <div class="d-flex justify-content-between">
+                            <div class="vertical-center ">
+                                <div id="undo-trash" class="">
+                                    <input type="hidden" id="revert">
+                                    <i class="fas fa-undo revert " onclick="create_revert();"></i>
+                                    <i class="fas fa-trash trash" onclick="create_trash()"></i>
+                                </div>
+                            </div>
+                            <div class="text-center m-btn-ply-pause ">
+                                <button id="stopButton" type="button" value="">
+                                    <img src="./assets/play-pause-icon/pause.png">
+                                    <!-- <i class="fas fa-pause ply-pause-d"></i> -->
+
+                                </button>
+                                <button id="playButton" type="button">
+                                    <img src="./assets/play-pause-icon/play.png">
+                                    <!-- <i class="fas fa-play ply-pause-d"></i> -->
+
+                                </button>
+                            </div>
+                            <div class="vertical-center ">
+                                <div id="start-stop" class="click-stop-stop">
+                                    <img src="./assets/icons/life.png">
+                                </div>
+                            </div>
+                        </div>
                         <div class="players" id="player2-container">
                             <div class="d-flex justify-content-center ">
 
-
-                                <div class="animated  fadeIn delay-1s">
-                                    <div class="text-center m-btn-ply-pause ">
-                                        <button id="stopButton" type="button" value="">
-                                            <img src="./assets/play-pause-icon/pause.png">
-                                            <!-- <i class="fas fa-pause ply-pause-d"></i> -->
-
-                                        </button>
-                                        <button id="playButton" type="button">
-                                            <img src="./assets/play-pause-icon/play.png">
-                                            <!-- <i class="fas fa-play ply-pause-d"></i> -->
-
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- <div class=" fade-p">
-                                    <p>fade out sound</p>
-                                    <input name="1" id="fadeOutvvvolume" type="range" min="1000" max="7000" step="10"
-                                        value="0" oninput="sliderChangeFadeOut(this.value)">
-                                    <br />
-                                    <output id="outputFadeOut"></output>
-                                </div> -->
                             </div>
                             <div class="d-flex justify-content-center">
                                 <div class="text-center mb-4 mt-4">
 
 
-                                    <!-- <button  class="shrd-btn" onclick="FadeIn();">audioVolumeOut
-                                        </button>
-                                         -->
-                                    <!-- <button onclick="(new test()).audioVolumeOut();" class="shrd-btn">audioVolumeOut
-                                        </button> -->
                                 </div>
                                 <div class="animated  fadeInLeft delay-4s">
                                     <div class="text-center">
@@ -256,11 +213,7 @@ include_once 'session.php';
 
                                         <div class="">
                                             <div class="fade-p input-fade-p ">
-                                                <!--<p>fade in sound</p>
-                <input name="1" id="fadeInVolume" type="range" min="1000" max="7000" step="10"
-                    value="0" oninput="sliderChange(this.value)">
-                <br />
-                <output id="output"></output> -->
+                                             
                                                 <input type="number" id="number_stop" min="0" placeholder="Enter Time In Minutes" />
                                                 <button class=" start-after" onclick="countdown_stop()">Stop
                                                     After</button>
@@ -540,6 +493,13 @@ include_once 'session.php';
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <div class="d-flex justify-content-center">
+                <a class="btn-show-a " href="sub.php">
+                    Show More
+                </a>
             </div>
         </div>
         <!-- <div class="d-flex justify-content-center social">
