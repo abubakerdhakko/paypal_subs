@@ -1129,7 +1129,7 @@ button.btn.btn-dgn {
 }
 div#start-stop {
   font-size: 13px;
-  /* background-color: #4a52526e; */
+  background-color: #4a52526e;
   padding: 8px 8px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px 1px #141414b8;
