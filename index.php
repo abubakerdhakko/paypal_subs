@@ -42,7 +42,7 @@
                             <div class="d-flex justify-content-start mt-2">
                                 <div class="">
                                     <div id="" class="mute_div">
-                                        <i class="font-mute" id="muteButton"> mute</i>
+                                        <i class="font-mute" id="muteButton"> Mute</i>
                                         <i class="font-mute" id="vol_up_Button"> Unmute</i>
                                         <!-- <i class="fas fa-volume-mute" id="muteButton"> </i>
                                         <i class="fas fa-volume-up" id="vol_up_Button"> </i> -->
