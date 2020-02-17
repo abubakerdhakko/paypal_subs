@@ -232,9 +232,78 @@ function masterChangeVolume(amount) {
     console.log(master_vol)
     var sounds = document.getElementsByTagName('audio');
     for (i = 0; i < sounds.length; i++) sounds[i].volume = master_vol;
+    $('#muteButton').show();
+    $('#vol_up_Button').hide();
+    if (master_vol == 0) {
+        console.log('master_vol')
+        $('#muteButton').hide();
+        $('#vol_up_Button').show();
+    }
+    else {
+
+        // $('#muteButton').show();
+        // $('#vol_up_Button').hide();
+    }
 };
 jQuery(function () {
     var timer;
+    document.getElementById('vol_up_Button').onclick = function () {
+
+        var masterVolume = document.getElementById('masterAudio').value = 1;
+        $('#muteButton').show();
+        $('#vol_up_Button').hide();
+        if (global_volume == true) {
+            global_volume = true;
+            // var sounds = document.getElementsByTagName('audio');
+            // for (i = 0; i < sounds.length; i++) sounds[i].volume = 0.5
+            var index = 0;
+            idArray = [];
+            $.each(arr_sounds, function (index, value) {
+                if (value)
+                    idArray.push(index);
+            })
+            // if (idSelector) {
+            //   // idSelector = idSelector.substring(1);
+            // } else {
+            //   alert('Please choose atleast one value.');
+            // }
+            var sounds_names = idArray;
+            $.each(sounds_names, function (index, value) {
+                var a = $('[volumee="' + value + '"]').val();
+                if (a > 0) {
+                    var sounds_fade = document.getElementById(value);
+                    sounds_fade.volume = a;
+                    sounds_fade.play();
+                }
+            })
+            $('#playButton').hide();
+            $('#stopButton').show();
+            console.log('playButton');
+
+            console.log('global_volume', global_volume)
+
+            console.log('array_sounds', nameArr)
+
+        }
+    }
+    $('#vol_up_Button').hide();
+    document.getElementById('muteButton').onclick = function () {
+
+        var masterVolume = document.getElementById('masterAudio').value = 0;
+        $('#muteButton').hide();
+        $('#vol_up_Button').show();
+        if (global_volume == true) {
+            var sounds = document.getElementsByTagName('audio');
+            for (i = 0; i < sounds.length; i++) sounds[i].volume = 0;
+            console.log('stopButton')
+            // $('#stopButton').fadeIn(400);
+            clearInterval(timer);
+            $('.click-stop-stop').removeClass('add-stop-stop');
+            console.log('stopButton');
+            console.log('global_volume', global_volume)
+        }
+    }
+
     $('#stopButton').hide();
     document.getElementById('stopButton').onclick = function () {
         global_volume = false;
@@ -249,6 +318,7 @@ jQuery(function () {
         console.log('stopButton');
         console.log('global_volume', global_volume)
     };
+
     document.getElementById('playButton').onclick = function () {
         global_volume = true;
         // var sounds = document.getElementsByTagName('audio');
@@ -259,35 +329,22 @@ jQuery(function () {
             if (value)
                 idArray.push(index);
         })
-        idSelector = idArray.join(',');
         // if (idSelector) {
         //   // idSelector = idSelector.substring(1);
         // } else {
         //   alert('Please choose atleast one value.');
         // }
-        var nameArr = idSelector.split(',');
-        var sounds_names = nameArr[index];
-        var a = $('[volumee="' + sounds_names + '"]').val();
-        // console.log("a_before", sounds_names, a)
-        if (a > 0) {
-            console.log("inner_if_play")
-            // debugger;
-            var sounds_fade = document.getElementById(nameArr[index]);
-            sounds_fade.volume = a;
-            sounds_fade.play();
-            // var asd = $('[volumee="' + sounds_names + '"]').val(Number($('[volumee="' + sounds_names + '"]').val()) + 0.24);
-            // console.log("a_after", sounds_fade, a)
-
-        }
-
-        if (index == (nameArr.length - 1))
-            index = 0;
-        else
-            index += 1;
-
+        var sounds_names = idArray;
+        $.each(sounds_names, function (index, value) {
+            var a = $('[volumee="' + value + '"]').val();
+            if (a > 0) {
+                var sounds_fade = document.getElementById(value);
+                sounds_fade.volume = a;
+                sounds_fade.play();
+            }
+        })
         $('#playButton').hide();
         $('#stopButton').show();
-        // $('#stopButton').fadeIn(400);
         console.log('playButton');
 
         console.log('global_volume', global_volume)

@@ -170,7 +170,6 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #ccc;
 }
 
-
 .m-btn-ply-pause button {
   background-color: transparent;
   border: none;
@@ -179,8 +178,8 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .m-btn-ply-pause button img {
-  height: 70px;
-  width: 70px;
+  height: 63px;
+  width: 63px;
 }
 
 .bg-main {
@@ -216,7 +215,7 @@ output#output {
 }
 
 .v-middle {
-  padding-top: 8rem;
+  /* padding-top: 8rem;.m-btn-ply-pause button img */
   padding-bottom: 4rem;
 }
 
@@ -1057,9 +1056,10 @@ div#undo-trash {
   padding: 8px 13px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px 1px #141414b8;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   cursor: pointer;
   color: #fff6f6;
+  margin-left: 10rem;
 }
 .mstr {
   padding-top: 0.5rem;
@@ -1220,4 +1220,88 @@ button.btn.btn-dgn {
   padding: 22px 20px 10px 19px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px 1px #141414b8;
+}
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* /* height: 300px; */
+}
+div#start-stop {
+  font-size: 13px;
+  /* background-color: #4a52526e; */
+  padding: 8px 8px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  margin-right: 10rem;
+  cursor: pointer;
+}
+
+div#start-stop img {
+  width: 24px;
+  height: 24px;
+  /* margin-right: 15px; */
+  /* margin-top: 7px; */
+}
+
+.add-stop-stop {
+  /* font-size: 13px; */
+  background-color: #4a52526e;
+  padding: 8px 8px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 1px #ffffffb8 !important;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+div .volume-icon {
+  /* font-size: 13px; */
+  background-color: #4a52526e;
+  padding: 8px 8px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  /* margin-right: 20px; */
+  cursor: pointer;
+  font-size: 18px;
+  height: 40px;
+  width: 40px;
+  color: #dddddd;
+  /* margin-left: 30px; */
+  position: relative;
+  left: -15px;
+  margin-top: -3px;
+}
+.mute_div {
+  font-size: 17px;
+  background-color: #4a52526e;
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 1px #141414b8;
+  /* margin-right: 20px; */
+  cursor: pointer;
+  color: #fff6f6;
+  margin-left: 10rem;
+  text-align: center;
+  width: 85px;
+}
+i .mute_div {
+  font-family: cursive;
+}
+.Title {
+  margin-top: 4rem;
+  text-align: center;
+}
+.Title p {
+  color: #dddddd;
+}
+.Title h1 {
+  font-family: cursive;
+  font-size: 50px;
+  margin: 0.67em 0;
+  color: #dddddd;
+  font-weight: 500;
+}
+.font-mute {
+  font-family: cursive;
 }
