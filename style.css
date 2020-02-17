@@ -1324,4 +1324,17 @@ i .mute_div {
   .mob-mt-2 {
     margin-top: 2rem;
   }
+  .mute_div {
+    font-size: 17px;
+    background-color: #4a52526e;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px #141414b8;
+    /* margin-right: 20px; */
+    cursor: pointer;
+    color: #fff6f6;
+    margin-left: 0rem;
+    text-align: center;
+    width: 85px;
+  }
 }

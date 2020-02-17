@@ -524,21 +524,21 @@
             <div id="footer" class="">
                 <div class="d-flex justify-content-center">
                     <div class="">
-                        <div id="div1">
+                        <div id="">
                             <div id="fb">
                                 <img src="./assets/icons/linkedin.png">
                             </div>
                         </div>
                     </div>
                     <div class="margin-mid-icon-footer">
-                        <div id="div2">
+                        <div id="">
                             <div id="fb">
                                 <img src="./assets/icons/facebook.png">
                             </div>
                         </div>
                     </div>
                     <div class="">
-                        <div id="div3">
+                        <div id="">
                             <div id="fb">
                                 <img src="./assets/icons/twitter (1).png">
                             </div>
