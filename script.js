@@ -1,3 +1,4 @@
+
 var current_location;
 var ids_for_sounds = '';
 var playing = false;
@@ -232,15 +233,19 @@ function masterChangeVolume(amount) {
     console.log(master_vol)
     var sounds = document.getElementsByTagName('audio');
     for (i = 0; i < sounds.length; i++) sounds[i].volume = master_vol;
-    $('#muteButton').show();
-    $('#vol_up_Button').hide();
+
+    $("vol_up_Button").css("display", "none");
+    $("muteButton").css("display", "block");
+
     if (master_vol == 0) {
-        console.log('master_vol')
+        console.log('master_volbbbbb')
         $('#muteButton').hide();
         $('#vol_up_Button').show();
+
     }
     else {
-
+        $('#muteButton').show();
+        $('#vol_up_Button').hide();
         // $('#muteButton').show();
         // $('#vol_up_Button').hide();
     }
