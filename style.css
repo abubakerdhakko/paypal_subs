@@ -599,7 +599,7 @@ background:url("https://loading.io/asset/330586") no-repeat center center rgba(0
   color: white;
   font-size: 22px;
   margin-top: 15px;
-  font-size: 17px;
+  /* font-size: 17px; */
 }
 /* span#muteButton {
   font-size: 14px;

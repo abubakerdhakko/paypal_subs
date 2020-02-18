@@ -361,9 +361,10 @@ jQuery(function () {
 
         } else {
             console.log('entered in else')
-            if (global_volume == true) {
 
+            if (global_volume == true) {
                 $('.click-stop-stop').addClass('add-stop-stop');
+
 
                 var index = 0;
 
