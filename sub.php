@@ -83,12 +83,12 @@
             <div class="text-right fade-p mb-mt-1">
               <div class="d-flex justify-content-start">
                 <div class="">
-                  <button type="button" class="btn btn-info btn-round btn-dgn" id="button_login">
+                  <button type="button" class="btn btn-info btn-round btn-dgn font-mute" id="button_login">
                     Login
                   </button>
                 </div>
                 <div class="pl-3">
-                  <button type="button" class="btn btn-primary btn-dgn" data-toggle="modal" data-target="#exampleModal">
+                  <button type="button" class="btn btn-primary btn-dgn font-mute" data-toggle="modal" data-target="#exampleModal">
                     Subscribe
                   </button>
                 </div>

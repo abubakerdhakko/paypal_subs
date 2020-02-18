@@ -511,7 +511,7 @@ fa_font_revert_undo" onclick="create_trash()"></i>
         </div>
         <div class="mb-5">
             <div class="d-flex justify-content-center">
-                <a class="btn-show-a " href="sub.php">
+                <a class="btn-show-a font-mute" href="sub.php">
                     Show More
                 </a>
             </div>

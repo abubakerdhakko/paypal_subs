@@ -62,8 +62,8 @@ include_once 'session.php';
                                     <div id="audioSlider"></div>
                                 </div>
 
-                                <div class="pl-4">
-                                    <a class="btn-show-a " href="logout.php">
+                                <div class="pl-4 mt-2">
+                                    <a class="btn-show-a font-mute" href="logout.php">
                                         Logout
                                     </a>
                                 </div>
@@ -494,13 +494,6 @@ include_once 'session.php';
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="mb-5">
-            <div class="d-flex justify-content-center">
-                <a class="btn-show-a " href="sub.php">
-                    Show More
-                </a>
             </div>
         </div>
         <!-- <div class="d-flex justify-content-center social">
