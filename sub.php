@@ -100,7 +100,7 @@
     </nav>
     <div class="container">
       <div class="text-center p-extra">
-        <p id="paragraph" class="font-logo">
+        <p id="paragraph" class="">
           Upgrade for access to extra web sounds.
           <br />
           You'll also get access to any new web sounds released in the future.

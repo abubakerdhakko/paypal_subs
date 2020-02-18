@@ -17,6 +17,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
     <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
     <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
@@ -47,11 +49,10 @@
                             <div class="d-flex justify-content-start mt-2">
                                 <div class="">
                                     <div id="" class="mute_div">
-                                        <span class="font-mute" id="muteButton"> Mute</span>
-                                        <span class="font-mute" id="vol_up_Button"> Unmute</span>
+                                        <span class="font-mute" id="muteButton">MUTE</span>
+                                        <span class="font-mute" id="vol_up_Button">UNMUTE</span>
                                         <!-- <i class="fas fa-volume-mute" id="muteButton"> </i>
                                         <i class="fas fa-volume-up" id="vol_up_Button"> </i> -->
-
                                     </div>
                                 </div>
                                 <div class="">
@@ -70,7 +71,7 @@
             </div>
         </nav>
         <div class="Title">
-            <h1>Bliss Zone</h1>
+            <h1 class="font-logo">Bliss Zone</h1>
             <!-- <p>Ambient sounds to wash away distraction.</p> -->
         </div>
         <div class="container">
@@ -79,8 +80,6 @@
                 <div>
                     <div id="container ">
                         <!-- <button onclick="getvvvolume()" type="button">What is the volume?</button> -->
-                        <br>
-                        <hr>
                         <div class="d-flex justify-content-between">
                             <div class="vertical-center ">
                                 <div id="undo-trash" class="">
@@ -511,7 +510,7 @@ fa_font_revert_undo" onclick="create_trash()"></i>
         </div>
         <div class="mb-5">
             <div class="d-flex justify-content-center">
-                <a class="btn-show-a font-mute" href="sub.php">
+                <a class="btn-show-a" href="sub.php">
                     Show More
                 </a>
             </div>

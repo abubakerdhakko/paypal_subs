@@ -46,8 +46,8 @@ include_once 'session.php';
                             <div class="d-flex justify-content-start mt-2">
                                 <div class="">
                                     <div id="" class="mute_div">
-                                        <span class="font-mute" id="muteButton"> mute</span>
-                                        <span class="font-mute" id="vol_up_Button"> Unmute</span>
+                                        <span class="font-mute" id="muteButton"> MUTE</span>
+                                        <span class="font-mute" id="vol_up_Button"> UNMUTE</span>
                                         <!-- <i class="fas fa-volume-mute" id="muteButton"> </i>
                                         <i class="fas fa-volume-up" id="vol_up_Button"> </i> -->
 
@@ -75,8 +75,7 @@ include_once 'session.php';
             </div>
         </nav>
         <div class="Title">
-            <h1>Bliss Zone</h1>
-            <!-- <p>Ambient sounds to wash away distraction.</p> -->
+            <h1 class="font-logo">Bliss Zone</h1> <!-- <p>Ambient sounds to wash away distraction.</p> -->
         </div>
         <div class="container">
             <div class="v-middle">
@@ -84,8 +83,7 @@ include_once 'session.php';
                 <div>
                     <div id="container ">
                         <!-- <button onclick="getvvvolume()" type="button">What is the volume?</button> -->
-                        <br>
-                        <hr>
+
                         <div class="d-flex justify-content-between">
                             <div class="vertical-center ">
                                 <div id="undo-trash" class="">

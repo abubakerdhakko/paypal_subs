@@ -595,11 +595,12 @@ background:url("https://loading.io/asset/330586") no-repeat center center rgba(0
 }
 
 .audio-div h3 {
-  font-family: "Dancing Script", cursive;
+font-family: 'Roboto', sans-serif;
   color: white;
   font-size: 22px;
   margin-top: 15px;
-  /* font-size: 17px; */
+  font-size: 17px;
+  font-weight: 400;
 }
 /* span#muteButton {
   font-size: 14px;
@@ -616,10 +617,12 @@ p#paragraph {
 .navbar-brand span {
   color: white;
   margin-left: 15px;
+  font-size: 21px;
+  font-weight: 800;
 }
 
 .fade-p p {
-  font-family: "Dancing Script", cursive;
+font-family: 'Roboto', sans-serif;
 }
 
 .shrd label {
@@ -640,7 +643,7 @@ p#paragraph {
   margin-left: 10px;
   font-size: 22px;
   margin-right: 19px;
-  font-family: "Dancing Script", cursive;
+font-family: 'Roboto', sans-serif;
   color: white;
   font-size: 22px;
   position: relative;
@@ -870,7 +873,7 @@ button.pause-audio {
 }
 
 .p-extra {
-  font-family: "Dancing Script", cursive;
+font-family: 'Roboto', sans-serif;
   color: white;
   font-size: 22px;
   margin-top: 15px;
@@ -1209,7 +1212,7 @@ div .volume-icon {
   width: 85px;
 }
 i .mute_div {
-  font-family: "Dancing Script", cursive;
+font-family: 'Roboto', sans-serif;
 }
 .Title {
   margin-top: 4rem;
@@ -1219,14 +1222,14 @@ i .mute_div {
   color: #dddddd;
 }
 .Title h1 {
-  font-family: "Dancing Script", cursive;
-  font-size: 50px;
-  margin: 0.67em 0;
+/* font-family: 'Roboto', sans-serif; */
+  font-size: 65px;
+  margin: 1.2em 0;
   color: #dddddd;
   font-weight: 500;
 }
 .font-mute {
-  font-family: "Dancing Script", cursive;
+font-family: 'Roboto', sans-serif;
 }
 /* .fa_font_revert_undo {
   font-size: 12px;
