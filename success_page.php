@@ -16,6 +16,7 @@ include_once 'session.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <!-- <link rel="stylesheet" href="../build/mediaelementplayer.css"> -->
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
     <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
     <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
@@ -32,7 +33,7 @@ include_once 'session.php';
     <div class="bg-main">
         <nav class="navbar navbar-expand-lg navbar-light bg-nav">
             <a class="navbar-brand" href="index.php">
-                <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span></span>
+                <img src="./assets/img/logo-bliss_zone.png" width="45" height="45" alt=""><span class="font-logo">Bliss Zone</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,8 +46,8 @@ include_once 'session.php';
                             <div class="d-flex justify-content-start mt-2">
                                 <div class="">
                                     <div id="" class="mute_div">
-                                        <i class="font-mute" id="muteButton"> mute</i>
-                                        <i class="font-mute" id="vol_up_Button"> Unmute</i>
+                                        <span class="font-mute" id="muteButton"> mute</span>
+                                        <span class="font-mute" id="vol_up_Button"> Unmute</span>
                                         <!-- <i class="fas fa-volume-mute" id="muteButton"> </i>
                                         <i class="fas fa-volume-up" id="vol_up_Button"> </i> -->
 
@@ -62,9 +63,9 @@ include_once 'session.php';
                                 </div>
 
                                 <div class="pl-4">
-                                    <button type="button" class="btn  btn-dgn">
+                                    <a class="btn-show-a " href="logout.php">
                                         Logout
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +214,7 @@ include_once 'session.php';
 
                                         <div class="">
                                             <div class="fade-p input-fade-p ">
-                                             
+
                                                 <input type="number" id="number_stop" min="0" placeholder="Enter Time In Minutes" />
                                                 <button class=" start-after" onclick="countdown_stop()">Stop
                                                     After</button>

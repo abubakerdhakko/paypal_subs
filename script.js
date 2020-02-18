@@ -230,13 +230,11 @@ function test() {
 function masterChangeVolume(amount) {
     var masterVolume = document.getElementById('masterAudio').value;
     var master_vol = masterVolume
-    console.log(master_vol)
-    var sounds = document.getElementsByTagName('audio');
-    for (i = 0; i < sounds.length; i++) sounds[i].volume = master_vol;
-
-    $("vol_up_Button").css("display", "none");
-    $("muteButton").css("display", "block");
-
+    if (global_volume == true) {
+        console.log(masterChangeVolume)
+        var sounds = document.getElementsByTagName('audio');
+        for (i = 0; i < sounds.length; i++) sounds[i].volume = master_vol;
+    }
     if (master_vol == 0) {
         console.log('master_volbbbbb')
         $('#muteButton').hide();
