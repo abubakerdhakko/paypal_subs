@@ -1216,6 +1216,16 @@ i .mute_div {
   font-size: 12px;
 } */
 
+#start_stop-items {
+  display: none;
+}
+#random_mix_items {
+  display: none;
+}
+
+#shared-items {
+  display: none;
+}
 @media screen and (max-width: 992px) {
   div#start-stop {
     font-size: 13px;
