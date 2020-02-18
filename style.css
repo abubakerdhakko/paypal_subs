@@ -601,15 +601,15 @@ background:url("https://loading.io/asset/330586") no-repeat center center rgba(0
   margin-top: 15px;
   font-size: 17px;
 }
-span#muteButton {
+/* span#muteButton {
   font-size: 14px;
 }
 span#vol_up_Button {
   font-size: 14px;
-}
+} */
 
 p#paragraph {
-  /* font-size: 18px; */
+  /* font-size: 18px;span#muteButton */
 
   /* letter-spacing: -1px; */
 }

@@ -12,9 +12,10 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <!-- <link rel="stylesheet" href="../build/mediaelementplayer.css"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
     <script src="https://cdn.plyr.io/1.6.16/plyr.js"></script>
 
