@@ -80,8 +80,10 @@
                             <div class="vertical-center ">
                                 <div id="undo-trash" class="">
                                     <input type="hidden" id="revert">
-                                    <i class="fas fa-undo revert " onclick="create_revert();"></i>
-                                    <i class="fas fa-trash trash" onclick="create_trash()"></i>
+                                    <i class="fas fa-undo revert  
+fa_font_revert_undo" onclick="create_revert();"></i>
+                                    <i class="fas fa-trash trash 
+fa_font_revert_undo" onclick="create_trash()"></i>
                                 </div>
                             </div>
                             <div class="text-center m-btn-ply-pause ">

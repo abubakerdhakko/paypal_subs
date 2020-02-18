@@ -246,8 +246,6 @@ function masterChangeVolume(amount) {
     else {
         $('#muteButton').show();
         $('#vol_up_Button').hide();
-        // $('#muteButton').show();
-        // $('#vol_up_Button').hide();
     }
 };
 jQuery(function () {
