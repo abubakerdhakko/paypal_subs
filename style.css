@@ -602,12 +602,12 @@ font-family: 'Roboto', sans-serif;
   font-size: 17px;
   font-weight: 400;
 }
-/* span#muteButton {
+span#muteButton {
   font-size: 14px;
 }
 span#vol_up_Button {
   font-size: 14px;
-} */
+}
 
 p#paragraph {
   /* font-size: 18px;span#muteButton */
