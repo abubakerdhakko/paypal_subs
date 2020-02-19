@@ -19,9 +19,9 @@ function test() {
         var number = v
         console.log("number", number)
         a = $('[volumee="' + number + '"]')
-        a.val(Number(a.val()) + 0.25);
-        console.log('master_vol', master_vol)
-        console.log("a.val()", a)
+        var b = a.val(Number(a.val()) + 0.25);
+        var c = b.val()
+        console.log("a.val()", c);
         // debugger;
         if (a.val() > 1.0) {
             a.val(0)

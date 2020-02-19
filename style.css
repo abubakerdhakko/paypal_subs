@@ -92,16 +92,17 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: none;
+  /* border-right: solid 1px red; */
   height: 20px;
   width: 20px;
   border-radius: 5px;
   background: #1f8483;
   margin-top: -8px;
   margin-left: 0px;
-  -webkit-box-shadow: 3px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  /* -webkit-box-shadow: 3px 1px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 3px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 1px 5px 0px rgba(0, 0, 0, 0.75); */
+  box-shadow: 1px 0px 0px 0px #1f8483;
 }
 
 input[type="range"]:focus {

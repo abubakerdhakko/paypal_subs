@@ -302,18 +302,11 @@ fa_font_revert_undo" onclick="create_trash()"></i>
                                             <div class="">
                                                 <h3>Fire</h3>
                                             </div>
-                                            <!-- <div class="speaker" onclick="setVolume('fire')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                            </div> -->
                                         </div>
 
                                         <!-- Link -->
                                         <div class="d-flex justify-content-center">
 
-                                            <!-- <div class="volume-icon" onclick="setVolume('fire')">
-                                                <i class="fa fa-volume-up vol-up"></i>
-                                                <i class="fa fa-volume-down vol-down"></i>
-                                            </div> -->
                                             <div class="">
                                                 <input type="range" id="vol" vol_op="fire" volumee="fire" playT="playT" max="1.01" min="0" step="0.01" value="0" onchange="playSoundEach('fire',this.value)" />
                                             </div>
