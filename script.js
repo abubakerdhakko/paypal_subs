@@ -9,6 +9,9 @@ var trash = true;
 
 var arr_sounds = { fire: false, thunder: false, wind: false, rain: false, waves: false, birds: false, coffe_cup: false, singing_bowl: false, tv: false };
 
+// var masterVolume = document.getElementById('masterAudio').value = "1"
+
+
 function test() {
     this.playSound = function (v) {
 
@@ -22,7 +25,7 @@ function test() {
         var b = a.val(Number(a.val()) + 0.25);
         var c = b.val()
         console.log("a.val()", c);
-        // debugger;
+
         if (a.val() > 1.0) {
             a.val(0)
         }

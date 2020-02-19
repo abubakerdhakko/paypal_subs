@@ -59,7 +59,7 @@
                                     <!-- <p>master volume</p> -->
                                 </div>
                                 <div class="pl-3 mstr">
-                                    <input type="range" class="masterVolume" id="masterAudio" max="1" min="0" step="0.01" onchange="masterChangeVolume(this.value)" />
+                                    <input type="range" class="masterVolume" id="masterAudio" max="1" min="0" step="0.01" value="1" onchange="masterChangeVolume(this.value)" />
                                     <!-- <input type="range" class="masterVolume" id="z" max="1" min="0" step="0.01" /> -->
                                     <div id="audioSlider"></div>
                                 </div>
